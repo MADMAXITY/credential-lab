@@ -34,7 +34,8 @@ pub struct TestAccountResult {
     pub message: String,
 }
 
-/// Switch to a saved credential by ID from our DB
+/// Switch to a saved credential by ID from our DB.
+/// Auto-saves the currently logged-in account before switching (TcNo pattern).
 #[tauri::command]
 pub async fn switch_account(
     credential_id: i64,
@@ -50,10 +51,45 @@ pub async fn switch_account(
     let file_data = file_data
         .ok_or(format!("No saved file data for '{}'. Re-sync this account.", cred.username))?;
 
+    // Auto-save the currently logged-in account BEFORE switching.
+    // This ensures the outgoing account's tokens are captured fresh,
+    // so switching back to it later will work.
+    auto_save_current(&cred.launcher, &state)?;
+
     match cred.launcher.as_str() {
         "steam" => switch_steam(&cred.username, &file_data).await,
         "epic" => switch_epic(&cred.username, &file_data).await,
         _ => Err(format!("Switching not yet implemented for: {}", cred.launcher)),
+    }
+}
+
+/// Auto-save the currently logged-in account's files to DB before switching away.
+fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> Result<(), String> {
+    let sync_result = match launcher_id {
+        "steam" => crate::credentials::steam::sync_current(),
+        "epic" => crate::credentials::epic::sync_current(),
+        _ => return Ok(()), // No auto-save for unsupported launchers
+    };
+
+    match sync_result {
+        Ok(result) => {
+            let db = state.db.lock().map_err(|e| e.to_string())?;
+            db.save_credential(
+                &result.launcher,
+                &result.username,
+                result.registry_data.as_deref(),
+                result.file_data.as_deref(),
+                result.file_count,
+                result.total_size,
+            )?;
+            db.log("info", &format!("Auto-saved current {} account: {}", launcher_id, result.username));
+            Ok(())
+        }
+        Err(e) => {
+            // Non-fatal — if we can't save current (e.g., not logged in), proceed anyway
+            log::warn!("[Auto-save] Could not save current {} account: {}", launcher_id, e);
+            Ok(())
+        }
     }
 }
 
