@@ -67,8 +67,8 @@ pub async fn switch_account(
 fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> Result<(), String> {
     let sync_result = match launcher_id {
         "steam" => crate::credentials::steam::sync_current(),
-        "epic" => crate::credentials::epic::sync_current(),
-        _ => return Ok(()), // No auto-save for unsupported launchers
+        "epic" => crate::credentials::epic::sync_current_for_auto_save(), // Don't restart Epic — switch will do it
+        _ => return Ok(()),
     };
 
     match sync_result {
@@ -285,10 +285,11 @@ async fn switch_epic(account_id: &str, file_data: &[u8]) -> Result<SwitchResult,
     let mut steps = Vec::new();
     let launcher = "epic".to_string();
 
-    // Step 1: Kill Epic
+    // Step 1: Kill Epic (auto-save may have already killed it, but ensure it's dead)
     let killed = kill_process("EpicGamesLauncher.exe");
-    if killed > 0 {
-        steps.push(format!("Killed {} Epic process(es)", killed));
+    let killed2 = kill_process("EpicWebHelper.exe");
+    if killed + killed2 > 0 {
+        steps.push(format!("Killed Epic processes"));
         tokio::time::sleep(std::time::Duration::from_secs(2)).await;
     } else {
         steps.push("Epic was not running".into());

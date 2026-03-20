@@ -83,6 +83,15 @@ fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u
 /// Saves: Config\ folder + webcache (Cookies, Local Storage, Session Storage) + registry.
 /// Kills Epic first to release file locks on webcache.
 pub fn sync_current() -> Result<InternalSyncResult, String> {
+    sync_current_inner(true)
+}
+
+/// Auto-sync variant: kills Epic, reads files. Called before switch.
+pub fn sync_current_for_auto_save() -> Result<InternalSyncResult, String> {
+    sync_current_inner(false) // Don't restart after auto-save (switch will restart later)
+}
+
+fn sync_current_inner(restart_after: bool) -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in. Log in to Epic first.")?;
 
@@ -148,12 +157,14 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let file_data = serde_json::to_vec(&file_map)
         .map_err(|e| format!("Failed to serialize: {}", e))?;
 
-    // Restart Epic after sync
-    #[cfg(target_os = "windows")]
-    {
-        if let Some(exe) = crate::switcher::find_epic_exe() {
-            let _ = std::process::Command::new(&exe).spawn();
-            log::info!("[Epic Sync] Restarted Epic Games Launcher");
+    // Restart Epic after manual sync (not after auto-save — switch handles restart)
+    if restart_after {
+        #[cfg(target_os = "windows")]
+        {
+            if let Some(exe) = crate::switcher::find_epic_exe() {
+                let _ = std::process::Command::new(&exe).spawn();
+                log::info!("[Epic Sync] Restarted Epic Games Launcher");
+            }
         }
     }
 
