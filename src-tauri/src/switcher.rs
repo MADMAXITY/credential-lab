@@ -52,6 +52,7 @@ pub async fn switch_account(
 
     match cred.launcher.as_str() {
         "steam" => switch_steam(&cred.username, &file_data).await,
+        "epic" => switch_epic(&cred.username, &file_data).await,
         _ => Err(format!("Switching not yet implemented for: {}", cred.launcher)),
     }
 }
@@ -90,8 +91,9 @@ pub async fn test_all_accounts(
 
         let result = match (launcher_id.as_str(), file_data) {
             ("steam", Some(ref fd)) => switch_steam(&cred.username, fd).await,
-            ("steam", None) => Err(format!("No saved file data for '{}'", cred.username)),
-            _ => Err("Not implemented".into()),
+            ("epic", Some(ref fd)) => switch_epic(&cred.username, fd).await,
+            (_, Some(_)) => Err("Not implemented".into()),
+            (_, None) => Err(format!("No saved file data for '{}'", cred.username)),
         };
 
         match result {
@@ -132,7 +134,11 @@ pub async fn test_all_accounts(
             }).flatten()
         };
         if let Some(ref fd) = orig_data {
-            let _ = switch_steam(orig, fd).await;
+            match launcher_id.as_str() {
+                "steam" => { let _ = switch_steam(orig, fd).await; },
+                "epic" => { let _ = switch_epic(orig, fd).await; },
+                _ => {},
+            }
         }
     }
 
@@ -233,6 +239,81 @@ async fn switch_steam(username: &str, file_data: &[u8]) -> Result<SwitchResult, 
         steps,
         error: if success { None } else { Some(status_msg) },
     })
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// Epic Switching
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async fn switch_epic(account_id: &str, file_data: &[u8]) -> Result<SwitchResult, String> {
+    let mut steps = Vec::new();
+    let launcher = "epic".to_string();
+
+    // Step 1: Kill Epic
+    let killed = kill_process("EpicGamesLauncher.exe");
+    if killed > 0 {
+        steps.push(format!("Killed {} Epic process(es)", killed));
+        tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+    } else {
+        steps.push("Epic was not running".into());
+    }
+
+    // Step 2: Restore saved files + registry + clear caches
+    let restore_steps = crate::credentials::epic::restore_and_switch(account_id, file_data)?;
+    steps.extend(restore_steps);
+
+    // Step 3: Restart Epic
+    #[cfg(target_os = "windows")]
+    {
+        // Find Epic exe from registry or default path
+        let epic_exe = find_epic_exe();
+        if let Some(exe) = epic_exe {
+            std::process::Command::new(&exe)
+                .spawn()
+                .map_err(|e| format!("Failed to start Epic: {}", e))?;
+            steps.push("Started Epic Games Launcher".into());
+        } else {
+            steps.push("Epic exe not found — start manually".into());
+        }
+    }
+
+    // Step 4: Verify — wait and check registry AccountId
+    steps.push("Waiting for Epic to start...".into());
+    tokio::time::sleep(std::time::Duration::from_secs(8)).await;
+
+    let current = crate::launcher_detect::get_launcher_current_user("epic".into())
+        .unwrap_or(None);
+    let success = current.as_deref() == Some(account_id);
+
+    let status_msg = if success {
+        format!("Auto-login successful — account {}", &account_id[..8.min(account_id.len())])
+    } else {
+        format!("Switch may have failed — current account: {:?}", current)
+    };
+    steps.push(status_msg.clone());
+
+    Ok(SwitchResult {
+        success,
+        launcher,
+        new_user: current,
+        steps,
+        error: if success { None } else { Some(status_msg) },
+    })
+}
+
+#[cfg(target_os = "windows")]
+fn find_epic_exe() -> Option<String> {
+    // Try default path
+    let default = r"C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe";
+    if std::path::Path::new(default).exists() {
+        return Some(default.to_string());
+    }
+    // Try Program Files
+    let alt = r"C:\Program Files\Epic Games\Launcher\Portal\Binaries\Win64\EpicGamesLauncher.exe";
+    if std::path::Path::new(alt).exists() {
+        return Some(alt.to_string());
+    }
+    None
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

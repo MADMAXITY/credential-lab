@@ -1,6 +1,7 @@
 //! Credential management — sync current, list, remove.
 
 pub mod steam;
+pub mod epic;
 
 use serde::{Deserialize, Serialize};
 use crate::AppState;
@@ -22,6 +23,7 @@ pub fn sync_current_credential(
 ) -> Result<SyncResult, String> {
     let result = match launcher_id.as_str() {
         "steam" => steam::sync_current()?,
+        "epic" => epic::sync_current()?,
         _ => return Err(format!("Sync not yet implemented for: {}", launcher_id)),
     };
 
