@@ -63,9 +63,17 @@ fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u
                 .map_err(|e| format!("Path error: {}", e))?
                 .to_string_lossy()
                 .to_string();
-            let data = std::fs::read(&path)
-                .map_err(|e| format!("Failed to read {:?}: {}", path, e))?;
-            files.push((relative, data));
+            // Skip LOCK files (LevelDB locks) — they're not needed for auth
+            if relative.ends_with("LOCK") {
+                continue;
+            }
+            match std::fs::read(&path) {
+                Ok(data) => files.push((relative, data)),
+                Err(e) => {
+                    // Skip locked files instead of failing
+                    log::warn!("[Epic] Skipping locked file {:?}: {}", path, e);
+                }
+            }
         }
     }
     Ok(files)
@@ -73,9 +81,14 @@ fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u
 
 /// Sync the currently logged-in Epic account.
 /// Saves: Config\ folder + webcache (Cookies, Local Storage, Session Storage) + registry.
+/// Kills Epic first to release file locks on webcache.
 pub fn sync_current() -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in. Log in to Epic first.")?;
+
+    // Kill Epic to release file locks on webcache (Chromium locks Cookies/LevelDB)
+    kill_epic();
+    std::thread::sleep(std::time::Duration::from_secs(2));
 
     let saved_dir = get_epic_saved_dir()?;
     let config_dir = saved_dir.join("Config");
@@ -255,6 +268,19 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     }
 
     Ok(steps)
+}
+
+fn kill_epic() {
+    #[cfg(target_os = "windows")]
+    {
+        let _ = std::process::Command::new("taskkill")
+            .args(["/F", "/IM", "EpicGamesLauncher.exe"])
+            .output();
+        // Also kill EpicWebHelper which locks webcache files
+        let _ = std::process::Command::new("taskkill")
+            .args(["/F", "/IM", "EpicWebHelper.exe"])
+            .output();
+    }
 }
 
 fn hex_encode(data: &[u8]) -> String {
