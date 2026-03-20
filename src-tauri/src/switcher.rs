@@ -338,7 +338,7 @@ async fn switch_epic(account_id: &str, file_data: &[u8]) -> Result<SwitchResult,
 }
 
 #[cfg(target_os = "windows")]
-fn find_epic_exe() -> Option<String> {
+pub fn find_epic_exe() -> Option<String> {
     // Try default path
     let default = r"C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe";
     if std::path::Path::new(default).exists() {

@@ -148,6 +148,15 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let file_data = serde_json::to_vec(&file_map)
         .map_err(|e| format!("Failed to serialize: {}", e))?;
 
+    // Restart Epic after sync
+    #[cfg(target_os = "windows")]
+    {
+        if let Some(exe) = crate::switcher::find_epic_exe() {
+            let _ = std::process::Command::new(&exe).spawn();
+            log::info!("[Epic Sync] Restarted Epic Games Launcher");
+        }
+    }
+
     log::info!("[Epic Sync] Saved {} files for account '{}' ({} bytes)",
         file_count, &account_id[..8.min(account_id.len())], total_size);
 
