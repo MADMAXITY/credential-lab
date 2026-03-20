@@ -118,40 +118,9 @@ fn sync_current_inner(restart_after: bool) -> Result<InternalSyncResult, String>
         file_count += 1;
     }
 
-    // 2. Collect webcache auth files (Cookies, Local Storage, Session Storage)
-    // Epic launcher uses Chromium — login session lives in webcache
-    let webcache_dir = find_webcache_dir(&saved_dir);
-    if let Some(ref wc_dir) = webcache_dir {
-        // Save key auth files from webcache (not the entire cache — just auth-related)
-        let auth_files = [
-            "Cookies",
-            "Cookies-journal",
-            "Local Storage",
-            "Session Storage",
-            "Network Persistent State",
-        ];
-        for name in &auth_files {
-            let path = wc_dir.join(name);
-            if path.is_file() {
-                if let Ok(data) = std::fs::read(&path) {
-                    total_size += data.len() as i64;
-                    file_map.insert(format!("__webcache__/{}", name), hex_encode(&data));
-                    file_count += 1;
-                }
-            } else if path.is_dir() {
-                // Local Storage and Session Storage are directories
-                let sub_files = collect_dir_files(&path, &path)?;
-                for (rel, data) in &sub_files {
-                    total_size += data.len() as i64;
-                    file_map.insert(format!("__webcache__/{}/{}", name, rel), hex_encode(data));
-                    file_count += 1;
-                }
-            }
-        }
-        log::info!("[Epic Sync] Saved webcache auth files from {:?}", wc_dir.file_name());
-    }
-
-    // 3. Save registry AccountId
+    // 2. Save registry AccountId
+    // Note: webcache is NOT saved — it's deleted on switch and rebuilt by Epic
+    // from [RememberMe] tokens in GameUserSettings.ini
     file_map.insert("__registry_AccountId__".into(), account_id.clone());
 
     let file_data = serde_json::to_vec(&file_map)
@@ -238,37 +207,13 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     }
     steps.push(format!("Restored {} config files", config_restored));
 
-    // Clear and restore webcache auth files (Cookies, Local Storage, Session Storage)
+    // Delete webcache entirely — force Epic to rebuild from GameUserSettings.ini [RememberMe] tokens.
+    // GameUserSettings.ini has auth tokens for ALL remembered accounts.
+    // The webcache Cookies only caches one session and causes stale-session issues.
     let webcache_dir = find_webcache_dir(&saved_dir);
-    let has_webcache_data = file_map.keys().any(|k| k.starts_with("__webcache__/"));
-
-    if has_webcache_data {
-        if let Some(ref wc_dir) = webcache_dir {
-            // Delete specific auth files before restoring (not the entire webcache)
-            for name in &["Cookies", "Cookies-journal", "Local Storage", "Session Storage", "Network Persistent State"] {
-                let path = wc_dir.join(name);
-                if path.is_file() {
-                    let _ = std::fs::remove_file(&path);
-                } else if path.is_dir() {
-                    let _ = std::fs::remove_dir_all(&path);
-                }
-            }
-
-            let mut webcache_restored = 0;
-            for (key, hex_content) in &file_map {
-                if !key.starts_with("__webcache__/") { continue; }
-                let relative = key.strip_prefix("__webcache__/").unwrap();
-                let dest = wc_dir.join(relative);
-                if let Some(parent) = dest.parent() {
-                    let _ = std::fs::create_dir_all(parent);
-                }
-                let data = hex_decode(hex_content)?;
-                std::fs::write(&dest, &data)
-                    .map_err(|e| format!("Failed to write {:?}: {}", dest, e))?;
-                webcache_restored += 1;
-            }
-            steps.push(format!("Restored {} webcache auth files", webcache_restored));
-        }
+    if let Some(ref wc_dir) = webcache_dir {
+        let _ = std::fs::remove_dir_all(wc_dir);
+        steps.push("Cleared webcache (will rebuild from RememberMe tokens)".into());
     }
 
     // Set registry AccountId
