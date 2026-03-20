@@ -64,10 +64,14 @@ pub async fn switch_account(
 }
 
 /// Auto-save the currently logged-in account's files to DB before switching away.
+/// Only for Steam — Epic tokens get invalidated by login, so auto-save would capture stale data.
 fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> Result<(), String> {
     let sync_result = match launcher_id {
         "steam" => crate::credentials::steam::sync_current(),
-        "epic" => crate::credentials::epic::sync_current_for_auto_save(), // Don't restart Epic — switch will do it
+        // Epic: NO auto-save. Epic's [RememberMe] token is single-session.
+        // Auto-save after a switch captures a token that was already restored from DB,
+        // potentially truncated. Manual sync captures the real token from a live login.
+        "epic" => return Ok(()),
         _ => return Ok(()),
     };
 
