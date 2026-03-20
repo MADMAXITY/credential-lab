@@ -1,15 +1,21 @@
 //! Epic Games credential sync & restore.
 //!
-//! On Sync: save Config\ folder + Data\ folder (auth tokens) + registry AccountId.
-//! On Switch: kill Epic → clear caches → restore saved files + registry → restart.
+//! Based on TcNo Account Switcher's exact approach:
 //!
-//! Key paths:
-//!   Config:  %LocalAppData%\EpicGamesLauncher\Saved\Config\
-//!   Data:    %LocalAppData%\EpicGamesLauncher\Saved\Data\  (auth token .dat files)
-//!   Registry: HKCU\Software\Epic Games\Unreal Engine\Identifiers:AccountId
-//!   Cache (cleared on switch):
-//!     %LocalAppData%\Epic Games\Epic Online Services\UI Helper\Cache\
-//!     %LocalAppData%\Epic Games\EOSOverlay\BrowserCache\Cache\
+//! LoginFiles (saved per-account, cleared+restored on switch):
+//!   - %LocalAppData%\EpicGamesLauncher\Saved\Config\WindowsEditor\GameUserSettings.ini
+//!   - REG:HKCU\Software\Epic Games\Unreal Engine\Identifiers:AccountId
+//!
+//! BackupFolders (saved per-account for completeness):
+//!   - %LocalAppData%\EpicGamesLauncher\Saved\Config\  (entire directory)
+//!
+//! CachePaths (cleared on switch, NOT saved):
+//!   - %LocalAppData%\Epic Games\Epic Online Services\UI Helper\Cache\
+//!   - %LocalAppData%\Epic Games\EOSOverlay\BrowserCache\Cache\
+//!
+//! IMPORTANT: Data\ folder (.dat auth tokens) is NOT touched. Epic manages those
+//! internally — they persist across account switches. Only GameUserSettings.ini
+//! and the registry AccountId determine which account logs in.
 
 use super::InternalSyncResult;
 use std::collections::HashMap;
@@ -40,16 +46,14 @@ fn get_epic_account_id() -> Option<String> {
     None
 }
 
-/// Recursively collect all files in a directory, returning (relative_path, contents)
+/// Recursively collect all files in a directory
 fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u8>)>, String> {
     let mut files = Vec::new();
     if !dir.exists() {
         return Ok(files);
     }
-
     let entries = std::fs::read_dir(dir)
         .map_err(|e| format!("Failed to read dir {:?}: {}", dir, e))?;
-
     for entry in entries.flatten() {
         let path = entry.path();
         if path.is_dir() {
@@ -68,14 +72,14 @@ fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u
 }
 
 /// Sync the currently logged-in Epic account.
-/// Saves: Config\ folder + Data\ folder + registry AccountId.
+/// Saves: entire Config\ folder + registry AccountId.
+/// Does NOT save Data\ — those .dat files persist across switches.
 pub fn sync_current() -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in. Log in to Epic first.")?;
 
     let saved_dir = get_epic_saved_dir()?;
     let config_dir = saved_dir.join("Config");
-    let data_dir = saved_dir.join("Data");
 
     if !config_dir.exists() {
         return Err("Epic Games config directory not found.".into());
@@ -84,21 +88,11 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let mut total_size: i64 = 0;
     let mut file_map: HashMap<String, String> = HashMap::new();
 
-    // Collect Config\ files
-    let config_files = collect_dir_files(&saved_dir, &config_dir)?;
+    // Collect Config\ files (includes GameUserSettings.ini + all subdirectories)
+    let config_files = collect_dir_files(&config_dir, &config_dir)?;
     for (relative_path, data) in &config_files {
         total_size += data.len() as i64;
-        file_map.insert(format!("Config/{}", relative_path), hex_encode(data));
-    }
-
-    // Collect Data\ files (auth tokens — .dat files named by account ID)
-    if data_dir.exists() {
-        let data_files = collect_dir_files(&saved_dir, &data_dir)?;
-        for (relative_path, data) in &data_files {
-            total_size += data.len() as i64;
-            file_map.insert(format!("Data/{}", relative_path), hex_encode(data));
-        }
-        log::info!("[Epic Sync] Saved {} Data files (auth tokens)", data_files.len());
+        file_map.insert(relative_path.clone(), hex_encode(data));
     }
 
     // Save the registry AccountId
@@ -107,9 +101,9 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let file_data = serde_json::to_vec(&file_map)
         .map_err(|e| format!("Failed to serialize: {}", e))?;
 
-    let file_count = (config_files.len() + file_map.keys().filter(|k| k.starts_with("Data/")).count()) as i32;
+    let file_count = config_files.len() as i32;
 
-    log::info!("[Epic Sync] Saved {} files for account '{}' ({} bytes)",
+    log::info!("[Epic Sync] Saved {} config files for account '{}' ({} bytes)",
         file_count, &account_id[..8.min(account_id.len())], total_size);
 
     Ok(InternalSyncResult {
@@ -122,19 +116,19 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     })
 }
 
-/// Restore saved Epic files + registry, clear caches.
+/// Restore saved Epic config files + registry, clear caches.
+/// Does NOT touch Data\ folder — Epic manages auth tokens there internally.
 pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<String>, String> {
     let mut steps = Vec::new();
 
     let saved_dir = get_epic_saved_dir()?;
     let config_dir = saved_dir.join("Config");
-    let data_dir = saved_dir.join("Data");
 
     // Parse saved files
     let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
         .map_err(|e| format!("Failed to parse saved data: {}", e))?;
 
-    // Clear Epic caches
+    // Clear Epic caches (TcNo's CachePaths)
     let local_app = std::env::var("LOCALAPPDATA").unwrap_or_default();
     let cache_paths = vec![
         PathBuf::from(&local_app).join("Epic Games").join("Epic Online Services").join("UI Helper").join("Cache"),
@@ -147,28 +141,22 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     }
     steps.push("Cleared Epic cache directories".into());
 
-    // Delete current Config\ contents before restoring
+    // Clear Config\ directory only (NOT Data\)
     if config_dir.exists() {
         let _ = std::fs::remove_dir_all(&config_dir);
     }
     let _ = std::fs::create_dir_all(&config_dir);
+    steps.push("Cleared Config directory".into());
 
-    // Delete current Data\ contents before restoring
-    if data_dir.exists() {
-        let _ = std::fs::remove_dir_all(&data_dir);
-    }
-    let _ = std::fs::create_dir_all(&data_dir);
-    steps.push("Cleared current Epic config + data".into());
-
-    // Restore saved files
-    let mut config_restored = 0;
-    let mut data_restored = 0;
+    // Restore saved config files
+    let mut restored = 0;
     for (relative_path, hex_content) in &file_map {
         if relative_path == "__registry_AccountId__" {
             continue;
         }
 
-        let dest = saved_dir.join(relative_path);
+        // Config files go into Config\ directory
+        let dest = config_dir.join(relative_path);
         if let Some(parent) = dest.parent() {
             let _ = std::fs::create_dir_all(parent);
         }
@@ -176,16 +164,11 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
         let data = hex_decode(hex_content)?;
         std::fs::write(&dest, &data)
             .map_err(|e| format!("Failed to write {:?}: {}", dest, e))?;
-
-        if relative_path.starts_with("Data/") {
-            data_restored += 1;
-        } else {
-            config_restored += 1;
-        }
+        restored += 1;
     }
-    steps.push(format!("Restored {} config files + {} data files (auth tokens)", config_restored, data_restored));
+    steps.push(format!("Restored {} config files", restored));
 
-    // Restore registry AccountId
+    // Set registry AccountId
     #[cfg(target_os = "windows")]
     {
         use winreg::enums::*;
