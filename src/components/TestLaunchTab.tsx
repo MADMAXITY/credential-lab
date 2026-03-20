@@ -77,6 +77,7 @@ export default function TestLaunchTab({ addLog }: Props) {
       result.steps.forEach((step) => addLog("info", `  ${step}`));
       if (result.success) {
         addLog("info", `Switch successful: now logged in as ${result.new_user}`);
+        loadCredentials(); // Refresh list — auto-save may have updated entries
       } else {
         addLog("error", `Switch failed: ${result.error}`);
       }

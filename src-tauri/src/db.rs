@@ -68,13 +68,28 @@ impl Database {
         file_count: i32,
         total_size: i64,
     ) -> Result<i64, String> {
+        // Use ON CONFLICT UPDATE to preserve row ID (INSERT OR REPLACE deletes + re-inserts,
+        // which changes the ID and breaks frontend references)
         self.conn.execute(
-            "INSERT OR REPLACE INTO credentials (launcher, username, synced_at, registry_data, file_data, file_count, total_size)
-             VALUES (?1, ?2, datetime('now'), ?3, ?4, ?5, ?6)",
+            "INSERT INTO credentials (launcher, username, synced_at, registry_data, file_data, file_count, total_size)
+             VALUES (?1, ?2, datetime('now'), ?3, ?4, ?5, ?6)
+             ON CONFLICT(launcher, username) DO UPDATE SET
+                synced_at = datetime('now'),
+                registry_data = ?3,
+                file_data = ?4,
+                file_count = ?5,
+                total_size = ?6",
             params![launcher, username, registry_data, file_data, file_count, total_size],
         ).map_err(|e| format!("Failed to save credential: {}", e))?;
 
-        Ok(self.conn.last_insert_rowid())
+        // Return the ID (works for both insert and update)
+        let id = self.conn.query_row(
+            "SELECT id FROM credentials WHERE launcher = ?1 AND username = ?2",
+            params![launcher, username],
+            |row| row.get(0),
+        ).map_err(|e| format!("Failed to get credential ID: {}", e))?;
+
+        Ok(id)
     }
 
     pub fn list_credentials(&self, launcher: Option<&str>) -> Result<Vec<SavedCredential>, String> {
