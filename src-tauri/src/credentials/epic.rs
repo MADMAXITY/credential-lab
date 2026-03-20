@@ -72,8 +72,7 @@ fn collect_dir_files(base: &PathBuf, dir: &PathBuf) -> Result<Vec<(String, Vec<u
 }
 
 /// Sync the currently logged-in Epic account.
-/// Saves: entire Config\ folder + registry AccountId.
-/// Does NOT save Data\ — those .dat files persist across switches.
+/// Saves: Config\ folder + webcache (Cookies, Local Storage, Session Storage) + registry.
 pub fn sync_current() -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in. Log in to Epic first.")?;
@@ -87,23 +86,56 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
 
     let mut total_size: i64 = 0;
     let mut file_map: HashMap<String, String> = HashMap::new();
+    let mut file_count = 0;
 
-    // Collect Config\ files (includes GameUserSettings.ini + all subdirectories)
+    // 1. Collect Config\ files
     let config_files = collect_dir_files(&config_dir, &config_dir)?;
     for (relative_path, data) in &config_files {
         total_size += data.len() as i64;
-        file_map.insert(relative_path.clone(), hex_encode(data));
+        file_map.insert(format!("__config__/{}", relative_path), hex_encode(data));
+        file_count += 1;
     }
 
-    // Save the registry AccountId
+    // 2. Collect webcache auth files (Cookies, Local Storage, Session Storage)
+    // Epic launcher uses Chromium — login session lives in webcache
+    let webcache_dir = find_webcache_dir(&saved_dir);
+    if let Some(ref wc_dir) = webcache_dir {
+        // Save key auth files from webcache (not the entire cache — just auth-related)
+        let auth_files = [
+            "Cookies",
+            "Cookies-journal",
+            "Local Storage",
+            "Session Storage",
+            "Network Persistent State",
+        ];
+        for name in &auth_files {
+            let path = wc_dir.join(name);
+            if path.is_file() {
+                if let Ok(data) = std::fs::read(&path) {
+                    total_size += data.len() as i64;
+                    file_map.insert(format!("__webcache__/{}", name), hex_encode(&data));
+                    file_count += 1;
+                }
+            } else if path.is_dir() {
+                // Local Storage and Session Storage are directories
+                let sub_files = collect_dir_files(&path, &path)?;
+                for (rel, data) in &sub_files {
+                    total_size += data.len() as i64;
+                    file_map.insert(format!("__webcache__/{}/{}", name, rel), hex_encode(data));
+                    file_count += 1;
+                }
+            }
+        }
+        log::info!("[Epic Sync] Saved webcache auth files from {:?}", wc_dir.file_name());
+    }
+
+    // 3. Save registry AccountId
     file_map.insert("__registry_AccountId__".into(), account_id.clone());
 
     let file_data = serde_json::to_vec(&file_map)
         .map_err(|e| format!("Failed to serialize: {}", e))?;
 
-    let file_count = config_files.len() as i32;
-
-    log::info!("[Epic Sync] Saved {} config files for account '{}' ({} bytes)",
+    log::info!("[Epic Sync] Saved {} files for account '{}' ({} bytes)",
         file_count, &account_id[..8.min(account_id.len())], total_size);
 
     Ok(InternalSyncResult {
@@ -111,24 +143,35 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
         username: account_id,
         registry_data: None,
         file_data: Some(file_data),
-        file_count,
+        file_count: file_count as i32,
         total_size,
     })
 }
 
-/// Restore saved Epic config files + registry, clear caches.
-/// Does NOT touch Data\ folder — Epic manages auth tokens there internally.
+/// Find the webcache directory (named webcache_XXXX)
+fn find_webcache_dir(saved_dir: &PathBuf) -> Option<PathBuf> {
+    if let Ok(entries) = std::fs::read_dir(saved_dir) {
+        for entry in entries.flatten() {
+            let name = entry.file_name().to_string_lossy().to_string();
+            if name.starts_with("webcache") && entry.path().is_dir() {
+                return Some(entry.path());
+            }
+        }
+    }
+    None
+}
+
+/// Restore saved Epic config + webcache auth files + registry.
 pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<String>, String> {
     let mut steps = Vec::new();
 
     let saved_dir = get_epic_saved_dir()?;
     let config_dir = saved_dir.join("Config");
 
-    // Parse saved files
     let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
         .map_err(|e| format!("Failed to parse saved data: {}", e))?;
 
-    // Clear Epic caches (TcNo's CachePaths)
+    // Clear EOS caches (not webcache — we restore that)
     let local_app = std::env::var("LOCALAPPDATA").unwrap_or_default();
     let cache_paths = vec![
         PathBuf::from(&local_app).join("Epic Games").join("Epic Online Services").join("UI Helper").join("Cache"),
@@ -139,34 +182,61 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
             let _ = std::fs::remove_dir_all(cache_path);
         }
     }
-    steps.push("Cleared Epic cache directories".into());
+    steps.push("Cleared EOS cache".into());
 
-    // Clear Config\ directory only (NOT Data\)
+    // Clear and restore Config\
     if config_dir.exists() {
         let _ = std::fs::remove_dir_all(&config_dir);
     }
     let _ = std::fs::create_dir_all(&config_dir);
-    steps.push("Cleared Config directory".into());
 
-    // Restore saved config files
-    let mut restored = 0;
-    for (relative_path, hex_content) in &file_map {
-        if relative_path == "__registry_AccountId__" {
-            continue;
-        }
-
-        // Config files go into Config\ directory
-        let dest = config_dir.join(relative_path);
+    let mut config_restored = 0;
+    for (key, hex_content) in &file_map {
+        if !key.starts_with("__config__/") { continue; }
+        let relative = key.strip_prefix("__config__/").unwrap();
+        let dest = config_dir.join(relative);
         if let Some(parent) = dest.parent() {
             let _ = std::fs::create_dir_all(parent);
         }
-
         let data = hex_decode(hex_content)?;
         std::fs::write(&dest, &data)
             .map_err(|e| format!("Failed to write {:?}: {}", dest, e))?;
-        restored += 1;
+        config_restored += 1;
     }
-    steps.push(format!("Restored {} config files", restored));
+    steps.push(format!("Restored {} config files", config_restored));
+
+    // Clear and restore webcache auth files (Cookies, Local Storage, Session Storage)
+    let webcache_dir = find_webcache_dir(&saved_dir);
+    let has_webcache_data = file_map.keys().any(|k| k.starts_with("__webcache__/"));
+
+    if has_webcache_data {
+        if let Some(ref wc_dir) = webcache_dir {
+            // Delete specific auth files before restoring (not the entire webcache)
+            for name in &["Cookies", "Cookies-journal", "Local Storage", "Session Storage", "Network Persistent State"] {
+                let path = wc_dir.join(name);
+                if path.is_file() {
+                    let _ = std::fs::remove_file(&path);
+                } else if path.is_dir() {
+                    let _ = std::fs::remove_dir_all(&path);
+                }
+            }
+
+            let mut webcache_restored = 0;
+            for (key, hex_content) in &file_map {
+                if !key.starts_with("__webcache__/") { continue; }
+                let relative = key.strip_prefix("__webcache__/").unwrap();
+                let dest = wc_dir.join(relative);
+                if let Some(parent) = dest.parent() {
+                    let _ = std::fs::create_dir_all(parent);
+                }
+                let data = hex_decode(hex_content)?;
+                std::fs::write(&dest, &data)
+                    .map_err(|e| format!("Failed to write {:?}: {}", dest, e))?;
+                webcache_restored += 1;
+            }
+            steps.push(format!("Restored {} webcache auth files", webcache_restored));
+        }
+    }
 
     // Set registry AccountId
     #[cfg(target_os = "windows")]
