@@ -1,0 +1,175 @@
+//! SQLite database for credential storage and operation logging.
+
+use rusqlite::{Connection, params};
+use serde::{Deserialize, Serialize};
+use std::path::Path;
+
+pub struct Database {
+    conn: Connection,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct SavedCredential {
+    pub id: i64,
+    pub launcher: String,
+    pub username: String,
+    pub synced_at: String,
+    pub file_count: i32,
+    pub total_size: i64,
+    pub notes: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct LogEntry {
+    pub id: i64,
+    pub timestamp: String,
+    pub level: String,
+    pub message: String,
+}
+
+impl Database {
+    pub fn new(path: &Path) -> Result<Self, String> {
+        let conn = Connection::open(path)
+            .map_err(|e| format!("Failed to open database: {}", e))?;
+
+        conn.execute_batch("
+            CREATE TABLE IF NOT EXISTS credentials (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                launcher TEXT NOT NULL,
+                username TEXT NOT NULL,
+                synced_at TEXT NOT NULL DEFAULT (datetime('now')),
+                registry_data BLOB,
+                file_data BLOB,
+                file_count INTEGER DEFAULT 0,
+                total_size INTEGER DEFAULT 0,
+                notes TEXT DEFAULT '',
+                UNIQUE(launcher, username)
+            );
+
+            CREATE TABLE IF NOT EXISTS operation_log (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp TEXT NOT NULL DEFAULT (datetime('now')),
+                level TEXT NOT NULL DEFAULT 'info',
+                message TEXT NOT NULL
+            );
+        ").map_err(|e| format!("Failed to create tables: {}", e))?;
+
+        Ok(Database { conn })
+    }
+
+    // ── Credential CRUD ─────────────────────────────────────────────
+
+    pub fn save_credential(
+        &self,
+        launcher: &str,
+        username: &str,
+        registry_data: Option<&[u8]>,
+        file_data: Option<&[u8]>,
+        file_count: i32,
+        total_size: i64,
+    ) -> Result<i64, String> {
+        self.conn.execute(
+            "INSERT OR REPLACE INTO credentials (launcher, username, synced_at, registry_data, file_data, file_count, total_size)
+             VALUES (?1, ?2, datetime('now'), ?3, ?4, ?5, ?6)",
+            params![launcher, username, registry_data, file_data, file_count, total_size],
+        ).map_err(|e| format!("Failed to save credential: {}", e))?;
+
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn list_credentials(&self, launcher: Option<&str>) -> Result<Vec<SavedCredential>, String> {
+        let mut stmt = if let Some(l) = launcher {
+            let mut s = self.conn.prepare(
+                "SELECT id, launcher, username, synced_at, file_count, total_size, notes FROM credentials WHERE launcher = ?1 ORDER BY synced_at DESC"
+            ).map_err(|e| e.to_string())?;
+            let rows = s.query_map(params![l], |row| {
+                Ok(SavedCredential {
+                    id: row.get(0)?,
+                    launcher: row.get(1)?,
+                    username: row.get(2)?,
+                    synced_at: row.get(3)?,
+                    file_count: row.get(4)?,
+                    total_size: row.get(5)?,
+                    notes: row.get(6)?,
+                })
+            }).map_err(|e| e.to_string())?;
+            return rows.collect::<Result<Vec<_>, _>>().map_err(|e| e.to_string());
+        } else {
+            let mut s = self.conn.prepare(
+                "SELECT id, launcher, username, synced_at, file_count, total_size, notes FROM credentials ORDER BY launcher, synced_at DESC"
+            ).map_err(|e| e.to_string())?;
+            let rows = s.query_map([], |row| {
+                Ok(SavedCredential {
+                    id: row.get(0)?,
+                    launcher: row.get(1)?,
+                    username: row.get(2)?,
+                    synced_at: row.get(3)?,
+                    file_count: row.get(4)?,
+                    total_size: row.get(5)?,
+                    notes: row.get(6)?,
+                })
+            }).map_err(|e| e.to_string())?;
+            return rows.collect::<Result<Vec<_>, _>>().map_err(|e| e.to_string());
+        };
+    }
+
+    pub fn get_credential_data(&self, id: i64) -> Result<(Option<Vec<u8>>, Option<Vec<u8>>), String> {
+        self.conn.query_row(
+            "SELECT registry_data, file_data FROM credentials WHERE id = ?1",
+            params![id],
+            |row| Ok((row.get(0)?, row.get(1)?)),
+        ).map_err(|e| format!("Credential not found: {}", e))
+    }
+
+    pub fn get_credential(&self, id: i64) -> Result<SavedCredential, String> {
+        self.conn.query_row(
+            "SELECT id, launcher, username, synced_at, file_count, total_size, notes FROM credentials WHERE id = ?1",
+            params![id],
+            |row| Ok(SavedCredential {
+                id: row.get(0)?,
+                launcher: row.get(1)?,
+                username: row.get(2)?,
+                synced_at: row.get(3)?,
+                file_count: row.get(4)?,
+                total_size: row.get(5)?,
+                notes: row.get(6)?,
+            }),
+        ).map_err(|e| format!("Credential not found: {}", e))
+    }
+
+    pub fn remove_credential(&self, id: i64) -> Result<bool, String> {
+        let affected = self.conn.execute(
+            "DELETE FROM credentials WHERE id = ?1",
+            params![id],
+        ).map_err(|e| format!("Failed to delete: {}", e))?;
+        Ok(affected > 0)
+    }
+
+    // ── Operation Log ───────────────────────────────────────────────
+
+    pub fn log(&self, level: &str, message: &str) {
+        let _ = self.conn.execute(
+            "INSERT INTO operation_log (level, message) VALUES (?1, ?2)",
+            params![level, message],
+        );
+    }
+
+    pub fn get_recent_logs(&self, limit: i32) -> Result<Vec<LogEntry>, String> {
+        let mut stmt = self.conn.prepare(
+            "SELECT id, timestamp, level, message FROM operation_log ORDER BY id DESC LIMIT ?1"
+        ).map_err(|e| e.to_string())?;
+
+        let rows = stmt.query_map(params![limit], |row| {
+            Ok(LogEntry {
+                id: row.get(0)?,
+                timestamp: row.get(1)?,
+                level: row.get(2)?,
+                message: row.get(3)?,
+            })
+        }).map_err(|e| e.to_string())?;
+
+        let mut entries: Vec<LogEntry> = rows.collect::<Result<Vec<_>, _>>().map_err(|e| e.to_string())?;
+        entries.reverse(); // Oldest first
+        Ok(entries)
+    }
+}
