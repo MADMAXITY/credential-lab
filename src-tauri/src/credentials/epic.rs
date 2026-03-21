@@ -165,7 +165,7 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
         .map_err(|e| format!("Failed to parse saved data: {}", e))?;
 
-    // 1. Restore GameUserSettings.ini
+    // 1. Restore GameUserSettings.ini to the primary location
     if let Some(ini_hex) = file_map.get("GameUserSettings.ini") {
         let data = hex_decode(ini_hex)?;
         let ini_path = saved_dir.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
@@ -174,7 +174,84 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
         }
         std::fs::write(&ini_path, &data)
             .map_err(|e| format!("Failed to write GameUserSettings.ini: {}", e))?;
-        steps.push(format!("Restored GameUserSettings.ini ({} bytes)", data.len()));
+        steps.push(format!("Restored Config/WindowsEditor/GameUserSettings.ini ({} bytes)", data.len()));
+
+        // Also patch ALL other GameUserSettings.ini files in the config hierarchy
+        // Epic uses Config/Config/ as base config — if it has Enable=False, it overrides ours
+        let config_dir = saved_dir.join("Config");
+        let mut all_inis = Vec::new();
+        find_all_game_user_settings(&config_dir, &mut all_inis);
+
+        let content = String::from_utf8_lossy(&data);
+        // Extract the RememberMe section from saved data
+        let mut rm_section = String::new();
+        let mut in_rm = false;
+        for line in content.lines() {
+            if line.trim() == "[RememberMe]" {
+                in_rm = true;
+                rm_section.push_str("[RememberMe]\n");
+                continue;
+            }
+            if in_rm && line.starts_with('[') {
+                break;
+            }
+            if in_rm {
+                rm_section.push_str(line);
+                rm_section.push('\n');
+            }
+        }
+
+        let mut patched = 0;
+        for other_ini in &all_inis {
+            if *other_ini == ini_path { continue; } // Skip the one we already wrote
+            if let Ok(other_content) = std::fs::read_to_string(other_ini) {
+                let mut output = String::new();
+                let mut in_section = false;
+                let mut section_written = false;
+                for line in other_content.lines() {
+                    if line.trim() == "[RememberMe]" {
+                        in_section = true;
+                        output.push_str("[RememberMe]\n");
+                        output.push_str(&rm_section);
+                        section_written = true;
+                        continue;
+                    }
+                    if in_section {
+                        if line.starts_with('[') {
+                            in_section = false;
+                            output.push_str(line);
+                            output.push('\n');
+                        }
+                        continue;
+                    }
+                    output.push_str(line);
+                    output.push('\n');
+                }
+                if !section_written {
+                    output.push_str("\n[RememberMe]\n");
+                    output.push_str(&rm_section);
+                }
+                let _ = std::fs::write(other_ini, &output);
+                patched += 1;
+            }
+        }
+        if patched > 0 {
+            steps.push(format!("Patched RememberMe in {} other config files", patched));
+        }
+    }
+
+    // Find all GameUserSettings.ini files recursively
+    fn find_all_game_user_settings(dir: &std::path::Path, results: &mut Vec<std::path::PathBuf>) {
+        if let Ok(entries) = std::fs::read_dir(dir) {
+            for entry in entries.flatten() {
+                let path = entry.path();
+                if path.is_dir() {
+                    find_all_game_user_settings(&path, results);
+                } else if path.file_name().map_or(false, |n| n == "GameUserSettings.ini") {
+                    results.push(path);
+                }
+            }
+        }
     }
 
     // 2. Restore Cookies + Cookies-journal in webcache
