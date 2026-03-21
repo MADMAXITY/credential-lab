@@ -272,6 +272,133 @@ export default function TestLaunchTab({ addLog }: Props) {
           </div>
         )}
       </div>
+      {/* Step 4: Auto-Login Experiment (Epic) */}
+      <AutoLoginSection addLog={addLog} />
+    </div>
+  );
+}
+
+// ─── Auto-Login Experiment ──────────────────────────────────────────────────
+
+function AutoLoginSection({ addLog }: { addLog: (level: string, message: string) => void }) {
+  const [epicUser, setEpicUser] = useState("");
+  const [epicPass, setEpicPass] = useState("");
+  const [running, setRunning] = useState(false);
+  const [scanning, setScanning] = useState(false);
+  const [scanResults, setScanResults] = useState<{ name: string; control_type: string; automation_id: string; class_name: string }[]>([]);
+  const [autoLoginSteps, setAutoLoginSteps] = useState<string[]>([]);
+
+  const scanWindow = async (title: string) => {
+    setScanning(true);
+    setScanResults([]);
+    addLog("info", `Scanning UI elements in "${title}"...`);
+    try {
+      const results = await invoke<{ name: string; control_type: string; automation_id: string; class_name: string; is_enabled: boolean }[]>(
+        "scan_window_elements", { windowTitle: title }
+      );
+      setScanResults(results);
+      addLog("info", `Found ${results.length} elements`);
+      results.forEach((e) => {
+        if (e.control_type.includes("Edit") || e.control_type.includes("Button")) {
+          addLog("info", `  ${e.control_type} | "${e.name}" | id="${e.automation_id}" | class="${e.class_name}"`);
+        }
+      });
+    } catch (e) {
+      addLog("error", `Scan failed: ${e}`);
+    }
+    setScanning(false);
+  };
+
+  const tryAutoLogin = async () => {
+    if (!epicUser || !epicPass) return;
+    setRunning(true);
+    setAutoLoginSteps([]);
+    addLog("info", `Auto-login experiment: Epic Games (${epicUser})...`);
+    try {
+      const result = await invoke<{ success: boolean; steps: string[]; error: string | null }>(
+        "auto_login_epic", { username: epicUser, password: epicPass }
+      );
+      setAutoLoginSteps(result.steps);
+      result.steps.forEach((s) => addLog("info", `  ${s}`));
+      if (result.error) addLog("warn", `  Result: ${result.error}`);
+    } catch (e) {
+      addLog("error", `Auto-login failed: ${e}`);
+    }
+    setRunning(false);
+  };
+
+  return (
+    <div className="rounded-xl border border-[var(--warning)]/30 bg-[var(--warning)]/5 p-4 space-y-3">
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-full bg-[var(--warning)]/15 text-[var(--warning)] text-xs font-bold flex items-center justify-center">4</span>
+        <h3 className="font-medium">Auto-Login Experiment</h3>
+        <span className="text-xs text-[var(--warning)]">Epic Games — password-based login</span>
+      </div>
+
+      <div className="ml-8 space-y-3">
+        {/* Scan buttons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => scanWindow("Epic")}
+            disabled={scanning}
+            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--warning)] transition-colors"
+          >
+            {scanning ? "Scanning..." : "Scan Epic Window"}
+          </button>
+          <button
+            onClick={() => scanWindow("Sign")}
+            disabled={scanning}
+            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--warning)] transition-colors"
+          >
+            Scan "Sign In" Window
+          </button>
+        </div>
+
+        {/* Scan results */}
+        {scanResults.length > 0 && (
+          <div className="max-h-40 overflow-y-auto p-2 rounded-lg bg-[var(--bg-primary)] text-xs font-mono space-y-0.5">
+            {scanResults.map((e, i) => (
+              <div key={i} className={`${e.control_type.includes("Edit") ? "text-[var(--accent)]" : e.control_type.includes("Button") ? "text-[var(--warning)]" : "text-[var(--text-muted)]"}`}>
+                {e.control_type} | "{e.name}" | id="{e.automation_id}"
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Login form */}
+        <div className="flex gap-2">
+          <input
+            type="text"
+            placeholder="Epic username/email"
+            value={epicUser}
+            onChange={(e) => setEpicUser(e.target.value)}
+            className="flex-1 px-3 py-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--warning)]"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={epicPass}
+            onChange={(e) => setEpicPass(e.target.value)}
+            className="flex-1 px-3 py-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--warning)]"
+          />
+        </div>
+        <button
+          onClick={tryAutoLogin}
+          disabled={running || !epicUser || !epicPass}
+          className="px-5 py-2.5 rounded-lg bg-[var(--warning)] text-black font-semibold text-sm hover:brightness-110 transition disabled:opacity-40"
+        >
+          {running ? "Running..." : "Try Auto-Login (Epic)"}
+        </button>
+
+        {/* Steps */}
+        {autoLoginSteps.length > 0 && (
+          <div className="p-3 rounded-lg bg-[var(--bg-primary)] text-sm space-y-1">
+            {autoLoginSteps.map((step, i) => (
+              <p key={i} className="text-[var(--text-secondary)]">{step}</p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -18,9 +18,13 @@ rusqlite = { version = "0.31", features = ["bundled"] }
 steamlocate = "2.0"
 winreg = "0.55"
 
-# TODO: Add DPAPI when moving to production
-# [target.'cfg(windows)'.dependencies]
-# windows-sys = { version = "0.59", features = ["Win32_Security_Cryptography", "Win32_System_Memory"] }
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.58", features = [
+    "Win32_UI_Accessibility",
+    "Win32_System_Com",
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+] }
 
 [features]
 default = ["custom-protocol"]

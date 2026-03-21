@@ -9,6 +9,7 @@ mod launcher_detect;
 mod game_detect;
 mod credentials;
 mod switcher;
+mod auto_login;
 
 use std::sync::Mutex;
 use tauri::Manager;
@@ -48,6 +49,9 @@ fn main() {
             switcher::switch_account,
             switcher::test_all_accounts,
             switcher::verify_launcher_state,
+            // Auto-login (password-based)
+            auto_login::scan_window_elements,
+            auto_login::auto_login_epic,
             // Logging
             get_logs,
         ])
