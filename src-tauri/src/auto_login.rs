@@ -56,51 +56,109 @@ async fn auto_login_epic_impl(email: &str, password: &str) -> Result<AutoLoginRe
         .map_err(|e| format!("Failed to start Epic: {}", e))?;
     steps.push("Started Epic Games Launcher".into());
 
-    // Step 4: Wait for login window to fully load
-    steps.push("Waiting for login window to load (20s)...".into());
-    tokio::time::sleep(std::time::Duration::from_secs(20)).await;
+    // Step 4: Wait for Epic to start, then poll until window appears
+    steps.push("Waiting for Epic window...".into());
+    let mut found = false;
+    for i in 0..15 {
+        tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+        let check = std::process::Command::new("powershell")
+            .args(["-NoProfile", "-Command",
+                "if (Get-Process EpicGamesLauncher -ErrorAction SilentlyContinue) { 'FOUND' } else { 'WAITING' }"])
+            .output();
+        if let Ok(out) = check {
+            let result = String::from_utf8_lossy(&out.stdout).trim().to_string();
+            if result == "FOUND" {
+                steps.push(format!("Epic window found after {}s", (i + 1) * 2));
+                found = true;
+                break;
+            }
+        }
+    }
 
-    // Step 5: Use PowerShell to activate the window and send keystrokes
-    // PowerShell's SendKeys is more reliable than raw SendInput for CEF windows
+    if !found {
+        return Ok(AutoLoginResult {
+            success: false,
+            steps,
+            error: Some("Epic Games did not start within 30 seconds".into()),
+        });
+    }
+
+    // Give it a few more seconds for the login page to fully render
+    steps.push("Waiting for login page to render (8s)...".into());
+    tokio::time::sleep(std::time::Duration::from_secs(8)).await;
+
+    // Step 5: Use PowerShell to activate window, click email field, type credentials
     let email_owned = email.to_string();
     let password_owned = password.to_string();
 
-    // First, activate Epic's window via PowerShell
     let activate_result = std::process::Command::new("powershell")
         .args(["-NoProfile", "-Command", &format!(
             r#"
-            Add-Type -AssemblyName Microsoft.VisualBasic
             Add-Type -AssemblyName System.Windows.Forms
 
-            # Find and activate Epic Games window
-            $epic = Get-Process EpicGamesLauncher -ErrorAction SilentlyContinue | Select-Object -First 1
-            if ($epic) {{
-                $sig = '[DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr hWnd);'
-                $type = Add-Type -MemberDefinition $sig -Name 'WinAPI' -Namespace 'Win32' -PassThru
-                $type::SetForegroundWindow($epic.MainWindowHandle)
-                Start-Sleep -Milliseconds 500
+            $sig = @'
+            [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr hWnd);
+            [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+            [DllImport("user32.dll")] public static extern void SetCursorPos(int x, int y);
+            [DllImport("user32.dll")] public static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
-                # Select all in current field and type email
-                [System.Windows.Forms.SendKeys]::SendWait("^a")
-                Start-Sleep -Milliseconds 200
-                [System.Windows.Forms.SendKeys]::SendWait("{0}")
-                Start-Sleep -Milliseconds 500
+            public struct RECT {{ public int Left; public int Top; public int Right; public int Bottom; }}
+'@
+            $win = Add-Type -MemberDefinition $sig -Name 'WinAPI2' -Namespace 'Win32' -PassThru
 
-                # Press Enter (Continue button)
-                [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
-                Start-Sleep -Seconds 4
-
-                # Type password
-                [System.Windows.Forms.SendKeys]::SendWait("{1}")
-                Start-Sleep -Milliseconds 500
-
-                # Press Enter (Sign In)
-                [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
-
-                Write-Output "DONE"
-            }} else {{
-                Write-Output "EPIC_NOT_FOUND"
+            $epic = Get-Process EpicGamesLauncher -ErrorAction SilentlyContinue | Where-Object {{ $_.MainWindowHandle -ne 0 }} | Select-Object -First 1
+            if (-not $epic) {{
+                Write-Output "EPIC_NO_WINDOW"
+                exit
             }}
+
+            # Activate window
+            $win::SetForegroundWindow($epic.MainWindowHandle)
+            Start-Sleep -Milliseconds 1000
+
+            # Get window position and click on the email field area
+            # Email field is roughly centered horizontally, about 40% down from top
+            $rect = New-Object Win32.WinAPI2+RECT
+            $win::GetWindowRect($epic.MainWindowHandle, [ref]$rect)
+            $centerX = [int](($rect.Left + $rect.Right) / 2)
+            $emailY = [int]($rect.Top + ($rect.Bottom - $rect.Top) * 0.38)
+
+            # Click on email field
+            $win::SetCursorPos($centerX, $emailY)
+            Start-Sleep -Milliseconds 100
+            $win::mouse_event(0x0002, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTDOWN
+            $win::mouse_event(0x0004, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTUP
+            Start-Sleep -Milliseconds 500
+
+            # Triple-click to select all text in the field
+            $win::mouse_event(0x0002, 0, 0, 0, 0)
+            $win::mouse_event(0x0004, 0, 0, 0, 0)
+            Start-Sleep -Milliseconds 50
+            $win::mouse_event(0x0002, 0, 0, 0, 0)
+            $win::mouse_event(0x0004, 0, 0, 0, 0)
+            Start-Sleep -Milliseconds 50
+            $win::mouse_event(0x0002, 0, 0, 0, 0)
+            $win::mouse_event(0x0004, 0, 0, 0, 0)
+            Start-Sleep -Milliseconds 300
+
+            # Type email
+            [System.Windows.Forms.SendKeys]::SendWait("{0}")
+            Start-Sleep -Milliseconds 500
+
+            # Press Tab to move to Continue or press Enter
+            [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
+            Write-Output "EMAIL_SENT"
+
+            # Wait for password page
+            Start-Sleep -Seconds 5
+
+            # Type password (password field should auto-focus)
+            [System.Windows.Forms.SendKeys]::SendWait("{1}")
+            Start-Sleep -Milliseconds 500
+
+            # Submit
+            [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
+            Write-Output "DONE"
             "#,
             escape_sendkeys(&email_owned),
             escape_sendkeys(&password_owned),
@@ -112,18 +170,14 @@ async fn auto_login_epic_impl(email: &str, password: &str) -> Result<AutoLoginRe
     let ps_error = String::from_utf8_lossy(&activate_result.stderr).trim().to_string();
 
     if !ps_error.is_empty() {
-        steps.push(format!("PowerShell error: {}", &ps_error[..200.min(ps_error.len())]));
+        steps.push(format!("PS error: {}", &ps_error[..300.min(ps_error.len())]));
     }
 
-    if ps_output.contains("DONE") {
-        steps.push("Sent keystrokes via PowerShell SendKeys".into());
-    } else if ps_output.contains("EPIC_NOT_FOUND") {
-        steps.push("Epic Games process not found".into());
-    } else {
-        steps.push(format!("PowerShell output: {}", ps_output));
+    for line in ps_output.lines() {
+        steps.push(format!("PS: {}", line));
     }
 
-    // Wait for login to complete
+    // Wait for login
     steps.push("Waiting for login to complete (10s)...".into());
     tokio::time::sleep(std::time::Duration::from_secs(10)).await;
 
