@@ -16,9 +16,9 @@ const EPIC_TOKEN_URL: &str = "https://account-public-service-prod.ol.epicgames.c
 const EPIC_EXCHANGE_URL: &str = "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/exchange";
 const EPIC_DEVICE_AUTH_URL: &str = "https://account-public-service-prod.ol.epicgames.com/account/api/public/account";
 
-// Using fortniteIOSGameClient — supports device_auth
-const CLIENT_ID: &str = "3446cd72694c4a4485d81b77adbb2141";
-const CLIENT_SECRET: &str = "9209d4a5e25a457fb9b07489d313b41a";
+// Using launcherAppClient2 — the official Epic Games Launcher client
+const CLIENT_ID: &str = "34a02cf8f4414e29b15921876da36f9a";
+const CLIENT_SECRET: &str = "daafbccc737745039dffe53d94fc76cf";
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct DeviceAuthCredentials {
@@ -265,11 +265,10 @@ pub async fn epic_api_switch(
     })
 }
 
-/// Get authorization code URL — user opens this in browser to log in
+/// Get authorization code URL — user opens this in browser to log in.
+/// Uses the launcher client which returns the code directly on the page.
 #[tauri::command]
 pub fn epic_get_auth_url() -> String {
-    format!(
-        "https://www.epicgames.com/id/api/redirect?clientId={}&responseType=code",
-        CLIENT_ID
-    )
+    // This URL shows the auth code directly after login
+    "https://www.epicgames.com/id/api/redirect?clientId=34a02cf8f4414e29b15921876da36f9a&responseType=code".to_string()
 }
