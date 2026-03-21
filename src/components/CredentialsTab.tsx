@@ -66,16 +66,6 @@ export default function CredentialsTab({ addLog }: Props) {
     }
   };
 
-  const wipeEpicLogin = async () => {
-    addLog("info", "Wiping Epic login (without logout)...");
-    try {
-      const steps = await invoke<string[]>("wipe_epic_login");
-      steps.forEach(s => addLog("info", `  ${s}`));
-    } catch (e) {
-      addLog("error", `Wipe failed: ${e}`);
-    }
-  };
-
   useEffect(() => {
     loadCredentials();
   }, []);
@@ -119,24 +109,13 @@ export default function CredentialsTab({ addLog }: Props) {
                   {launcherCreds.length} saved
                 </span>
               </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => syncCredential(launcher.id)}
-                  disabled={syncing === launcher.id}
-                  className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-colors disabled:opacity-50"
-                >
-                  {syncing === launcher.id ? "Syncing..." : "Sync Current"}
-                </button>
-                {launcher.id === "epic" && (
-                  <button
-                    onClick={wipeEpicLogin}
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--danger)]/10 text-[var(--danger)] border border-[var(--danger)]/30 hover:bg-[var(--danger)]/20 transition-colors"
-                    title="Wipe login without Epic's logout (preserves server-side token)"
-                  >
-                    Wipe Login
-                  </button>
-                )}
-              </div>
+              <button
+                onClick={() => syncCredential(launcher.id)}
+                disabled={syncing === launcher.id}
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-colors disabled:opacity-50"
+              >
+                {syncing === launcher.id ? "Syncing..." : "Sync Current"}
+              </button>
             </div>
 
             {/* Credentials list */}

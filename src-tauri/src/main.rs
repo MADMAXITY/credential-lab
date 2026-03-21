@@ -44,7 +44,6 @@ fn main() {
             credentials::sync_current_credential,
             credentials::list_credentials,
             credentials::remove_credential,
-            credentials::wipe_epic_login,
             // Account switching
             switcher::switch_account,
             switcher::test_all_accounts,

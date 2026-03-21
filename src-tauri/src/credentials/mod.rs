@@ -30,6 +30,15 @@ pub fn sync_current_credential(
     };
 
     let db = state.db.lock().map_err(|e| e.to_string())?;
+
+    // For Epic/EA: single account only — remove any existing credential before saving
+    if result.launcher == "epic" || result.launcher == "ea" {
+        let existing = db.list_credentials(Some(&result.launcher))?;
+        for cred in existing {
+            db.remove_credential(cred.id)?;
+        }
+    }
+
     db.save_credential(
         &result.launcher,
         &result.username,
@@ -57,12 +66,6 @@ pub fn list_credentials(
 ) -> Result<Vec<SavedCredential>, String> {
     let db = state.db.lock().map_err(|e| e.to_string())?;
     db.list_credentials(launcher_id.as_deref())
-}
-
-/// Wipe Epic login state without logging out (preserves server-side token)
-#[tauri::command]
-pub fn wipe_epic_login() -> Result<Vec<String>, String> {
-    epic::wipe_login_state()
 }
 
 /// Remove a saved credential
