@@ -56,12 +56,34 @@ pub async fn switch_account(
     // so switching back to it later will work.
     auto_save_current(&cred.launcher, &state)?;
 
-    match cred.launcher.as_str() {
+    let result = match cred.launcher.as_str() {
         "steam" => switch_steam(&cred.username, &file_data).await,
         "epic" => switch_epic(&cred.username, &file_data).await,
         "ea" => switch_ea(&cred.username, &file_data).await,
         _ => Err(format!("Switching not yet implemented for: {}", cred.launcher)),
+    }?;
+
+    // For Epic: after successful switch, re-sync to capture post-login file state.
+    // Epic modifies INI + webcache after login. Without re-syncing, the next switch
+    // will restore stale files that don't match the webcache state → login fails.
+    if result.success && cred.launcher == "epic" {
+        // Wait briefly, then re-sync
+        tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+        if let Ok(sync_result) = crate::credentials::epic::sync_current() {
+            let db = state.db.lock().map_err(|e| e.to_string())?;
+            let _ = db.save_credential(
+                &sync_result.launcher,
+                &sync_result.username,
+                sync_result.registry_data.as_deref(),
+                sync_result.file_data.as_deref(),
+                sync_result.file_count,
+                sync_result.total_size,
+            );
+            db.log("info", "Re-synced Epic credential after successful switch");
+        }
     }
+
+    Ok(result)
 }
 
 /// Auto-save the currently logged-in account's files to DB before switching away.
@@ -320,9 +342,9 @@ async fn switch_epic(account_id: &str, file_data: &[u8]) -> Result<SwitchResult,
         }
     }
 
-    // Step 4: Verify — wait and check registry AccountId
+    // Step 4: Verify
     steps.push("Waiting for Epic to start...".into());
-    tokio::time::sleep(std::time::Duration::from_secs(8)).await;
+    tokio::time::sleep(std::time::Duration::from_secs(10)).await;
 
     let current = crate::launcher_detect::get_launcher_current_user("epic".into())
         .unwrap_or(None);
