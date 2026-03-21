@@ -28,25 +28,21 @@ fn get_ea_dir() -> Result<PathBuf, String> {
 }
 
 fn get_ea_account_id() -> Option<String> {
-    // EA uses telemetry.ini correlationId as unique ID
-    // Also check user_*.ini for user.userid
+    // EA doesn't expose account name/email in readable files.
+    // cookie.ini starts with a 64-char hex hash unique per account session.
+    // Use first 12 chars as account identifier.
     let ea_dir = get_ea_dir().ok()?;
-
-    // Try user_*.ini for userid
-    if let Ok(entries) = std::fs::read_dir(&ea_dir) {
-        for entry in entries.flatten() {
-            let name = entry.file_name().to_string_lossy().to_string();
-            if name.starts_with("user_") && name.ends_with(".ini") {
-                if let Ok(content) = std::fs::read_to_string(entry.path()) {
-                    for line in content.lines() {
-                        if line.starts_with("user.userid=") {
-                            return Some(line.strip_prefix("user.userid=")?.to_string());
-                        }
-                    }
-                }
-                // Fallback: use the number from filename user_XXXXX.ini
-                let id = name.strip_prefix("user_")?.strip_suffix(".ini")?;
-                return Some(id.to_string());
+    let cookie_path = ea_dir.join("cookie.ini");
+    if cookie_path.exists() {
+        if let Ok(data) = std::fs::read(&cookie_path) {
+            // First 64 bytes are ASCII hex chars
+            let prefix: String = data.iter()
+                .take(12)
+                .filter(|b| b.is_ascii_alphanumeric())
+                .map(|b| *b as char)
+                .collect();
+            if prefix.len() >= 8 {
+                return Some(format!("ea_{}", prefix));
             }
         }
     }
