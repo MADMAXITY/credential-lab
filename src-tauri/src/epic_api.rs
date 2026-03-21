@@ -145,8 +145,8 @@ pub async fn epic_poll_device_code(device_code: String) -> Result<EpicApiResult,
     steps.push("Waiting for you to approve in browser...".into());
     let mut user_token: Option<TokenResponse> = None;
 
-    for i in 0..12 {
-        tokio::time::sleep(std::time::Duration::from_secs(5)).await;
+    for i in 0..18 {
+        tokio::time::sleep(std::time::Duration::from_secs(10)).await;
 
         let poll_resp = client
             .post(EPIC_TOKEN_URL_03)
@@ -158,19 +158,19 @@ pub async fn epic_poll_device_code(device_code: String) -> Result<EpicApiResult,
         if poll_resp.status().is_success() {
             user_token = Some(poll_resp.json().await
                 .map_err(|e| format!("Parse failed: {}", e))?);
-            steps.push(format!("Login approved after {}s", (i + 1) * 5));
+            steps.push(format!("Login approved after {}s", (i + 1) * 10));
             break;
         } else {
             let body = poll_resp.text().await.unwrap_or_default();
-            if body.contains("authorization_pending") {
-                steps.push(format!("Polling... ({}s)", (i + 1) * 5));
+            if body.contains("authorization_pending") || body.contains("slow_down") {
+                steps.push(format!("Waiting... ({}s)", (i + 1) * 10));
             } else {
                 return Err(format!("Poll error: {}", &body[..300.min(body.len())]));
             }
         }
     }
 
-    let switch_token = user_token.ok_or("Timeout — user didn't approve in 60 seconds")?;
+    let switch_token = user_token.ok_or("Timeout — user didn't approve in 3 minutes")?;
     let display_name = switch_token.display_name.clone().unwrap_or_default();
     steps.push(format!("Logged in as: {}", display_name));
 
