@@ -62,6 +62,12 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in.")?;
 
+    // Wait a moment to ensure Epic has flushed all auth data to disk
+    // before we kill it. The RememberMe token in GameUserSettings.ini
+    // may not be fully written if we kill too fast.
+    log::info!("[Epic Sync] Waiting 3s for Epic to flush auth data...");
+    std::thread::sleep(std::time::Duration::from_secs(3));
+
     // Kill Epic to release file locks on Cookies
     kill_epic();
     std::thread::sleep(std::time::Duration::from_secs(2));
@@ -76,9 +82,23 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     if ini_path.exists() {
         let data = std::fs::read(&ini_path)
             .map_err(|e| format!("Failed to read GameUserSettings.ini: {}", e))?;
+
+        // Validate: INI must contain a RememberMe token and be a reasonable size
+        let content = String::from_utf8_lossy(&data);
+        if !content.contains("[RememberMe]") || !content.contains("Data=") {
+            return Err("GameUserSettings.ini does not contain RememberMe token. Make sure you're fully logged in.".into());
+        }
+        if data.len() < 2500 {
+            return Err(format!(
+                "GameUserSettings.ini is too small ({} bytes) — Epic may not have finished writing auth data. Wait a few seconds and try again.",
+                data.len()
+            ));
+        }
+
         total_size += data.len() as i64;
         file_map.insert("GameUserSettings.ini".into(), hex_encode(&data));
         file_count += 1;
+        log::info!("[Epic Sync] Saved GameUserSettings.ini ({} bytes)", data.len());
     } else {
         return Err("GameUserSettings.ini not found".into());
     }
