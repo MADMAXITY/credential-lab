@@ -88,7 +88,7 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
         if !content.contains("[RememberMe]") || !content.contains("Data=") {
             return Err("GameUserSettings.ini does not contain RememberMe token. Make sure you're fully logged in.".into());
         }
-        if data.len() < 2500 {
+        if data.len() < 2000 {
             return Err(format!(
                 "GameUserSettings.ini is too small ({} bytes) — Epic may not have finished writing auth data. Wait a few seconds and try again.",
                 data.len()
