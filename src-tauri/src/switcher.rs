@@ -59,6 +59,7 @@ pub async fn switch_account(
     match cred.launcher.as_str() {
         "steam" => switch_steam(&cred.username, &file_data).await,
         "epic" => switch_epic(&cred.username, &file_data).await,
+        "ea" => switch_ea(&cred.username, &file_data).await,
         _ => Err(format!("Switching not yet implemented for: {}", cred.launcher)),
     }
 }
@@ -68,9 +69,8 @@ pub async fn switch_account(
 fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> Result<(), String> {
     let sync_result = match launcher_id {
         "steam" => crate::credentials::steam::sync_current(),
+        "ea" => crate::credentials::ea::sync_current_for_auto_save(),
         // Epic: NO auto-save. Epic's [RememberMe] token is single-session.
-        // Auto-save after a switch captures a token that was already restored from DB,
-        // potentially truncated. Manual sync captures the real token from a live login.
         "epic" => return Ok(()),
         _ => return Ok(()),
     };
@@ -132,6 +132,7 @@ pub async fn test_all_accounts(
         let result = match (launcher_id.as_str(), file_data) {
             ("steam", Some(ref fd)) => switch_steam(&cred.username, fd).await,
             ("epic", Some(ref fd)) => switch_epic(&cred.username, fd).await,
+            ("ea", Some(ref fd)) => switch_ea(&cred.username, fd).await,
             (_, Some(_)) => Err("Not implemented".into()),
             (_, None) => Err(format!("No saved file data for '{}'", cred.username)),
         };
@@ -177,6 +178,7 @@ pub async fn test_all_accounts(
             match launcher_id.as_str() {
                 "steam" => { let _ = switch_steam(orig, fd).await; },
                 "epic" => { let _ = switch_epic(orig, fd).await; },
+                "ea" => { let _ = switch_ea(orig, fd).await; },
                 _ => {},
             }
         }
@@ -339,6 +341,63 @@ async fn switch_epic(account_id: &str, file_data: &[u8]) -> Result<SwitchResult,
         new_user: current,
         steps,
         error: if success { None } else { Some(status_msg) },
+    })
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// EA Switching
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async fn switch_ea(account_id: &str, file_data: &[u8]) -> Result<SwitchResult, String> {
+    let mut steps = Vec::new();
+    let launcher = "ea".to_string();
+
+    // Step 1: Kill EA
+    let killed = kill_process("EADesktop.exe");
+    let killed2 = kill_process("EABackgroundService.exe");
+    if killed + killed2 > 0 {
+        steps.push("Killed EA processes".into());
+        tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+    } else {
+        steps.push("EA was not running".into());
+    }
+
+    // Step 2: Restore saved files
+    let restore_steps = crate::credentials::ea::restore_and_switch(account_id, file_data)?;
+    steps.extend(restore_steps);
+
+    // Step 3: Start EA
+    #[cfg(target_os = "windows")]
+    {
+        let ea_exe = r"C:\Program Files\Electronic Arts\EA Desktop\EA Desktop\EADesktop.exe";
+        if std::path::Path::new(ea_exe).exists() {
+            std::process::Command::new(ea_exe)
+                .spawn()
+                .map_err(|e| format!("Failed to start EA: {}", e))?;
+            steps.push("Started EA Desktop".into());
+        } else {
+            steps.push("EA exe not found — start manually".into());
+        }
+    }
+
+    // Step 4: Wait
+    steps.push("Waiting for EA to start...".into());
+    tokio::time::sleep(std::time::Duration::from_secs(8)).await;
+
+    // Basic verification — check if EA is running
+    let ea_running = is_process_running("EADesktop.exe");
+    if ea_running {
+        steps.push("EA Desktop is running".into());
+    } else {
+        steps.push("EA Desktop may still be starting".into());
+    }
+
+    Ok(SwitchResult {
+        success: ea_running,
+        launcher,
+        new_user: Some(account_id.to_string()),
+        steps,
+        error: None,
     })
 }
 

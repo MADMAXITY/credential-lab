@@ -2,6 +2,7 @@
 
 pub mod steam;
 pub mod epic;
+pub mod ea;
 
 use serde::{Deserialize, Serialize};
 use crate::AppState;
@@ -24,6 +25,7 @@ pub fn sync_current_credential(
     let result = match launcher_id.as_str() {
         "steam" => steam::sync_current()?,
         "epic" => epic::sync_current()?,
+        "ea" => ea::sync_current()?,
         _ => return Err(format!("Sync not yet implemented for: {}", launcher_id)),
     };
 
