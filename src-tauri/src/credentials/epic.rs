@@ -186,12 +186,13 @@ fn sync_current_inner(restart_after: bool) -> Result<InternalSyncResult, String>
     })
 }
 
-/// Restore: merge ALL saved accounts' [RememberMe] tokens into GameUserSettings.ini,
+/// Restore: write target account's [RememberMe] token into ALL GameUserSettings.ini files,
 /// set registry AccountId, delete webcache.
 pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<String>, String> {
     let mut steps = Vec::new();
 
     let saved_dir = get_epic_saved_dir()?;
+    let config_dir = saved_dir.join("Config");
 
     let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
         .map_err(|e| format!("Failed to parse saved data: {}", e))?;
@@ -200,25 +201,36 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     let target_token = file_map.get("__remember_me_token__")
         .ok_or("No RememberMe token in saved data")?;
 
-    // Restore the GameUserSettings.ini base file
-    let ini_path = get_game_user_settings_path()
-        .or_else(|_| {
-            // If file doesn't exist, create the directory and use default path
-            let default = saved_dir.join("Config").join("WindowsEditor");
-            let _ = std::fs::create_dir_all(&default);
-            Ok::<PathBuf, String>(default.join("GameUserSettings.ini"))
-        })?;
+    // Find ALL GameUserSettings.ini files in the Config directory tree
+    // Epic has multiple copies: Config/WindowsEditor/, Config/Config/WindowsEditor/, Config/Config/Windows/
+    let mut ini_files = Vec::new();
+    find_all_game_user_settings(&config_dir, &mut ini_files);
 
-    if let Some(ini_hex) = file_map.get("__game_user_settings__") {
-        let ini_data = hex_decode(ini_hex)?;
-        std::fs::write(&ini_path, &ini_data)
-            .map_err(|e| format!("Failed to write GameUserSettings.ini: {}", e))?;
-        steps.push("Restored GameUserSettings.ini".into());
+    if ini_files.is_empty() {
+        // Create the default one
+        let default_dir = config_dir.join("WindowsEditor");
+        let _ = std::fs::create_dir_all(&default_dir);
+        let default_path = default_dir.join("GameUserSettings.ini");
+        // Write from saved data
+        if let Some(ini_hex) = file_map.get("__game_user_settings__") {
+            let ini_data = hex_decode(ini_hex)?;
+            std::fs::write(&default_path, &ini_data)
+                .map_err(|e| format!("Failed to write GameUserSettings.ini: {}", e))?;
+        }
+        ini_files.push(default_path);
     }
 
-    // Write the target account's [RememberMe] token into the ini
-    write_remember_me_tokens(&ini_path, &[target_token.clone()])?;
-    steps.push(format!("Set [RememberMe] token for {}", &account_id[..8.min(account_id.len())]));
+    // Write the [RememberMe] token into ALL GameUserSettings.ini files
+    let mut patched = 0;
+    for ini_path in &ini_files {
+        if ini_path.exists() {
+            match write_remember_me_tokens(ini_path, &[target_token.clone()]) {
+                Ok(_) => patched += 1,
+                Err(e) => log::warn!("[Epic] Failed to patch {:?}: {}", ini_path, e),
+            }
+        }
+    }
+    steps.push(format!("Patched [RememberMe] token in {} GameUserSettings.ini file(s)", patched));
 
     // Delete webcache — force Epic to rebuild from [RememberMe] token
     let webcache_dir = find_webcache_dir(&saved_dir);
@@ -248,6 +260,25 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     }
 
     Ok(steps)
+}
+
+/// Recursively find all GameUserSettings.ini files in a directory tree
+fn find_all_game_user_settings(dir: &PathBuf, results: &mut Vec<PathBuf>) {
+    if !dir.exists() { return; }
+    if let Ok(entries) = std::fs::read_dir(dir) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if path.is_dir() {
+                find_all_game_user_settings(&path, results);
+            } else if path.is_file() {
+                if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
+                    if name == "GameUserSettings.ini" {
+                        results.push(path);
+                    }
+                }
+            }
+        }
+    }
 }
 
 fn find_webcache_dir(saved_dir: &PathBuf) -> Option<PathBuf> {
