@@ -71,9 +71,19 @@ pub fn sync_current() -> Result<InternalSyncResult, String> {
     let account_id = get_epic_account_id()
         .ok_or("No Epic Games account logged in.")?;
 
-    log::info!("[Epic Sync] Waiting for Epic to flush auth data...");
-    std::thread::sleep(std::time::Duration::from_secs(3));
+    // Kill Epic, then restart it briefly so it rewrites INI files to its
+    // preferred format, then kill again and capture the files.
+    // Epic modifies WindowsEditor/GameUserSettings.ini on every launch —
+    // we need to capture the version Epic actually uses, not the pre-launch version.
+    log::info!("[Epic Sync] Restarting Epic to capture post-launch INI state...");
+    kill_epic();
+    std::thread::sleep(std::time::Duration::from_secs(2));
 
+    // Restart briefly
+    start_epic();
+    std::thread::sleep(std::time::Duration::from_secs(8));
+
+    // Kill again and capture
     kill_epic();
     std::thread::sleep(std::time::Duration::from_secs(2));
 
