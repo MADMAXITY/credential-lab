@@ -284,30 +284,7 @@ function AutoLoginSection({ addLog }: { addLog: (level: string, message: string)
   const [epicUser, setEpicUser] = useState("");
   const [epicPass, setEpicPass] = useState("");
   const [running, setRunning] = useState(false);
-  const [scanning, setScanning] = useState(false);
-  const [scanResults, setScanResults] = useState<{ name: string; control_type: string; automation_id: string; class_name: string }[]>([]);
   const [autoLoginSteps, setAutoLoginSteps] = useState<string[]>([]);
-
-  const scanWindow = async (title: string) => {
-    setScanning(true);
-    setScanResults([]);
-    addLog("info", `Scanning UI elements in "${title}"...`);
-    try {
-      const results = await invoke<{ name: string; control_type: string; automation_id: string; class_name: string; is_enabled: boolean }[]>(
-        "scan_window_elements", { windowTitle: title }
-      );
-      setScanResults(results);
-      addLog("info", `Found ${results.length} elements`);
-      results.forEach((e) => {
-        if (e.control_type.includes("Edit") || e.control_type.includes("Button")) {
-          addLog("info", `  ${e.control_type} | "${e.name}" | id="${e.automation_id}" | class="${e.class_name}"`);
-        }
-      });
-    } catch (e) {
-      addLog("error", `Scan failed: ${e}`);
-    }
-    setScanning(false);
-  };
 
   const tryAutoLogin = async () => {
     if (!epicUser || !epicPass) return;
@@ -336,34 +313,9 @@ function AutoLoginSection({ addLog }: { addLog: (level: string, message: string)
       </div>
 
       <div className="ml-8 space-y-3">
-        {/* Scan buttons */}
-        <div className="flex gap-2">
-          <button
-            onClick={() => scanWindow("Epic")}
-            disabled={scanning}
-            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--warning)] transition-colors"
-          >
-            {scanning ? "Scanning..." : "Scan Epic Window"}
-          </button>
-          <button
-            onClick={() => scanWindow("Sign")}
-            disabled={scanning}
-            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--warning)] transition-colors"
-          >
-            Scan "Sign In" Window
-          </button>
-        </div>
-
-        {/* Scan results */}
-        {scanResults.length > 0 && (
-          <div className="max-h-40 overflow-y-auto p-2 rounded-lg bg-[var(--bg-primary)] text-xs font-mono space-y-0.5">
-            {scanResults.map((e, i) => (
-              <div key={i} className={`${e.control_type.includes("Edit") ? "text-[var(--accent)]" : e.control_type.includes("Button") ? "text-[var(--warning)]" : "text-[var(--text-muted)]"}`}>
-                {e.control_type} | "{e.name}" | id="{e.automation_id}"
-              </div>
-            ))}
-          </div>
-        )}
+        <p className="text-xs text-[var(--text-muted)]">
+          Kills Epic → clears login state → starts Epic → types email + password via keyboard simulation → submits
+        </p>
 
         {/* Login form */}
         <div className="flex gap-2">

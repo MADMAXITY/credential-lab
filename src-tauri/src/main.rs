@@ -49,8 +49,7 @@ fn main() {
             switcher::switch_account,
             switcher::test_all_accounts,
             switcher::verify_launcher_state,
-            // Auto-login (password-based)
-            auto_login::scan_window_elements,
+            // Auto-login (password-based via SendInput)
             auto_login::auto_login_epic,
             // Logging
             get_logs,
