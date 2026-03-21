@@ -35,12 +35,6 @@ pub async fn auto_login_epic(username: String, password: String) -> Result<AutoL
 
 #[cfg(target_os = "windows")]
 async fn auto_login_epic_impl(email: &str, password: &str) -> Result<AutoLoginResult, String> {
-    use windows::Win32::UI::WindowsAndMessaging::*;
-    use windows::Win32::UI::Input::KeyboardAndMouse::*;
-    use windows::Win32::Foundation::*;
-    #[allow(unused_imports)]
-    use windows::Win32::UI::Input::KeyboardAndMouse::{VK_TAB, VK_RETURN, VK_CONTROL, VK_A};
-
     let mut steps = Vec::new();
 
     // Step 1: Kill Epic
@@ -63,85 +57,107 @@ async fn auto_login_epic_impl(email: &str, password: &str) -> Result<AutoLoginRe
     steps.push("Started Epic Games Launcher".into());
 
     // Step 4: Wait for login window to fully load
-    steps.push("Waiting for login window to load (15s)...".into());
-    tokio::time::sleep(std::time::Duration::from_secs(15)).await;
+    steps.push("Waiting for login window to load (20s)...".into());
+    tokio::time::sleep(std::time::Duration::from_secs(20)).await;
 
-    // Step 5: Find and focus Epic window
-    // Use isize to pass HWND across threads (HWND is just a pointer)
-    let hwnd_val = tokio::task::spawn_blocking(|| {
-        find_window_by_partial_title("Epic Games Launcher")
-            .map(|h| h.0 as isize)
-            .unwrap_or(0)
-    }).await.unwrap_or(0);
+    // Step 5: Use PowerShell to activate the window and send keystrokes
+    // PowerShell's SendKeys is more reliable than raw SendInput for CEF windows
+    let email_owned = email.to_string();
+    let password_owned = password.to_string();
 
-    if hwnd_val != 0 {
-        unsafe {
-            SetForegroundWindow(HWND(hwnd_val as *mut std::ffi::c_void));
-        }
-        tokio::time::sleep(std::time::Duration::from_millis(500)).await;
-        steps.push("Focused Epic Games window".into());
-    } else {
-        steps.push("Could not find Epic window — trying anyway".into());
+    // First, activate Epic's window via PowerShell
+    let activate_result = std::process::Command::new("powershell")
+        .args(["-NoProfile", "-Command", &format!(
+            r#"
+            Add-Type -AssemblyName Microsoft.VisualBasic
+            Add-Type -AssemblyName System.Windows.Forms
+
+            # Find and activate Epic Games window
+            $epic = Get-Process EpicGamesLauncher -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($epic) {{
+                $sig = '[DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr hWnd);'
+                $type = Add-Type -MemberDefinition $sig -Name 'WinAPI' -Namespace 'Win32' -PassThru
+                $type::SetForegroundWindow($epic.MainWindowHandle)
+                Start-Sleep -Milliseconds 500
+
+                # Select all in current field and type email
+                [System.Windows.Forms.SendKeys]::SendWait("^a")
+                Start-Sleep -Milliseconds 200
+                [System.Windows.Forms.SendKeys]::SendWait("{0}")
+                Start-Sleep -Milliseconds 500
+
+                # Press Enter (Continue button)
+                [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
+                Start-Sleep -Seconds 4
+
+                # Type password
+                [System.Windows.Forms.SendKeys]::SendWait("{1}")
+                Start-Sleep -Milliseconds 500
+
+                # Press Enter (Sign In)
+                [System.Windows.Forms.SendKeys]::SendWait("{{ENTER}}")
+
+                Write-Output "DONE"
+            }} else {{
+                Write-Output "EPIC_NOT_FOUND"
+            }}
+            "#,
+            escape_sendkeys(&email_owned),
+            escape_sendkeys(&password_owned),
+        )])
+        .output()
+        .map_err(|e| format!("PowerShell failed: {}", e))?;
+
+    let ps_output = String::from_utf8_lossy(&activate_result.stdout).trim().to_string();
+    let ps_error = String::from_utf8_lossy(&activate_result.stderr).trim().to_string();
+
+    if !ps_error.is_empty() {
+        steps.push(format!("PowerShell error: {}", &ps_error[..200.min(ps_error.len())]));
     }
 
-    // Step 6: Small delay then start typing
-    tokio::time::sleep(std::time::Duration::from_secs(1)).await;
-
-    // The Epic login page has the email field. It might be pre-filled or empty.
-    // Strategy: Click in the center area where the email field is, select all, type email
-
-    // Tab a few times to ensure we're in the email field, then Ctrl+A to select all
-    send_key(VK_TAB, &mut steps, false);
-    tokio::time::sleep(std::time::Duration::from_millis(200)).await;
-
-    // Select all text in current field
-    send_key_combo(VK_CONTROL, VK_A, &mut steps);
-    tokio::time::sleep(std::time::Duration::from_millis(100)).await;
-
-    // Type email
-    type_string(email);
-    steps.push(format!("Typed email: {}", email));
-    tokio::time::sleep(std::time::Duration::from_millis(300)).await;
-
-    // Tab to next field or press Enter/Continue button
-    // Epic's login is 2-step: email first, then Continue, then password
-    // After typing email, we need to click "Continue" or press Enter
-    send_key(VK_RETURN, &mut steps, true);
-    steps.push("Pressed Enter (Continue)".into());
-
-    // Wait for password page to load
-    tokio::time::sleep(std::time::Duration::from_secs(3)).await;
-
-    // Now the password field should be focused
-    // Type password
-    type_string(password);
-    steps.push("Typed password".into());
-    tokio::time::sleep(std::time::Duration::from_millis(300)).await;
-
-    // Press Enter to submit
-    send_key(VK_RETURN, &mut steps, true);
-    steps.push("Pressed Enter (Sign In)".into());
+    if ps_output.contains("DONE") {
+        steps.push("Sent keystrokes via PowerShell SendKeys".into());
+    } else if ps_output.contains("EPIC_NOT_FOUND") {
+        steps.push("Epic Games process not found".into());
+    } else {
+        steps.push(format!("PowerShell output: {}", ps_output));
+    }
 
     // Wait for login to complete
     steps.push("Waiting for login to complete (10s)...".into());
     tokio::time::sleep(std::time::Duration::from_secs(10)).await;
 
-    // Check if login succeeded by reading registry AccountId
+    // Check if login succeeded
     let account_id = crate::launcher_detect::get_launcher_current_user("epic".into())
         .unwrap_or(None);
 
-    let success = account_id.is_some();
-    if success {
-        steps.push(format!("Login successful — account: {}", account_id.unwrap_or_default()));
-    } else {
-        steps.push("Login may still be in progress or failed".into());
+    if let Some(ref id) = account_id {
+        steps.push(format!("Registry AccountId: {}", &id[..8.min(id.len())]));
     }
 
     Ok(AutoLoginResult {
-        success,
+        success: false, // Always report false — user must visually verify
         steps,
-        error: if success { None } else { Some("Check Epic window to verify login status".into()) },
+        error: Some("Check Epic window to verify if login succeeded".into()),
     })
+}
+
+/// Escape special characters for PowerShell SendKeys
+/// +^%~(){}[] are special in SendKeys and need to be wrapped in braces
+#[cfg(target_os = "windows")]
+fn escape_sendkeys(text: &str) -> String {
+    let mut result = String::new();
+    for ch in text.chars() {
+        match ch {
+            '+' | '^' | '%' | '~' | '(' | ')' | '{' | '}' | '[' | ']' => {
+                result.push('{');
+                result.push(ch);
+                result.push('}');
+            }
+            _ => result.push(ch),
+        }
+    }
+    result
 }
 
 #[cfg(target_os = "windows")]
