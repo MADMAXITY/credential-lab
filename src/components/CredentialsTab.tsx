@@ -66,6 +66,16 @@ export default function CredentialsTab({ addLog }: Props) {
     }
   };
 
+  const wipeLauncher = async (launcherId: string) => {
+    addLog("info", `Wiping ${launcherId} credentials (showing login screen)...`);
+    try {
+      const steps = await invoke<string[]>("wipe_launcher_login", { launcherId });
+      steps.forEach(s => addLog("info", `  ${s}`));
+    } catch (e) {
+      addLog("error", `Wipe failed: ${e}`);
+    }
+  };
+
   useEffect(() => {
     loadCredentials();
   }, []);
@@ -109,13 +119,24 @@ export default function CredentialsTab({ addLog }: Props) {
                   {launcherCreds.length} saved
                 </span>
               </div>
-              <button
-                onClick={() => syncCredential(launcher.id)}
-                disabled={syncing === launcher.id}
-                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-colors disabled:opacity-50"
-              >
-                {syncing === launcher.id ? "Syncing..." : "Sync Current"}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => syncCredential(launcher.id)}
+                  disabled={syncing === launcher.id}
+                  className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-colors disabled:opacity-50"
+                >
+                  {syncing === launcher.id ? "Syncing..." : "Sync Current"}
+                </button>
+                {launcherCreds.length > 0 && (
+                  <button
+                    onClick={() => wipeLauncher(launcher.id)}
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-white/5 text-[var(--text-secondary)] border border-[var(--border)] hover:text-[var(--text-primary)] hover:border-[var(--text-muted)] transition-colors"
+                    title="Clear credentials — launcher opens with login screen"
+                  >
+                    Clear Login
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Credentials list */}

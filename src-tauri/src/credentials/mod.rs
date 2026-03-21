@@ -68,6 +68,60 @@ pub fn list_credentials(
     db.list_credentials(launcher_id.as_deref())
 }
 
+/// Clear launcher credentials — shows login screen. Does NOT delete saved credential from DB.
+#[tauri::command]
+pub fn wipe_launcher_login(launcher_id: String) -> Result<Vec<String>, String> {
+    match launcher_id.as_str() {
+        "epic" => epic::wipe_login_state(),
+        "steam" => {
+            // For Steam: clear AutoLoginUser registry
+            let mut steps = Vec::new();
+            #[cfg(target_os = "windows")]
+            {
+                let _ = std::process::Command::new("taskkill")
+                    .args(["/F", "/IM", "steam.exe"]).output();
+                steps.push("Killed Steam".into());
+                std::thread::sleep(std::time::Duration::from_secs(2));
+
+                use winreg::enums::*;
+                use winreg::RegKey;
+                let hkcu = RegKey::predef(HKEY_CURRENT_USER);
+                if let Ok((key, _)) = hkcu.create_subkey(r"Software\Valve\Steam") {
+                    let _ = key.set_value("AutoLoginUser", &"");
+                    let _ = key.set_value("RememberPassword", &0u32);
+                    steps.push("Cleared Steam AutoLoginUser".into());
+                }
+            }
+            steps.push("Steam will show login screen on next launch.".into());
+            Ok(steps)
+        }
+        "ea" => {
+            let mut steps = Vec::new();
+            #[cfg(target_os = "windows")]
+            {
+                let _ = std::process::Command::new("taskkill")
+                    .args(["/F", "/IM", "EADesktop.exe"]).output();
+                let _ = std::process::Command::new("taskkill")
+                    .args(["/F", "/IM", "EABackgroundService.exe"]).output();
+                steps.push("Killed EA".into());
+                std::thread::sleep(std::time::Duration::from_secs(2));
+
+                // Delete cookie.ini which holds the auth token
+                let local = std::env::var("LOCALAPPDATA").unwrap_or_default();
+                let cookie = std::path::PathBuf::from(&local)
+                    .join("Electronic Arts").join("EA Desktop").join("cookie.ini");
+                if cookie.exists() {
+                    let _ = std::fs::remove_file(&cookie);
+                    steps.push("Cleared EA cookie".into());
+                }
+            }
+            steps.push("EA will show login screen on next launch.".into());
+            Ok(steps)
+        }
+        _ => Err(format!("Wipe not implemented for: {}", launcher_id)),
+    }
+}
+
 /// Remove a saved credential
 #[tauri::command]
 pub fn remove_credential(
