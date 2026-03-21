@@ -222,6 +222,68 @@ pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<Stri
     Ok(steps)
 }
 
+/// Wipe Epic login state WITHOUT going through Epic's logout.
+/// Kills Epic, clears GameUserSettings.ini RememberMe + registry AccountId.
+/// This does NOT revoke the token server-side — it just removes it from disk.
+/// Next Epic launch will show login screen.
+pub fn wipe_login_state() -> Result<Vec<String>, String> {
+    let mut steps = Vec::new();
+
+    kill_epic();
+    std::thread::sleep(std::time::Duration::from_secs(2));
+    steps.push("Killed Epic".into());
+
+    let saved_dir = get_epic_saved_dir()?;
+
+    // Clear RememberMe in GameUserSettings.ini (but keep the file)
+    let ini_path = saved_dir.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
+    if ini_path.exists() {
+        if let Ok(content) = std::fs::read_to_string(&ini_path) {
+            let mut output = String::new();
+            let mut in_section = false;
+            for line in content.lines() {
+                if line.trim() == "[RememberMe]" {
+                    in_section = true;
+                    output.push_str("[RememberMe]\n");
+                    output.push_str("Enable=False\n");
+                    continue;
+                }
+                if in_section && line.starts_with('[') {
+                    in_section = false;
+                }
+                if !in_section {
+                    output.push_str(line);
+                    output.push('\n');
+                }
+            }
+            let _ = std::fs::write(&ini_path, output);
+            steps.push("Cleared RememberMe token".into());
+        }
+    }
+
+    // Clear registry AccountId
+    #[cfg(target_os = "windows")]
+    {
+        use winreg::enums::*;
+        use winreg::RegKey;
+        let hkcu = RegKey::predef(HKEY_CURRENT_USER);
+        if let Ok((key, _)) = hkcu.create_subkey(r"Software\Epic Games\Unreal Engine\Identifiers") {
+            let _ = key.set_value("AccountId", &"");
+            steps.push("Cleared registry AccountId".into());
+        }
+    }
+
+    // Delete webcache Cookies (session data)
+    if let Some(wc_dir) = find_webcache_dir(&saved_dir) {
+        let _ = std::fs::remove_file(wc_dir.join("Cookies"));
+        let _ = std::fs::remove_file(wc_dir.join("Cookies-journal"));
+        steps.push("Cleared webcache Cookies".into());
+    }
+
+    steps.push("Login wiped. Epic will show login screen on next launch.".into());
+    Ok(steps)
+}
+
 pub fn sync_current_for_auto_save() -> Result<InternalSyncResult, String> {
     // For auto-save, same as sync but don't restart Epic (switch will handle it)
     let account_id = get_epic_account_id()

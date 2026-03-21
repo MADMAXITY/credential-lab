@@ -59,6 +59,12 @@ pub fn list_credentials(
     db.list_credentials(launcher_id.as_deref())
 }
 
+/// Wipe Epic login state without logging out (preserves server-side token)
+#[tauri::command]
+pub fn wipe_epic_login() -> Result<Vec<String>, String> {
+    epic::wipe_login_state()
+}
+
 /// Remove a saved credential
 #[tauri::command]
 pub fn remove_credential(
