@@ -291,8 +291,8 @@ interface DeviceAuth {
 }
 
 function EpicApiSection({ addLog }: { addLog: (level: string, message: string) => void }) {
-  const [authCode, setAuthCode] = useState("");
-  const [setting_up, setSettingUp] = useState(false);
+  const [settingUp, setSettingUp] = useState(false);
+  const [polling, setPolling] = useState(false);
   const [savedAccounts, setSavedAccounts] = useState<DeviceAuth[]>(() => {
     try {
       return JSON.parse(localStorage.getItem("epic_device_auths") || "[]");
@@ -306,39 +306,56 @@ function EpicApiSection({ addLog }: { addLog: (level: string, message: string) =
     localStorage.setItem("epic_device_auths", JSON.stringify(accounts));
   };
 
-  const openAuthUrl = async () => {
-    try {
-      const { open } = await import("@tauri-apps/api/shell");
-      const url = await invoke<string>("epic_get_auth_url");
-      await open(url);
-      addLog("info", "Opened Epic login page in your browser. Log in, then copy the authorization code from the page.");
-    } catch (e) {
-      addLog("error", `Failed: ${e}`);
-    }
-  };
-
-  const setupDeviceAuth = async () => {
-    if (!authCode.trim()) return;
+  const addAccount = async () => {
     setSettingUp(true);
     setSteps([]);
-    addLog("info", "Setting up Epic device auth...");
+    addLog("info", "Starting Epic device code flow...");
+
     try {
-      const result = await invoke<{ success: boolean; steps: string[]; device_auth: DeviceAuth | null; error: string | null }>(
-        "epic_setup_device_auth", { authCode: authCode.trim() }
-      );
-      setSteps(result.steps);
-      result.steps.forEach(s => addLog("info", `  ${s}`));
-      if (result.device_auth) {
-        const existing = savedAccounts.filter(a => a.account_id !== result.device_auth!.account_id);
-        saveAccounts([...existing, result.device_auth]);
-        addLog("info", `Device auth saved for: ${result.device_auth.display_name}`);
-        setAuthCode("");
+      // Step 1: Get device code + verification URL
+      const startResult = await invoke<{
+        success: boolean; steps: string[]; verification_url: string | null; error: string | null;
+      }>("epic_start_device_code");
+
+      setSteps(startResult.steps);
+      startResult.steps.forEach(s => addLog("info", `  ${s}`));
+
+      if (!startResult.verification_url || !startResult.error) {
+        addLog("error", "Failed to get device code");
+        setSettingUp(false);
+        return;
+      }
+
+      const deviceCode = startResult.error; // device_code passed via error field
+      const verificationUrl = startResult.verification_url;
+
+      // Open URL in browser
+      const { open } = await import("@tauri-apps/api/shell");
+      await open(verificationUrl);
+      addLog("info", "Opened Epic login in browser — log in and approve the request");
+
+      setSteps(prev => [...prev, "Opened browser — log in and click 'Confirm'"]);
+      setPolling(true);
+
+      // Step 2: Poll until user approves
+      const pollResult = await invoke<{
+        success: boolean; steps: string[]; device_auth: DeviceAuth | null; error: string | null;
+      }>("epic_poll_device_code", { deviceCode });
+
+      setSteps(prev => [...prev, ...pollResult.steps]);
+      pollResult.steps.forEach(s => addLog("info", `  ${s}`));
+
+      if (pollResult.device_auth) {
+        const existing = savedAccounts.filter(a => a.account_id !== pollResult.device_auth!.account_id);
+        saveAccounts([...existing, pollResult.device_auth]);
+        addLog("info", `Device auth saved for: ${pollResult.device_auth.display_name}`);
       }
     } catch (e) {
       addLog("error", `Setup failed: ${e}`);
-      setSteps([`Error: ${e}`]);
+      setSteps(prev => [...prev, `Error: ${e}`]);
     }
     setSettingUp(false);
+    setPolling(false);
   };
 
   const switchAccount = async (account: DeviceAuth) => {
@@ -378,34 +395,17 @@ function EpicApiSection({ addLog }: { addLog: (level: string, message: string) =
 
       <div className="ml-8 space-y-3">
         <p className="text-xs text-[var(--text-muted)]">
-          Uses Epic's OAuth API to create permanent device credentials. No file swapping — gets a fresh exchange code each time.
+          Uses Epic's OAuth API. Click "Add Account" → log in in browser → approve → permanent credentials created. Switch gets a fresh token each time.
         </p>
 
-        {/* Setup */}
-        <div className="space-y-2">
-          <div className="flex gap-2">
-            <button
-              onClick={openAuthUrl}
-              className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] transition-colors"
-            >
-              1. Open Epic Login
-            </button>
-            <input
-              type="text"
-              placeholder="2. Paste authorization code here"
-              value={authCode}
-              onChange={(e) => setAuthCode(e.target.value)}
-              className="flex-1 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
-            />
-            <button
-              onClick={setupDeviceAuth}
-              disabled={setting_up || !authCode.trim()}
-              className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)] text-black hover:brightness-110 transition disabled:opacity-40"
-            >
-              {setting_up ? "Setting up..." : "3. Create Device Auth"}
-            </button>
-          </div>
-        </div>
+        {/* Add Account */}
+        <button
+          onClick={addAccount}
+          disabled={settingUp}
+          className="px-4 py-2 text-sm font-medium rounded-lg bg-[var(--accent)] text-black hover:brightness-110 transition disabled:opacity-40"
+        >
+          {polling ? "Waiting for approval in browser..." : settingUp ? "Setting up..." : "Add Epic Account"}
+        </button>
 
         {/* Saved accounts */}
         {savedAccounts.length > 0 && (
@@ -441,7 +441,7 @@ function EpicApiSection({ addLog }: { addLog: (level: string, message: string) =
 
         {/* Steps */}
         {steps.length > 0 && (
-          <div className="p-3 rounded-lg bg-[var(--bg-primary)] text-xs space-y-1">
+          <div className="p-3 rounded-lg bg-[var(--bg-primary)] text-xs space-y-1 max-h-48 overflow-y-auto">
             {steps.map((step, i) => (
               <p key={i} className="text-[var(--text-secondary)]">{step}</p>
             ))}

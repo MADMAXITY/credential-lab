@@ -1,29 +1,34 @@
-//! Epic Games API-based authentication.
+//! Epic Games API-based authentication via device_code + device_auth.
 //!
-//! Uses Epic's OAuth API with device_auth grant type for persistent credentials.
-//! This avoids file-swapping entirely — each switch gets a fresh exchange code
-//! from the API and launches Epic with it.
+//! Based on xMistt/DeviceAuthGenerator (v1.3.0, Dec 2024).
 //!
-//! Flow:
-//! 1. Setup: authorization_code → access_token → create device_auth → save {account_id, device_id, secret}
-//! 2. Switch: device_auth → access_token → exchange_code → launch Epic with -AUTH_PASSWORD=<code>
+//! Setup flow:
+//! 1. Switch client → client_credentials → client access token
+//! 2. Client token → create device_code → user approves in browser
+//! 3. Poll device_code → get user token (Switch client)
+//! 4. Switch token → exchange code → Android client token
+//! 5. Android client token → create device_auth → save credentials
+//!
+//! Switch flow:
+//! 1. device_auth → Android client token
+//! 2. Android token → exchange code
+//! 3. Launch Epic with -AUTH_PASSWORD=<code> -AUTH_TYPE=exchangecode
 
 use serde::{Deserialize, Serialize};
 use base64::Engine;
 use base64::engine::general_purpose::STANDARD as BASE64;
 
 const EPIC_TOKEN_URL: &str = "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token";
-const EPIC_EXCHANGE_URL: &str = "https://account-public-service-prod.ol.epicgames.com/account/api/oauth/exchange";
+const EPIC_TOKEN_URL_03: &str = "https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token";
+const EPIC_EXCHANGE_URL: &str = "https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/exchange";
+const EPIC_DEVICE_CODE_URL: &str = "https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/deviceAuthorization";
 const EPIC_DEVICE_AUTH_URL: &str = "https://account-public-service-prod.ol.epicgames.com/account/api/public/account";
 
-// Two clients needed:
-// 1. launcherAppClient2 — for web login (returns auth code in browser)
-const LAUNCHER_CLIENT_ID: &str = "34a02cf8f4414e29b15921876da36f9a";
-const LAUNCHER_CLIENT_SECRET: &str = "daafbccc737745039dffe53d94fc76cf";
+// Nintendo Switch client — can create device codes
+const SWITCH_TOKEN: &str = "OThmN2U0MmMyZTNhNGY4NmE3NGViNDNmYmI0MWVkMzk6MGEyNDQ5YTItMDAxYS00NTFlLWFmZWMtM2U4MTI5MDFjNGQ3";
 
-// 2. fortniteIOSGameClient — has permission to create device_auth
-const IOS_CLIENT_ID: &str = "3446cd72694c4a4485d81b77adbb2141";
-const IOS_CLIENT_SECRET: &str = "9209d4a5e25a457fb9b07489d313b41a";
+// Android client — can create device auths
+const ANDROID_TOKEN: &str = "M2Y2OWU1NmM3NjQ5NDkyYzhjYzI5ZjFhZjA4YThhMTI6YjUxZWU5Y2IxMjIzNGY1MGE2OWVmYTY3ZWY1MzgxMmU=";
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct DeviceAuthCredentials {
@@ -38,6 +43,7 @@ pub struct EpicApiResult {
     pub success: bool,
     pub steps: Vec<String>,
     pub device_auth: Option<DeviceAuthCredentials>,
+    pub verification_url: Option<String>,
     pub error: Option<String>,
 }
 
@@ -45,9 +51,14 @@ pub struct EpicApiResult {
 struct TokenResponse {
     access_token: String,
     account_id: Option<String>,
-    displayName: Option<String>,
-    #[allow(dead_code)]
-    expires_in: Option<i64>,
+    #[serde(rename = "displayName")]
+    display_name: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+struct DeviceCodeResponse {
+    verification_uri_complete: String,
+    device_code: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -64,179 +75,179 @@ struct ExchangeCodeResponse {
     code: String,
 }
 
-fn basic_auth_launcher() -> String {
-    let credentials = format!("{}:{}", LAUNCHER_CLIENT_ID, LAUNCHER_CLIENT_SECRET);
-    format!("basic {}", BASE64.encode(credentials.as_bytes()))
-}
-
-fn basic_auth_ios() -> String {
-    let credentials = format!("{}:{}", IOS_CLIENT_ID, IOS_CLIENT_SECRET);
-    format!("basic {}", BASE64.encode(credentials.as_bytes()))
-}
-
-/// Get access token using authorization code with a specific client
-async fn get_token_from_auth_code(auth_code: &str, basic_auth: &str) -> Result<TokenResponse, String> {
-    let client = reqwest::Client::new();
-    let response = client
-        .post(EPIC_TOKEN_URL)
-        .header("Content-Type", "application/x-www-form-urlencoded")
-        .header("Authorization", basic_auth)
-        .body(format!("grant_type=authorization_code&code={}", auth_code))
-        .send()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        return Err(format!("Token request failed ({}): {}", status, &body[..500.min(body.len())]));
-    }
-
-    response.json::<TokenResponse>().await
-        .map_err(|e| format!("Failed to parse token response: {}", e))
-}
-
-/// Get access token using exchange code with a specific client
-async fn get_token_from_exchange_code(exchange_code: &str, basic_auth: &str) -> Result<TokenResponse, String> {
-    let client = reqwest::Client::new();
-    let response = client
-        .post(EPIC_TOKEN_URL)
-        .header("Content-Type", "application/x-www-form-urlencoded")
-        .header("Authorization", basic_auth)
-        .body(format!("grant_type=exchange_code&exchange_code={}", exchange_code))
-        .send()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        return Err(format!("Exchange code token failed ({}): {}", status, &body[..500.min(body.len())]));
-    }
-
-    response.json::<TokenResponse>().await
-        .map_err(|e| format!("Failed to parse token response: {}", e))
-}
-
-/// Step 2: Create device auth credentials (one-time per account)
-async fn create_device_auth(access_token: &str, account_id: &str) -> Result<DeviceAuthResponse, String> {
-    let client = reqwest::Client::new();
-    let url = format!("{}/{}/deviceAuth", EPIC_DEVICE_AUTH_URL, account_id);
-    let response = client
-        .post(&url)
-        .header("Authorization", format!("Bearer {}", access_token))
-        .send()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        return Err(format!("Device auth creation failed ({}): {}", status, &body[..500.min(body.len())]));
-    }
-
-    response.json::<DeviceAuthResponse>().await
-        .map_err(|e| format!("Failed to parse device auth response: {}", e))
-}
-
-/// Get access token using device auth (must use same client that created it — iOS client)
-async fn get_token_from_device_auth(creds: &DeviceAuthCredentials) -> Result<TokenResponse, String> {
-    let client = reqwest::Client::new();
-    let response = client
-        .post(EPIC_TOKEN_URL)
-        .header("Content-Type", "application/x-www-form-urlencoded")
-        .header("Authorization", basic_auth_ios())
-        .body(format!(
-            "grant_type=device_auth&account_id={}&device_id={}&secret={}",
-            creds.account_id, creds.device_id, creds.secret
-        ))
-        .send()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        return Err(format!("Device auth login failed ({}): {}", status, &body[..500.min(body.len())]));
-    }
-
-    response.json::<TokenResponse>().await
-        .map_err(|e| format!("Failed to parse token response: {}", e))
-}
-
-/// Step 4: Get exchange code from access token
-async fn get_exchange_code(access_token: &str) -> Result<String, String> {
-    let client = reqwest::Client::new();
-    let response = client
-        .get(EPIC_EXCHANGE_URL)
-        .header("Authorization", format!("Bearer {}", access_token))
-        .send()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    if !response.status().is_success() {
-        let status = response.status();
-        let body = response.text().await.unwrap_or_default();
-        return Err(format!("Exchange code request failed ({}): {}", status, &body[..500.min(body.len())]));
-    }
-
-    let exchange: ExchangeCodeResponse = response.json().await
-        .map_err(|e| format!("Failed to parse exchange response: {}", e))?;
-
-    Ok(exchange.code)
-}
-
 // ═══════════════════════════════════════════════════════════════════════════════
-// Tauri Commands
+// Step 1: Start device code flow — returns URL for user to open in browser
 // ═══════════════════════════════════════════════════════════════════════════════
 
-/// Setup: Create device auth credentials from an authorization code.
-/// Uses client hopping: launcher client (auth code) → iOS client (device auth).
 #[tauri::command]
-pub async fn epic_setup_device_auth(auth_code: String) -> Result<EpicApiResult, String> {
+pub async fn epic_start_device_code() -> Result<EpicApiResult, String> {
     let mut steps = Vec::new();
+    let client = reqwest::Client::new();
 
-    // Step 1: Exchange auth code for access token using launcher client
-    steps.push("Step 1: Auth code → launcher access token...".into());
-    let launcher_token = get_token_from_auth_code(&auth_code, &basic_auth_launcher()).await?;
-    let account_id = launcher_token.account_id.as_deref()
-        .ok_or("No account_id in token response")?;
-    let display_name = launcher_token.displayName.clone().unwrap_or_else(|| account_id.to_string());
-    steps.push(format!("Got launcher token for: {} ({})", display_name, &account_id[..8.min(account_id.len())]));
+    // Get client access token using Switch client
+    steps.push("Getting client token (Switch client)...".into());
+    let token_resp = client
+        .post(EPIC_TOKEN_URL)
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .header("Authorization", format!("basic {}", SWITCH_TOKEN))
+        .body("grant_type=client_credentials")
+        .send().await.map_err(|e| format!("Request failed: {}", e))?;
 
-    // Step 2: Get exchange code from launcher token
-    steps.push("Step 2: Launcher token → exchange code...".into());
-    let exchange_code = get_exchange_code(&launcher_token.access_token).await?;
-    steps.push(format!("Got exchange code: {}...", &exchange_code[..8.min(exchange_code.len())]));
+    if !token_resp.status().is_success() {
+        let body = token_resp.text().await.unwrap_or_default();
+        return Err(format!("Client credentials failed: {}", &body[..300.min(body.len())]));
+    }
 
-    // Step 3: Exchange code → iOS client access token (this client can create device auth)
-    steps.push("Step 3: Exchange code → iOS client token...".into());
-    let ios_token = get_token_from_exchange_code(&exchange_code, &basic_auth_ios()).await?;
-    steps.push("Got iOS client token".into());
+    let client_token: TokenResponse = token_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+    steps.push("Got client access token".into());
 
-    // Step 4: Create device auth credentials using iOS client token
-    steps.push("Step 4: Creating device auth credentials...".into());
-    let device = create_device_auth(&ios_token.access_token, account_id).await?;
-    steps.push(format!("Device auth created: device_id={}", &device.device_id[..8.min(device.device_id.len())]));
+    // Create device code
+    steps.push("Creating device code...".into());
+    let dc_resp = client
+        .post(EPIC_DEVICE_CODE_URL)
+        .header("Authorization", format!("bearer {}", client_token.access_token))
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .send().await.map_err(|e| format!("Request failed: {}", e))?;
+
+    if !dc_resp.status().is_success() {
+        let body = dc_resp.text().await.unwrap_or_default();
+        return Err(format!("Device code creation failed: {}", &body[..300.min(body.len())]));
+    }
+
+    let device_code: DeviceCodeResponse = dc_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+
+    steps.push(format!("Open this URL in your browser to log in:"));
+    steps.push(device_code.verification_uri_complete.clone());
+
+    // Store the device_code for polling — return it to frontend
+    // Frontend will call epic_poll_device_code with this code
+    Ok(EpicApiResult {
+        success: true,
+        steps,
+        device_auth: None,
+        verification_url: Some(device_code.verification_uri_complete),
+        error: Some(device_code.device_code), // Reuse error field to pass device_code to frontend
+    })
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// Step 2: Poll device code until user approves, then create device auth
+// ═══════════════════════════════════════════════════════════════════════════════
+
+#[tauri::command]
+pub async fn epic_poll_device_code(device_code: String) -> Result<EpicApiResult, String> {
+    let mut steps = Vec::new();
+    let client = reqwest::Client::new();
+
+    // Poll for user approval (up to 60 seconds)
+    steps.push("Waiting for you to approve in browser...".into());
+    let mut user_token: Option<TokenResponse> = None;
+
+    for i in 0..12 {
+        tokio::time::sleep(std::time::Duration::from_secs(5)).await;
+
+        let poll_resp = client
+            .post(EPIC_TOKEN_URL_03)
+            .header("Authorization", format!("basic {}", SWITCH_TOKEN))
+            .header("Content-Type", "application/x-www-form-urlencoded")
+            .body(format!("grant_type=device_code&device_code={}", device_code))
+            .send().await.map_err(|e| format!("Poll failed: {}", e))?;
+
+        if poll_resp.status().is_success() {
+            user_token = Some(poll_resp.json().await
+                .map_err(|e| format!("Parse failed: {}", e))?);
+            steps.push(format!("Login approved after {}s", (i + 1) * 5));
+            break;
+        } else {
+            let body = poll_resp.text().await.unwrap_or_default();
+            if body.contains("authorization_pending") {
+                steps.push(format!("Polling... ({}s)", (i + 1) * 5));
+            } else {
+                return Err(format!("Poll error: {}", &body[..300.min(body.len())]));
+            }
+        }
+    }
+
+    let switch_token = user_token.ok_or("Timeout — user didn't approve in 60 seconds")?;
+    let display_name = switch_token.display_name.clone().unwrap_or_default();
+    steps.push(format!("Logged in as: {}", display_name));
+
+    // Exchange Switch token → Android client token (for device auth creation)
+    steps.push("Getting exchange code...".into());
+    let exchange_resp = client
+        .get(EPIC_EXCHANGE_URL)
+        .header("Authorization", format!("bearer {}", switch_token.access_token))
+        .send().await.map_err(|e| format!("Exchange failed: {}", e))?;
+
+    if !exchange_resp.status().is_success() {
+        let body = exchange_resp.text().await.unwrap_or_default();
+        return Err(format!("Exchange code failed: {}", &body[..300.min(body.len())]));
+    }
+
+    let exchange: ExchangeCodeResponse = exchange_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+    steps.push("Got exchange code".into());
+
+    // Exchange code → Android client token
+    steps.push("Hopping to Android client...".into());
+    let android_resp = client
+        .post(EPIC_TOKEN_URL_03)
+        .header("Authorization", format!("basic {}", ANDROID_TOKEN))
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .body(format!("grant_type=exchange_code&exchange_code={}", exchange.code))
+        .send().await.map_err(|e| format!("Android token failed: {}", e))?;
+
+    if !android_resp.status().is_success() {
+        let body = android_resp.text().await.unwrap_or_default();
+        return Err(format!("Android client token failed: {}", &body[..300.min(body.len())]));
+    }
+
+    let android_token: TokenResponse = android_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+    let account_id = android_token.account_id.clone().unwrap_or_default();
+    steps.push("Got Android client token".into());
+
+    // Create device auth
+    steps.push("Creating device auth credentials...".into());
+    let da_url = format!("{}/{}/deviceAuth", EPIC_DEVICE_AUTH_URL, account_id);
+    let da_resp = client
+        .post(&da_url)
+        .header("Authorization", format!("bearer {}", android_token.access_token))
+        .header("Content-Type", "application/json")
+        .send().await.map_err(|e| format!("Device auth creation failed: {}", e))?;
+
+    if !da_resp.status().is_success() {
+        let body = da_resp.text().await.unwrap_or_default();
+        return Err(format!("Device auth failed: {}", &body[..300.min(body.len())]));
+    }
+
+    let device_auth: DeviceAuthResponse = da_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
 
     let creds = DeviceAuthCredentials {
-        account_id: device.account_id,
-        device_id: device.device_id,
-        secret: device.secret,
-        display_name: display_name.clone(),
+        account_id: device_auth.account_id,
+        device_id: device_auth.device_id,
+        secret: device_auth.secret,
+        display_name,
     };
 
-    steps.push(format!("Setup complete for '{}'. Credentials never expire.", display_name));
+    steps.push(format!("Device auth created for '{}'! These never expire.", creds.display_name));
 
     Ok(EpicApiResult {
         success: true,
         steps,
         device_auth: Some(creds),
+        verification_url: None,
         error: None,
     })
 }
 
-/// Switch: Use saved device auth to get exchange code and launch Epic
+// ═══════════════════════════════════════════════════════════════════════════════
+// Switch: device_auth → token → exchange code → launch Epic
+// ═══════════════════════════════════════════════════════════════════════════════
+
 #[tauri::command]
 pub async fn epic_api_switch(
     account_id: String,
@@ -245,9 +256,9 @@ pub async fn epic_api_switch(
     display_name: String,
 ) -> Result<EpicApiResult, String> {
     let mut steps = Vec::new();
-    let creds = DeviceAuthCredentials { account_id, device_id, secret, display_name: display_name.clone() };
+    let http = reqwest::Client::new();
 
-    // Step 1: Kill Epic
+    // Kill Epic
     #[cfg(target_os = "windows")]
     {
         let _ = std::process::Command::new("taskkill")
@@ -258,18 +269,43 @@ pub async fn epic_api_switch(
     steps.push("Killed Epic processes".into());
     tokio::time::sleep(std::time::Duration::from_secs(2)).await;
 
-    // Step 2: Device auth → iOS token
+    // Device auth → Android token
     steps.push(format!("Authenticating as '{}'...", display_name));
-    let ios_token = get_token_from_device_auth(&creds).await?;
-    steps.push("Got iOS client token via device auth".into());
+    let token_resp = http
+        .post(EPIC_TOKEN_URL)
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .header("Authorization", format!("basic {}", ANDROID_TOKEN))
+        .body(format!(
+            "grant_type=device_auth&account_id={}&device_id={}&secret={}",
+            account_id, device_id, secret
+        ))
+        .send().await.map_err(|e| format!("Auth failed: {}", e))?;
 
-    // Step 3: iOS token → exchange code
-    steps.push("Getting exchange code...".into());
-    let exchange_code = get_exchange_code(&ios_token.access_token).await?;
-    steps.push(format!("Got exchange code: {}...", &exchange_code[..8.min(exchange_code.len())]));
+    if !token_resp.status().is_success() {
+        let body = token_resp.text().await.unwrap_or_default();
+        return Err(format!("Device auth login failed: {}", &body[..300.min(body.len())]));
+    }
 
-    // Step 4: Launch Epic with exchange code
-    // The exchange code can be used by the launcher directly
+    let token: TokenResponse = token_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+    steps.push("Got access token".into());
+
+    // Token → exchange code
+    let exchange_resp = http
+        .get(EPIC_EXCHANGE_URL)
+        .header("Authorization", format!("bearer {}", token.access_token))
+        .send().await.map_err(|e| format!("Exchange failed: {}", e))?;
+
+    if !exchange_resp.status().is_success() {
+        let body = exchange_resp.text().await.unwrap_or_default();
+        return Err(format!("Exchange code failed: {}", &body[..300.min(body.len())]));
+    }
+
+    let exchange: ExchangeCodeResponse = exchange_resp.json().await
+        .map_err(|e| format!("Parse failed: {}", e))?;
+    steps.push(format!("Got exchange code: {}...", &exchange.code[..8.min(exchange.code.len())]));
+
+    // Launch Epic with exchange code
     #[cfg(target_os = "windows")]
     {
         let epic_exe = crate::switcher::find_epic_exe()
@@ -277,7 +313,7 @@ pub async fn epic_api_switch(
 
         std::process::Command::new(&epic_exe)
             .args([
-                &format!("-AUTH_PASSWORD={}", exchange_code),
+                &format!("-AUTH_PASSWORD={}", exchange.code),
                 "-AUTH_TYPE=exchangecode",
             ])
             .spawn()
@@ -286,31 +322,16 @@ pub async fn epic_api_switch(
         steps.push("Launched Epic with exchange code".into());
     }
 
-    // Step 5: Wait and verify
-    steps.push("Waiting for Epic to log in (10s)...".into());
+    steps.push("Waiting for Epic to log in...".into());
     tokio::time::sleep(std::time::Duration::from_secs(10)).await;
 
-    let current = crate::launcher_detect::get_launcher_current_user("epic".into())
-        .unwrap_or(None);
-
-    if let Some(ref id) = current {
-        steps.push(format!("Epic logged in as: {}", &id[..12.min(id.len())]));
-    } else {
-        steps.push("Check Epic window to verify login".into());
-    }
+    steps.push(format!("Switch complete for '{}'", display_name));
 
     Ok(EpicApiResult {
         success: true,
         steps,
         device_auth: None,
+        verification_url: None,
         error: None,
     })
-}
-
-/// Get authorization code URL — user opens this in browser to log in.
-/// Uses the launcher client which returns the code directly on the page.
-#[tauri::command]
-pub fn epic_get_auth_url() -> String {
-    // This URL shows the auth code directly after login
-    "https://www.epicgames.com/id/api/redirect?clientId=34a02cf8f4414e29b15921876da36f9a&responseType=code".to_string()
 }

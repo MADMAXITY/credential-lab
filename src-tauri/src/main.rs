@@ -52,9 +52,9 @@ fn main() {
             switcher::verify_launcher_state,
             // Auto-login (password-based via SendInput)
             auto_login::auto_login_epic,
-            // Epic API-based auth (device_auth + exchange code)
-            epic_api::epic_get_auth_url,
-            epic_api::epic_setup_device_auth,
+            // Epic API-based auth (device_code + device_auth)
+            epic_api::epic_start_device_code,
+            epic_api::epic_poll_device_code,
             epic_api::epic_api_switch,
             // Logging
             get_logs,
