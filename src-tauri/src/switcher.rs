@@ -67,31 +67,11 @@ pub async fn switch_account(
 /// Auto-save the currently logged-in account's files to DB before switching away.
 /// Only saves if the launcher is actually logged in (not on login screen).
 fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> Result<(), String> {
-    // For Epic: only auto-save if actually logged in (registry AccountId is set
-    // AND matches a saved credential). If the previous switch failed (login screen),
-    // we must NOT overwrite the good manual sync data with login-screen garbage.
-    if launcher_id == "epic" {
-        let current = crate::launcher_detect::get_launcher_current_user("epic".into())
-            .unwrap_or(None);
-        if current.is_none() || current.as_deref() == Some("") {
-            log::info!("[Auto-save] Epic not logged in, skipping auto-save");
-            return Ok(());
-        }
-        // Check if this account exists in our DB — only auto-save known accounts
-        let db = state.db.lock().map_err(|e| e.to_string())?;
-        let creds = db.list_credentials(Some("epic"))?;
-        let current_id = current.unwrap();
-        if !creds.iter().any(|c| c.username == current_id) {
-            log::info!("[Auto-save] Epic account {} not in DB, skipping", &current_id[..8.min(current_id.len())]);
-            return Ok(());
-        }
-        drop(db);
-    }
-
     let sync_result = match launcher_id {
         "steam" => crate::credentials::steam::sync_current(),
         "ea" => crate::credentials::ea::sync_current_for_auto_save(),
-        "epic" => crate::credentials::epic::sync_current_for_auto_save(),
+        // Epic: no auto-save — single cafe account mode, manual sync only
+        "epic" => return Ok(()),
         _ => return Ok(()),
     };
 
