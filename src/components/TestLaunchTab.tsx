@@ -272,8 +272,181 @@ export default function TestLaunchTab({ addLog }: Props) {
           </div>
         )}
       </div>
-      {/* Step 4: Auto-Login Experiment (Epic) */}
+      {/* Step 4: Epic API-Based Auth */}
+      <EpicApiSection addLog={addLog} />
+
+      {/* Step 5: SendKeys Auto-Login Experiment (Epic) */}
       <AutoLoginSection addLog={addLog} />
+    </div>
+  );
+}
+
+// ─── Epic API Auth ──────────────────────────────────────────────────────────
+
+interface DeviceAuth {
+  account_id: string;
+  device_id: string;
+  secret: string;
+  display_name: string;
+}
+
+function EpicApiSection({ addLog }: { addLog: (level: string, message: string) => void }) {
+  const [authCode, setAuthCode] = useState("");
+  const [setting_up, setSettingUp] = useState(false);
+  const [savedAccounts, setSavedAccounts] = useState<DeviceAuth[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem("epic_device_auths") || "[]");
+    } catch { return []; }
+  });
+  const [switching, setSwitching] = useState(false);
+  const [steps, setSteps] = useState<string[]>([]);
+
+  const saveAccounts = (accounts: DeviceAuth[]) => {
+    setSavedAccounts(accounts);
+    localStorage.setItem("epic_device_auths", JSON.stringify(accounts));
+  };
+
+  const openAuthUrl = async () => {
+    try {
+      const url = await invoke<string>("epic_get_auth_url");
+      window.open(url, "_blank");
+      addLog("info", "Opened Epic login page in browser. Log in and copy the authorization code.");
+    } catch (e) {
+      addLog("error", `Failed: ${e}`);
+    }
+  };
+
+  const setupDeviceAuth = async () => {
+    if (!authCode.trim()) return;
+    setSettingUp(true);
+    setSteps([]);
+    addLog("info", "Setting up Epic device auth...");
+    try {
+      const result = await invoke<{ success: boolean; steps: string[]; device_auth: DeviceAuth | null; error: string | null }>(
+        "epic_setup_device_auth", { authCode: authCode.trim() }
+      );
+      setSteps(result.steps);
+      result.steps.forEach(s => addLog("info", `  ${s}`));
+      if (result.device_auth) {
+        const existing = savedAccounts.filter(a => a.account_id !== result.device_auth!.account_id);
+        saveAccounts([...existing, result.device_auth]);
+        addLog("info", `Device auth saved for: ${result.device_auth.display_name}`);
+        setAuthCode("");
+      }
+    } catch (e) {
+      addLog("error", `Setup failed: ${e}`);
+      setSteps([`Error: ${e}`]);
+    }
+    setSettingUp(false);
+  };
+
+  const switchAccount = async (account: DeviceAuth) => {
+    setSwitching(true);
+    setSteps([]);
+    addLog("info", `Switching Epic to: ${account.display_name}...`);
+    try {
+      const result = await invoke<{ success: boolean; steps: string[]; error: string | null }>(
+        "epic_api_switch", {
+          accountId: account.account_id,
+          deviceId: account.device_id,
+          secret: account.secret,
+          displayName: account.display_name,
+        }
+      );
+      setSteps(result.steps);
+      result.steps.forEach(s => addLog("info", `  ${s}`));
+    } catch (e) {
+      addLog("error", `Switch failed: ${e}`);
+      setSteps([`Error: ${e}`]);
+    }
+    setSwitching(false);
+  };
+
+  const removeAccount = (accountId: string) => {
+    saveAccounts(savedAccounts.filter(a => a.account_id !== accountId));
+    addLog("info", `Removed Epic account ${accountId.slice(0, 8)}`);
+  };
+
+  return (
+    <div className="rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/5 p-4 space-y-3">
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] text-xs font-bold flex items-center justify-center">4</span>
+        <h3 className="font-medium">Epic API Auth</h3>
+        <span className="text-xs text-[var(--accent)]">device_auth + exchange code</span>
+      </div>
+
+      <div className="ml-8 space-y-3">
+        <p className="text-xs text-[var(--text-muted)]">
+          Uses Epic's OAuth API to create permanent device credentials. No file swapping — gets a fresh exchange code each time.
+        </p>
+
+        {/* Setup */}
+        <div className="space-y-2">
+          <div className="flex gap-2">
+            <button
+              onClick={openAuthUrl}
+              className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] transition-colors"
+            >
+              1. Open Epic Login
+            </button>
+            <input
+              type="text"
+              placeholder="2. Paste authorization code here"
+              value={authCode}
+              onChange={(e) => setAuthCode(e.target.value)}
+              className="flex-1 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] border border-[var(--border)] text-xs text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)]"
+            />
+            <button
+              onClick={setupDeviceAuth}
+              disabled={setting_up || !authCode.trim()}
+              className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--accent)] text-black hover:brightness-110 transition disabled:opacity-40"
+            >
+              {setting_up ? "Setting up..." : "3. Create Device Auth"}
+            </button>
+          </div>
+        </div>
+
+        {/* Saved accounts */}
+        {savedAccounts.length > 0 && (
+          <div className="space-y-2">
+            <h4 className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+              Saved Accounts ({savedAccounts.length})
+            </h4>
+            {savedAccounts.map(account => (
+              <div key={account.account_id} className="flex items-center justify-between p-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border)]">
+                <div>
+                  <span className="text-sm font-medium">{account.display_name}</span>
+                  <span className="text-xs text-[var(--text-muted)] ml-2">{account.account_id.slice(0, 12)}...</span>
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => switchAccount(account)}
+                    disabled={switching}
+                    className="px-3 py-1 text-xs font-medium rounded bg-[var(--accent)]/15 text-[var(--accent)] hover:bg-[var(--accent)]/25 transition"
+                  >
+                    {switching ? "..." : "Switch"}
+                  </button>
+                  <button
+                    onClick={() => removeAccount(account.account_id)}
+                    className="px-2 py-1 text-xs rounded text-[var(--text-muted)] hover:text-[var(--danger)] hover:bg-[var(--danger)]/10 transition"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Steps */}
+        {steps.length > 0 && (
+          <div className="p-3 rounded-lg bg-[var(--bg-primary)] text-xs space-y-1">
+            {steps.map((step, i) => (
+              <p key={i} className="text-[var(--text-secondary)]">{step}</p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

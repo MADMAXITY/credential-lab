@@ -10,6 +10,7 @@ mod game_detect;
 mod credentials;
 mod switcher;
 mod auto_login;
+mod epic_api;
 
 use std::sync::Mutex;
 use tauri::Manager;
@@ -51,6 +52,10 @@ fn main() {
             switcher::verify_launcher_state,
             // Auto-login (password-based via SendInput)
             auto_login::auto_login_epic,
+            // Epic API-based auth (device_auth + exchange code)
+            epic_api::epic_get_auth_url,
+            epic_api::epic_setup_device_auth,
+            epic_api::epic_api_switch,
             // Logging
             get_logs,
         ])
