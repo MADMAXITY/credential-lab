@@ -72,7 +72,18 @@ pub fn list_credentials(
 #[tauri::command]
 pub fn wipe_launcher_login(launcher_id: String) -> Result<Vec<String>, String> {
     match launcher_id.as_str() {
-        "epic" => epic::wipe_login_state(),
+        "epic" => {
+            let mut steps = epic::wipe_login_state()?;
+            // Restart Epic so it shows login screen
+            #[cfg(target_os = "windows")]
+            {
+                if let Some(exe) = crate::switcher::find_epic_exe() {
+                    let _ = std::process::Command::new(&exe).spawn();
+                    steps.push("Started Epic (login screen)".into());
+                }
+            }
+            Ok(steps)
+        },
         "steam" => {
             // For Steam: clear AutoLoginUser registry
             let mut steps = Vec::new();
