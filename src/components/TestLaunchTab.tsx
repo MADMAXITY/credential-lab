@@ -308,9 +308,10 @@ function EpicApiSection({ addLog }: { addLog: (level: string, message: string) =
 
   const openAuthUrl = async () => {
     try {
+      const { open } = await import("@tauri-apps/api/shell");
       const url = await invoke<string>("epic_get_auth_url");
-      window.open(url, "_blank");
-      addLog("info", "Opened Epic login page in browser. Log in and copy the authorization code.");
+      await open(url);
+      addLog("info", "Opened Epic login page in your browser. Log in, then copy the authorization code from the page.");
     } catch (e) {
       addLog("error", `Failed: ${e}`);
     }
