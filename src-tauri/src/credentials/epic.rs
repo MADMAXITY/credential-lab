@@ -1,16 +1,17 @@
 //! Epic Games credential sync & restore.
 //!
-//! Key discovery: Epic's GameUserSettings.ini [RememberMe] section holds the auth
-//! token, but only for ONE account at a time. Each login overwrites the previous.
+//! Based on file diff analysis between two logged-in accounts:
 //!
-//! Solution: save the [RememberMe] Data= token per account. On switch, merge ALL
-//! saved tokens back into the file, set registry AccountId, delete webcache.
-//! Epic picks the right token based on AccountId.
+//! Account-specific files (must save/restore per account):
+//!   1. Config/WindowsEditor/GameUserSettings.ini — RememberMe token
+//!   2. webcache_XXXX/Cookies — Chromium session cookies (SQLite DB)
+//!   3. webcache_XXXX/Cookies-journal — WAL journal for Cookies
+//!   4. Registry: HKCU\Software\Epic Games\Unreal Engine\Identifiers:AccountId
 //!
-//! Files:
-//!   Config: %LocalAppData%\EpicGamesLauncher\Saved\Config\
-//!   Registry: HKCU\Software\Epic Games\Unreal Engine\Identifiers:AccountId
-//!   Webcache: deleted on switch (rebuilt by Epic from [RememberMe] tokens)
+//! NOT account-specific (leave alone):
+//!   - webcache Cache files (f_000XXX) — static assets
+//!   - Data/*.dat files — ownership cache, regenerated
+//!   - Config/Config/ subdirectories — base config, not auth
 
 use super::InternalSyncResult;
 use std::collections::HashMap;
@@ -22,16 +23,6 @@ fn get_epic_saved_dir() -> Result<PathBuf, String> {
     Ok(PathBuf::from(local_app)
         .join("EpicGamesLauncher")
         .join("Saved"))
-}
-
-fn get_game_user_settings_path() -> Result<PathBuf, String> {
-    let saved = get_epic_saved_dir()?;
-    // Try WindowsEditor first, then Windows
-    let wepath = saved.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
-    if wepath.exists() { return Ok(wepath); }
-    let wpath = saved.join("Config").join("Windows").join("GameUserSettings.ini");
-    if wpath.exists() { return Ok(wpath); }
-    Err("GameUserSettings.ini not found".into())
 }
 
 fn get_epic_account_id() -> Option<String> {
@@ -51,236 +42,7 @@ fn get_epic_account_id() -> Option<String> {
     None
 }
 
-/// Extract [RememberMe] Data= token from GameUserSettings.ini
-fn extract_remember_me_token(ini_path: &PathBuf) -> Option<String> {
-    let content = std::fs::read_to_string(ini_path).ok()?;
-    let mut in_section = false;
-    let mut token_lines = Vec::new();
-
-    for line in content.lines() {
-        if line.trim() == "[RememberMe]" {
-            in_section = true;
-            continue;
-        }
-        if in_section && line.starts_with('[') {
-            break;
-        }
-        if in_section && line.starts_with("Data=") {
-            token_lines.push(line.to_string());
-        }
-    }
-
-    if token_lines.is_empty() { None } else { Some(token_lines.join("\n")) }
-}
-
-/// Replace [RememberMe] section in GameUserSettings.ini with merged tokens
-fn write_remember_me_tokens(ini_path: &PathBuf, tokens: &[String]) -> Result<(), String> {
-    let content = std::fs::read_to_string(ini_path)
-        .map_err(|e| format!("Failed to read ini: {}", e))?;
-
-    let mut output = String::new();
-    let mut in_section = false;
-    let mut section_written = false;
-
-    for line in content.lines() {
-        if line.trim() == "[RememberMe]" {
-            in_section = true;
-            output.push_str("[RememberMe]\n");
-            output.push_str("Enable=True\n");
-            for token in tokens {
-                for token_line in token.lines() {
-                    output.push_str(token_line);
-                    output.push('\n');
-                }
-            }
-            section_written = true;
-            continue;
-        }
-        if in_section {
-            if line.starts_with('[') {
-                // End of RememberMe section
-                in_section = false;
-                output.push_str(line);
-                output.push('\n');
-            }
-            // Skip old RememberMe content (already replaced above)
-            continue;
-        }
-        output.push_str(line);
-        output.push('\n');
-    }
-
-    // If [RememberMe] section didn't exist, add it
-    if !section_written {
-        output.push_str("\n[RememberMe]\n");
-        output.push_str("Enable=True\n");
-        for token in tokens {
-            for token_line in token.lines() {
-                output.push_str(token_line);
-                output.push('\n');
-            }
-        }
-    }
-
-    std::fs::write(ini_path, &output)
-        .map_err(|e| format!("Failed to write ini: {}", e))
-}
-
-/// Sync the currently logged-in Epic account.
-/// Kills Epic, saves the [RememberMe] token + registry AccountId.
-pub fn sync_current() -> Result<InternalSyncResult, String> {
-    sync_current_inner(true)
-}
-
-pub fn sync_current_for_auto_save() -> Result<InternalSyncResult, String> {
-    sync_current_inner(false)
-}
-
-fn sync_current_inner(restart_after: bool) -> Result<InternalSyncResult, String> {
-    let account_id = get_epic_account_id()
-        .ok_or("No Epic Games account logged in.")?;
-
-    // Kill Epic to release file locks
-    kill_epic();
-    std::thread::sleep(std::time::Duration::from_secs(2));
-
-    let ini_path = get_game_user_settings_path()?;
-
-    // Extract the [RememberMe] Data= token
-    let token = extract_remember_me_token(&ini_path)
-        .ok_or("No [RememberMe] token found in GameUserSettings.ini. Make sure you're logged in.")?;
-
-    // Save: token + account ID
-    let mut file_map: HashMap<String, String> = HashMap::new();
-    file_map.insert("__remember_me_token__".into(), token.clone());
-    file_map.insert("__registry_AccountId__".into(), account_id.clone());
-
-    // Also save the full GameUserSettings.ini (for other settings)
-    let ini_data = std::fs::read(&ini_path)
-        .map_err(|e| format!("Failed to read ini: {}", e))?;
-    file_map.insert("__game_user_settings__".into(), hex_encode(&ini_data));
-
-    let file_data = serde_json::to_vec(&file_map)
-        .map_err(|e| format!("Failed to serialize: {}", e))?;
-
-    let total_size = token.len() as i64 + ini_data.len() as i64;
-
-    if restart_after {
-        #[cfg(target_os = "windows")]
-        {
-            if let Some(exe) = crate::switcher::find_epic_exe() {
-                let _ = std::process::Command::new(&exe).spawn();
-            }
-        }
-    }
-
-    log::info!("[Epic Sync] Saved RememberMe token for '{}'", &account_id[..8.min(account_id.len())]);
-
-    Ok(InternalSyncResult {
-        launcher: "epic".into(),
-        username: account_id,
-        registry_data: None,
-        file_data: Some(file_data),
-        file_count: 1,
-        total_size,
-    })
-}
-
-/// Restore: write target account's [RememberMe] token into ALL GameUserSettings.ini files,
-/// set registry AccountId, delete webcache.
-pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<String>, String> {
-    let mut steps = Vec::new();
-
-    let saved_dir = get_epic_saved_dir()?;
-    let config_dir = saved_dir.join("Config");
-
-    let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
-        .map_err(|e| format!("Failed to parse saved data: {}", e))?;
-
-    // Get the target account's RememberMe token
-    let target_token = file_map.get("__remember_me_token__")
-        .ok_or("No RememberMe token in saved data")?;
-
-    // Find ALL GameUserSettings.ini files in the Config directory tree
-    // Epic has multiple copies: Config/WindowsEditor/, Config/Config/WindowsEditor/, Config/Config/Windows/
-    let mut ini_files = Vec::new();
-    find_all_game_user_settings(&config_dir, &mut ini_files);
-
-    if ini_files.is_empty() {
-        // Create the default one
-        let default_dir = config_dir.join("WindowsEditor");
-        let _ = std::fs::create_dir_all(&default_dir);
-        let default_path = default_dir.join("GameUserSettings.ini");
-        // Write from saved data
-        if let Some(ini_hex) = file_map.get("__game_user_settings__") {
-            let ini_data = hex_decode(ini_hex)?;
-            std::fs::write(&default_path, &ini_data)
-                .map_err(|e| format!("Failed to write GameUserSettings.ini: {}", e))?;
-        }
-        ini_files.push(default_path);
-    }
-
-    // Write the [RememberMe] token into ALL GameUserSettings.ini files
-    let mut patched = 0;
-    for ini_path in &ini_files {
-        if ini_path.exists() {
-            match write_remember_me_tokens(ini_path, &[target_token.clone()]) {
-                Ok(_) => patched += 1,
-                Err(e) => log::warn!("[Epic] Failed to patch {:?}: {}", ini_path, e),
-            }
-        }
-    }
-    steps.push(format!("Patched [RememberMe] token in {} GameUserSettings.ini file(s)", patched));
-
-    // Delete webcache — force Epic to rebuild from [RememberMe] token
-    let webcache_dir = find_webcache_dir(&saved_dir);
-    if let Some(ref wc_dir) = webcache_dir {
-        let _ = std::fs::remove_dir_all(wc_dir);
-        steps.push("Cleared webcache".into());
-    }
-
-    // Clear EOS caches
-    let local_app = std::env::var("LOCALAPPDATA").unwrap_or_default();
-    for sub in &["Epic Games/Epic Online Services/UI Helper/Cache", "Epic Games/EOSOverlay/BrowserCache/Cache"] {
-        let p = PathBuf::from(&local_app).join(sub);
-        if p.exists() { let _ = std::fs::remove_dir_all(&p); }
-    }
-
-    // Set registry AccountId
-    #[cfg(target_os = "windows")]
-    {
-        use winreg::enums::*;
-        use winreg::RegKey;
-        let hkcu = RegKey::predef(HKEY_CURRENT_USER);
-        if let Ok((key, _)) = hkcu.create_subkey(r"Software\Epic Games\Unreal Engine\Identifiers") {
-            key.set_value("AccountId", &account_id)
-                .map_err(|e| format!("Failed to set AccountId: {}", e))?;
-            steps.push(format!("Set registry AccountId = {}", &account_id[..8.min(account_id.len())]));
-        }
-    }
-
-    Ok(steps)
-}
-
-/// Recursively find all GameUserSettings.ini files in a directory tree
-fn find_all_game_user_settings(dir: &PathBuf, results: &mut Vec<PathBuf>) {
-    if !dir.exists() { return; }
-    if let Ok(entries) = std::fs::read_dir(dir) {
-        for entry in entries.flatten() {
-            let path = entry.path();
-            if path.is_dir() {
-                find_all_game_user_settings(&path, results);
-            } else if path.is_file() {
-                if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
-                    if name == "GameUserSettings.ini" {
-                        results.push(path);
-                    }
-                }
-            }
-        }
-    }
-}
-
+/// Find the webcache directory (named webcache_XXXX)
 fn find_webcache_dir(saved_dir: &PathBuf) -> Option<PathBuf> {
     if let Ok(entries) = std::fs::read_dir(saved_dir) {
         for entry in entries.flatten() {
@@ -293,6 +55,206 @@ fn find_webcache_dir(saved_dir: &PathBuf) -> Option<PathBuf> {
     None
 }
 
+/// Sync the currently logged-in Epic account.
+/// Kills Epic first to release file locks on Cookies DB.
+/// Saves: GameUserSettings.ini + Cookies + Cookies-journal + registry AccountId.
+pub fn sync_current() -> Result<InternalSyncResult, String> {
+    let account_id = get_epic_account_id()
+        .ok_or("No Epic Games account logged in.")?;
+
+    // Kill Epic to release file locks on Cookies
+    kill_epic();
+    std::thread::sleep(std::time::Duration::from_secs(2));
+
+    let saved_dir = get_epic_saved_dir()?;
+    let mut file_map: HashMap<String, String> = HashMap::new();
+    let mut total_size: i64 = 0;
+    let mut file_count: i32 = 0;
+
+    // 1. GameUserSettings.ini
+    let ini_path = saved_dir.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
+    if ini_path.exists() {
+        let data = std::fs::read(&ini_path)
+            .map_err(|e| format!("Failed to read GameUserSettings.ini: {}", e))?;
+        total_size += data.len() as i64;
+        file_map.insert("GameUserSettings.ini".into(), hex_encode(&data));
+        file_count += 1;
+    } else {
+        return Err("GameUserSettings.ini not found".into());
+    }
+
+    // 2. Cookies + Cookies-journal from webcache
+    let webcache_dir = find_webcache_dir(&saved_dir);
+    if let Some(ref wc_dir) = webcache_dir {
+        let cookies_path = wc_dir.join("Cookies");
+        if cookies_path.exists() {
+            match std::fs::read(&cookies_path) {
+                Ok(data) => {
+                    total_size += data.len() as i64;
+                    file_map.insert("Cookies".into(), hex_encode(&data));
+                    file_count += 1;
+                    log::info!("[Epic Sync] Saved Cookies ({} bytes)", data.len());
+                }
+                Err(e) => log::warn!("[Epic Sync] Could not read Cookies: {}", e),
+            }
+        }
+
+        let journal_path = wc_dir.join("Cookies-journal");
+        if journal_path.exists() {
+            match std::fs::read(&journal_path) {
+                Ok(data) => {
+                    total_size += data.len() as i64;
+                    file_map.insert("Cookies-journal".into(), hex_encode(&data));
+                    file_count += 1;
+                }
+                Err(e) => log::warn!("[Epic Sync] Could not read Cookies-journal: {}", e),
+            }
+        }
+    }
+
+    // 3. Registry AccountId
+    file_map.insert("__registry_AccountId__".into(), account_id.clone());
+
+    let file_data = serde_json::to_vec(&file_map)
+        .map_err(|e| format!("Failed to serialize: {}", e))?;
+
+    // Restart Epic
+    start_epic();
+
+    log::info!("[Epic Sync] Saved {} files for '{}' ({} bytes)",
+        file_count, &account_id[..8.min(account_id.len())], total_size);
+
+    Ok(InternalSyncResult {
+        launcher: "epic".into(),
+        username: account_id,
+        registry_data: None,
+        file_data: Some(file_data),
+        file_count,
+        total_size,
+    })
+}
+
+/// Restore saved Epic credentials.
+/// Replaces: GameUserSettings.ini + Cookies + Cookies-journal + registry AccountId.
+/// Does NOT touch anything else in webcache.
+pub fn restore_and_switch(account_id: &str, file_data: &[u8]) -> Result<Vec<String>, String> {
+    let mut steps = Vec::new();
+
+    let saved_dir = get_epic_saved_dir()?;
+
+    let file_map: HashMap<String, String> = serde_json::from_slice(file_data)
+        .map_err(|e| format!("Failed to parse saved data: {}", e))?;
+
+    // 1. Restore GameUserSettings.ini
+    if let Some(ini_hex) = file_map.get("GameUserSettings.ini") {
+        let data = hex_decode(ini_hex)?;
+        let ini_path = saved_dir.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
+        if let Some(parent) = ini_path.parent() {
+            let _ = std::fs::create_dir_all(parent);
+        }
+        std::fs::write(&ini_path, &data)
+            .map_err(|e| format!("Failed to write GameUserSettings.ini: {}", e))?;
+        steps.push(format!("Restored GameUserSettings.ini ({} bytes)", data.len()));
+    }
+
+    // 2. Restore Cookies + Cookies-journal in webcache
+    let webcache_dir = find_webcache_dir(&saved_dir);
+    if let Some(ref wc_dir) = webcache_dir {
+        if let Some(cookies_hex) = file_map.get("Cookies") {
+            let data = hex_decode(cookies_hex)?;
+            std::fs::write(wc_dir.join("Cookies"), &data)
+                .map_err(|e| format!("Failed to write Cookies: {}", e))?;
+            steps.push(format!("Restored Cookies ({} bytes)", data.len()));
+        }
+
+        if let Some(journal_hex) = file_map.get("Cookies-journal") {
+            let data = hex_decode(journal_hex)?;
+            std::fs::write(wc_dir.join("Cookies-journal"), &data)
+                .map_err(|e| format!("Failed to write Cookies-journal: {}", e))?;
+            steps.push("Restored Cookies-journal".into());
+        } else {
+            // If no journal was saved, delete current one to avoid mismatch
+            let journal_path = wc_dir.join("Cookies-journal");
+            if journal_path.exists() {
+                let _ = std::fs::remove_file(&journal_path);
+            }
+        }
+    } else {
+        steps.push("Warning: webcache directory not found".into());
+    }
+
+    // 3. Set registry AccountId
+    #[cfg(target_os = "windows")]
+    {
+        use winreg::enums::*;
+        use winreg::RegKey;
+        let hkcu = RegKey::predef(HKEY_CURRENT_USER);
+        if let Ok((key, _)) = hkcu.create_subkey(r"Software\Epic Games\Unreal Engine\Identifiers") {
+            let saved_id = file_map.get("__registry_AccountId__")
+                .map(|s| s.as_str())
+                .unwrap_or(account_id);
+            key.set_value("AccountId", &saved_id)
+                .map_err(|e| format!("Failed to set AccountId: {}", e))?;
+            steps.push(format!("Set registry AccountId = {}", &saved_id[..8.min(saved_id.len())]));
+        }
+    }
+
+    Ok(steps)
+}
+
+pub fn sync_current_for_auto_save() -> Result<InternalSyncResult, String> {
+    // For auto-save, same as sync but don't restart Epic (switch will handle it)
+    let account_id = get_epic_account_id()
+        .ok_or("No Epic Games account logged in.")?;
+
+    kill_epic();
+    std::thread::sleep(std::time::Duration::from_secs(2));
+
+    let saved_dir = get_epic_saved_dir()?;
+    let mut file_map: HashMap<String, String> = HashMap::new();
+    let mut total_size: i64 = 0;
+    let mut file_count: i32 = 0;
+
+    let ini_path = saved_dir.join("Config").join("WindowsEditor").join("GameUserSettings.ini");
+    if ini_path.exists() {
+        if let Ok(data) = std::fs::read(&ini_path) {
+            total_size += data.len() as i64;
+            file_map.insert("GameUserSettings.ini".into(), hex_encode(&data));
+            file_count += 1;
+        }
+    }
+
+    let webcache_dir = find_webcache_dir(&saved_dir);
+    if let Some(ref wc_dir) = webcache_dir {
+        if let Ok(data) = std::fs::read(wc_dir.join("Cookies")) {
+            total_size += data.len() as i64;
+            file_map.insert("Cookies".into(), hex_encode(&data));
+            file_count += 1;
+        }
+        if let Ok(data) = std::fs::read(wc_dir.join("Cookies-journal")) {
+            total_size += data.len() as i64;
+            file_map.insert("Cookies-journal".into(), hex_encode(&data));
+            file_count += 1;
+        }
+    }
+
+    file_map.insert("__registry_AccountId__".into(), account_id.clone());
+
+    let file_data = serde_json::to_vec(&file_map)
+        .map_err(|e| format!("Failed to serialize: {}", e))?;
+
+    // Don't restart Epic for auto-save
+
+    Ok(InternalSyncResult {
+        launcher: "epic".into(),
+        username: account_id,
+        registry_data: None,
+        file_data: Some(file_data),
+        file_count,
+        total_size,
+    })
+}
+
 fn kill_epic() {
     #[cfg(target_os = "windows")]
     {
@@ -300,6 +262,15 @@ fn kill_epic() {
             .args(["/F", "/IM", "EpicGamesLauncher.exe"]).output();
         let _ = std::process::Command::new("taskkill")
             .args(["/F", "/IM", "EpicWebHelper.exe"]).output();
+    }
+}
+
+fn start_epic() {
+    #[cfg(target_os = "windows")]
+    {
+        if let Some(exe) = crate::switcher::find_epic_exe() {
+            let _ = std::process::Command::new(&exe).spawn();
+        }
     }
 }
 

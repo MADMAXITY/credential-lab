@@ -70,8 +70,7 @@ fn auto_save_current(launcher_id: &str, state: &tauri::State<'_, AppState>) -> R
     let sync_result = match launcher_id {
         "steam" => crate::credentials::steam::sync_current(),
         "ea" => crate::credentials::ea::sync_current_for_auto_save(),
-        // Epic: NO auto-save. Epic's [RememberMe] token is single-session.
-        "epic" => return Ok(()),
+        "epic" => crate::credentials::epic::sync_current_for_auto_save(),
         _ => return Ok(()),
     };
 

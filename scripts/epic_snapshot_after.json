@@ -1,0 +1,3930 @@
+{
+  "label": "after",
+  "timestamp": "2026-03-21T16:18:13.648209",
+  "files": {
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\0273AC76426E73DB3447CBBE1A1DCAABuriforward.tmp": {
+      "size": 16,
+      "mtime": 1767253408.756567,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\029BC96349476A5841278699BBFF85EFuriforward.tmp": {
+      "size": 16,
+      "mtime": 1767209930.5436015,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\07D917C34E398B688471BFBCD36ACCA3uriforward.tmp": {
+      "size": 16,
+      "mtime": 1765478222.2819393,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\1CCF275440DE18551305ED986ED6F2D6uriforward.tmp": {
+      "size": 16,
+      "mtime": 1765467112.3116498,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\275879B149E3C2A48EC3618B8C50DBE2uriforward.tmp": {
+      "size": 16,
+      "mtime": 1767160427.3822665,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\37C03A6C44D7930502ED6B916C3382A4uriforward.tmp": {
+      "size": 16,
+      "mtime": 1766679013.3761797,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\437AEA6741FB3C2FEB679AA69D8AB570uriforward.tmp": {
+      "size": 16,
+      "mtime": 1767250297.8613193,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\4E0C2E2C4B4A14007DCBC095B785BAB6uriforward.tmp": {
+      "size": 16,
+      "mtime": 1767251774.2968826,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\50E39D9C441B5A35A0220DBA9879948Auriforward.tmp": {
+      "size": 16,
+      "mtime": 1764299205.9210234,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\619D765D4C1B158188CFEDB442021F31uriforward.tmp": {
+      "size": 16,
+      "mtime": 1764856007.5006847,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\74792FA943AD6609B829B5AA0D62B1A4uriforward.tmp": {
+      "size": 16,
+      "mtime": 1767210187.286768,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\91DEC75B42C5A7AB5DED91B3EE695DEAuriforward.tmp": {
+      "size": 16,
+      "mtime": 1765245075.8800614,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\A5C059DF4D4D57FD0A2315B04745A5E5uriforward.tmp": {
+      "size": 16,
+      "mtime": 1765479128.808619,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\B31D707C49FAF4A32CD257B39DA91E31uriforward.tmp": {
+      "size": 16,
+      "mtime": 1767161918.2422838,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\C1E623BE46DF6845FF075EB6D7129F3Euriforward.tmp": {
+      "size": 16,
+      "mtime": 1765476191.3076375,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\com\\D704BFAF45D0A5F0FDA68F8E0357CC70uriforward.tmp": {
+      "size": 16,
+      "mtime": 1765478632.219457,
+      "hash": "f61bf20c255c708f39f0e39faf095a55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Intermediate\\Config\\CoalescedSourceConfigs\\PortalRegions.ini": {
+      "size": 36352,
+      "mtime": 1774090056.6561718,
+      "hash": "e05e0d317c865a6780e25a8230d6905c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Config\\Config\\Windows\\GameUserSettings.ini": {
+      "size": 1754,
+      "mtime": 1774082797.307092,
+      "hash": "5a30efe9fef169274c1a7aed2bb70f9e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Config\\Config\\WindowsEditor\\GameUserSettings.ini": {
+      "size": 3265,
+      "mtime": 1774082797.308093,
+      "hash": "d4daec0fff4a9a443597c631c1061af9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Config\\Windows\\GameUserSettings.ini": {
+      "size": 3461,
+      "mtime": 1767253276.0745323,
+      "hash": "65f38d62fd2559b10815b523a7487a7a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Config\\WindowsEditor\\Game.ini": {
+      "size": 129,
+      "mtime": 1774090056.821792,
+      "hash": "454119fd71a28b8a805aa99f0a6642fd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Config\\WindowsEditor\\GameUserSettings.ini": {
+      "size": 3676,
+      "mtime": 1774090071.589063,
+      "hash": "8b2963522e27458d207863346721a3d2"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Crashes\\UECC-Windows-7F29C81B455391BA88EAC1B1B7CDE09C_0000\\CrashContext.runtime-xml": {
+      "size": 36452,
+      "mtime": 1774057013.596858,
+      "hash": "5a13a3ea28ce27244dd0e1e46ecdbda5"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Crashes\\UECC-Windows-7F29C81B455391BA88EAC1B1B7CDE09C_0000\\CrashReportClient.ini": {
+      "size": 160,
+      "mtime": 1774057013.597858,
+      "hash": "3eea0c4fa2bd89d547ea9e79960859fd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Crashes\\UECC-Windows-7F29C81B455391BA88EAC1B1B7CDE09C_0000\\UEMinidump.dmp": {
+      "size": 806308,
+      "mtime": 1774057013.794651,
+      "hash": "cc0d6360378fcbed74d687ab536899cd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\CrashTokens\\78954B3341458B4A62B6E6887F98D8F1.ctoken": {
+      "size": 0,
+      "mtime": 1774057017.0,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\8841c11ed1c9479ab26a651a3736e677.dat": {
+      "size": 15,
+      "mtime": 1774075996.09117,
+      "hash": "f03b8530ba6d501bceaa06d4296f97f6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\eecdfdda7e2341659752b4e4d6a6dd40.dat": {
+      "size": 15,
+      "mtime": 1774089966.2873762,
+      "hash": "f03b8530ba6d501bceaa06d4296f97f6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\OC_8841c11ed1c9479ab26a651a3736e677.dat": {
+      "size": 134,
+      "mtime": 1774075642.4387453,
+      "hash": "61a178ca601efd62887ac1d4da5df9c3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\OC_eecdfdda7e2341659752b4e4d6a6dd40.dat": {
+      "size": 1984,
+      "mtime": 1774090072.158056,
+      "hash": "d0dc1b1f235a2ab37519aa5379776872"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\Data\\8841c11ed1c9479ab26a651a3736e677.dat": {
+      "size": 15,
+      "mtime": 1774032847.628081,
+      "hash": "f03b8530ba6d501bceaa06d4296f97f6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\Data\\eecdfdda7e2341659752b4e4d6a6dd40.dat": {
+      "size": 15,
+      "mtime": 1774032847.6260803,
+      "hash": "f03b8530ba6d501bceaa06d4296f97f6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\Data\\OC_8841c11ed1c9479ab26a651a3736e677.dat": {
+      "size": 134,
+      "mtime": 1774032847.628081,
+      "hash": "cfe9c9d8b7686a09bb5e8069cfd9d594"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\Data\\Data\\OC_eecdfdda7e2341659752b4e4d6a6dd40.dat": {
+      "size": 1984,
+      "mtime": 1774032847.6300814,
+      "hash": "e05db32056e3bd4ef88e29b12047c079"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cookies": {
+      "size": 20480,
+      "mtime": 1774089931.4085588,
+      "hash": "c0bfe55486eb88428d0bdd0d3a9643ce"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cookies-journal": {
+      "size": 0,
+      "mtime": 1774089931.4095588,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\CURRENT": {
+      "size": 16,
+      "mtime": 1774089873.5823705,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\LOCK": {
+      "size": 0,
+      "mtime": 1774089873.5813718,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\LOG": {
+      "size": 300,
+      "mtime": 1774090074.0097928,
+      "hash": "26821a478bfc3256d138f30f13b0c9ec"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\LOG.old": {
+      "size": 300,
+      "mtime": 1774089960.9207585,
+      "hash": "dda68defb8360a166e94a7971756c8e4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1774089873.5813718,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Network Persistent State": {
+      "size": 1395,
+      "mtime": 1774089966.183436,
+      "hash": "dcb54b3b2efc9ac67232b0c97a8821ee"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\QuotaManager": {
+      "size": 53248,
+      "mtime": 1774089966.181435,
+      "hash": "7cd2caf6b08791b60ec048827de94754"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\QuotaManager-journal": {
+      "size": 12824,
+      "mtime": 1774090075.6543226,
+      "hash": "72024c1970ee001ae1492204ccbd8d87"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Reporting and NEL": {
+      "size": 36864,
+      "mtime": 1774089871.4018583,
+      "hash": "c8aaae3046d06dd2f497aa6b81e2aa91"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Reporting and NEL-journal": {
+      "size": 0,
+      "mtime": 1774089871.4018583,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\TransportSecurity": {
+      "size": 872,
+      "mtime": 1774090082.055767,
+      "hash": "0db649555043d43cf13361f8d7a36346"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Visited Links": {
+      "size": 131072,
+      "mtime": 1774089873.0513716,
+      "hash": "5b898614c7815e3cdcbcb9c0fe2f3bac"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\data_0": {
+      "size": 45056,
+      "mtime": 1774090078.6196816,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\data_1": {
+      "size": 270336,
+      "mtime": 1774090078.6196816,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\data_2": {
+      "size": 1056768,
+      "mtime": 1774090076.1064658,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\data_3": {
+      "size": 4202496,
+      "mtime": 1774090077.8586104,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000002": {
+      "size": 37780,
+      "mtime": 1774089873.3411026,
+      "hash": "e1b9f0ecaaebb12c93064cd3c406f82b"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000003": {
+      "size": 26716,
+      "mtime": 1774089873.3411026,
+      "hash": "7abe84ca4a706463d9aba7b7ea6aedc4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000004": {
+      "size": 57244,
+      "mtime": 1774089873.4142857,
+      "hash": "2c1fc211bf5cca7ae7e7396dc9e4c824"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000005": {
+      "size": 1164799,
+      "mtime": 1774089873.5903716,
+      "hash": "1cd334d7bf9c905a8f8a0abfa3ebf440"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000006": {
+      "size": 45127,
+      "mtime": 1774089873.6758745,
+      "hash": "9e090c67809851ec56813755ca7c1574"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000007": {
+      "size": 877154,
+      "mtime": 1774089873.676875,
+      "hash": "78d5d9e1779894ef72244c0edf06e1db"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000008": {
+      "size": 78256,
+      "mtime": 1774089873.9118512,
+      "hash": "51fa6b3dd9314f299d3f7cdc040d35ca"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000009": {
+      "size": 352346,
+      "mtime": 1774089873.9905446,
+      "hash": "26f5dc93e1947deb98004fc1a9466e15"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000a": {
+      "size": 72426,
+      "mtime": 1774089873.9965444,
+      "hash": "1ef2c3499f81f66e0c83ca65733d1c24"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000b": {
+      "size": 48332,
+      "mtime": 1774089874.0005455,
+      "hash": "a65326cb14a876d3698fb5039be12049"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000c": {
+      "size": 53939,
+      "mtime": 1774089874.0245457,
+      "hash": "0a937cd8aab4a4e042b447e7687b1ebd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000d": {
+      "size": 50236,
+      "mtime": 1774089874.0732849,
+      "hash": "fbc133972ebb13516245cca649021f55"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000e": {
+      "size": 29948,
+      "mtime": 1774089874.115551,
+      "hash": "8e70fdf0738ba4bbbc46e83af3b91270"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00000f": {
+      "size": 30252,
+      "mtime": 1774089874.1175508,
+      "hash": "c98b94aea578b5a6671cd4eefa94c66e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000010": {
+      "size": 16641,
+      "mtime": 1774089874.118551,
+      "hash": "eceb8a818849a75f66e6ada571eb9d35"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000011": {
+      "size": 33462,
+      "mtime": 1774089874.118551,
+      "hash": "06cd0fc9fad6f0adb928933d8c8f00ae"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000012": {
+      "size": 25363,
+      "mtime": 1774089874.1215508,
+      "hash": "7a24be5434c1c85cd3c8a3ee0fe7da4c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000013": {
+      "size": 87135,
+      "mtime": 1774089874.1985497,
+      "hash": "5f4bb6884985501d137916b31f622f46"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000015": {
+      "size": 2617874,
+      "mtime": 1774089876.1804187,
+      "hash": "79bd8ffece571e8cc74c6d360280bb12"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000016": {
+      "size": 92234,
+      "mtime": 1774089879.375504,
+      "hash": "da2bd4c785c47b918dc2a7462dc5ae51"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000017": {
+      "size": 28677,
+      "mtime": 1774089879.6265645,
+      "hash": "6fc43a82414e201de78ad4a6528f7902"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000018": {
+      "size": 182187,
+      "mtime": 1774089881.4358816,
+      "hash": "935dde9c8d700a2953d857f568547294"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000019": {
+      "size": 639380,
+      "mtime": 1774089881.7341142,
+      "hash": "200a0230a53d827035a7d4492a0e510c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001a": {
+      "size": 129376,
+      "mtime": 1774089881.9692287,
+      "hash": "ae5596d6613d9d3d8f9ead5389306df4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001b": {
+      "size": 45765,
+      "mtime": 1774089882.0572314,
+      "hash": "65c223a02067488e7a576e24682a3e09"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001c": {
+      "size": 182782,
+      "mtime": 1774089882.237229,
+      "hash": "bf386a55a31f86ef97c23ebc718192b4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001d": {
+      "size": 106645,
+      "mtime": 1774089882.389229,
+      "hash": "40de13524845962b24ab0f7ceba89537"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001e": {
+      "size": 112880,
+      "mtime": 1774089882.5797362,
+      "hash": "c0498fad714f0f1f049e67a59b11fe57"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00001f": {
+      "size": 106946,
+      "mtime": 1774089882.8030396,
+      "hash": "b69918774f8e3764be9a41a111fcfd33"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000020": {
+      "size": 24110,
+      "mtime": 1774089882.882547,
+      "hash": "d7040f68eed3e35b707909c78932941a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000021": {
+      "size": 87922,
+      "mtime": 1774089882.9740572,
+      "hash": "8b3aca0333a39d6f90494956b599f3fd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000022": {
+      "size": 24136,
+      "mtime": 1774089883.0525646,
+      "hash": "afe54dadd260ac4d701b93f6444d2859"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000023": {
+      "size": 73439,
+      "mtime": 1774089883.214563,
+      "hash": "4553982d7272dd810fcae949cd09e912"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000024": {
+      "size": 24136,
+      "mtime": 1774089883.289564,
+      "hash": "6d62518e92d7afcb3c9661f84fdf36c3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000025": {
+      "size": 69822,
+      "mtime": 1774089883.400183,
+      "hash": "ecc83371a7a66cdb0a552bd9d1c8b78c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000026": {
+      "size": 61054,
+      "mtime": 1774089883.546372,
+      "hash": "317100992612a7245f439ecf7f8e231c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000027": {
+      "size": 60558,
+      "mtime": 1774089883.720528,
+      "hash": "ecd032ea3e5d660d54f10119b1b339df"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000028": {
+      "size": 56841,
+      "mtime": 1774089883.8695016,
+      "hash": "d71da1c195d3183df5799e7892e9b1a1"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000029": {
+      "size": 45681,
+      "mtime": 1774089883.9555633,
+      "hash": "a95e6c9630b355463d0abd9ea0a1dcdf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002a": {
+      "size": 42287,
+      "mtime": 1774089884.050786,
+      "hash": "25c285e020572b4f76b770d6cca272ec"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002b": {
+      "size": 30812,
+      "mtime": 1774089884.212624,
+      "hash": "8a124e07162305cd8c3e29e108a38022"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002c": {
+      "size": 27105,
+      "mtime": 1774089884.3198028,
+      "hash": "e6b11159264bc576a5c84e4067c4cccf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002d": {
+      "size": 26575,
+      "mtime": 1774089884.4131527,
+      "hash": "65efbb28bd9eca3ae114197f54d78abf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002e": {
+      "size": 23995,
+      "mtime": 1774089884.5221877,
+      "hash": "71cf2a70ca4c26f72497407ff8400c54"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_00002f": {
+      "size": 22341,
+      "mtime": 1774089884.6855478,
+      "hash": "28957657e374ed32a67c0063f95101cd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000032": {
+      "size": 171328,
+      "mtime": 1774090073.2364397,
+      "hash": "1c8b9c5ea670d2bc809c49e5e4f763a9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\f_000033": {
+      "size": 32927,
+      "mtime": 1774090074.6828046,
+      "hash": "c3d4dadb879249d5f662790adcbacec5"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Cache\\index": {
+      "size": 524656,
+      "mtime": 1774089870.9828353,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\1119d23121849a7c_0": {
+      "size": 208,
+      "mtime": 1774090075.5688114,
+      "hash": "cb079e399275f415730d190cc230ad27"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\200f86ff27033f35_0": {
+      "size": 424648,
+      "mtime": 1774089961.0879126,
+      "hash": "9d84c767b72597a3539aa5e6a46af2c6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\27ac84d17e1ff079_0": {
+      "size": 261,
+      "mtime": 1774090075.6683228,
+      "hash": "4996b2bc21334e54b3e9903f1a6ca709"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\5016471bf90195e8_0": {
+      "size": 5021856,
+      "mtime": 1774089962.6805243,
+      "hash": "a732de32a84e8f324affbbd9d3362cdd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\7d68cefd9814216b_0": {
+      "size": 362,
+      "mtime": 1774089962.6785243,
+      "hash": "194863ed51ff267ca65d9f9c46258b4e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\bb1c88fefab252b8_0": {
+      "size": 264,
+      "mtime": 1774089961.086912,
+      "hash": "15f138355302b3d1b0b7aef94806ca18"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\index": {
+      "size": 24,
+      "mtime": 1774089870.8945713,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\js\\index-dir\\the-real-index": {
+      "size": 192,
+      "mtime": 1774089966.180434,
+      "hash": "9e3b4cc6c5317c0c35d5a6c479ca73dd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\wasm\\index": {
+      "size": 24,
+      "mtime": 1774089870.8945713,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Code Cache\\wasm\\index-dir\\the-real-index": {
+      "size": 48,
+      "mtime": 1774089870.9429235,
+      "hash": "89f3f2abc2e0cc9f56356aa33ce2080c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\databases\\Databases.db": {
+      "size": 28672,
+      "mtime": 1774089874.0805504,
+      "hash": "02e63f9dda664051c5f8e5f8825885c4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\databases\\Databases.db-journal": {
+      "size": 0,
+      "mtime": 1774089874.0815525,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\IndexedDB\\https_launcher.store.epicgames.com_0.indexeddb.leveldb\\CURRENT": {
+      "size": 16,
+      "mtime": 1774089874.0475297,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\IndexedDB\\https_launcher.store.epicgames.com_0.indexeddb.leveldb\\LOCK": {
+      "size": 0,
+      "mtime": 1774089874.046546,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\IndexedDB\\https_launcher.store.epicgames.com_0.indexeddb.leveldb\\LOG": {
+      "size": 430,
+      "mtime": 1774090073.745121,
+      "hash": "12e8e67fc73379d608e905a0b0dcbfcf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\IndexedDB\\https_launcher.store.epicgames.com_0.indexeddb.leveldb\\LOG.old": {
+      "size": 430,
+      "mtime": 1774089960.4549983,
+      "hash": "a2a4c563cb0d24552a13143c2d4dae4a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\IndexedDB\\https_launcher.store.epicgames.com_0.indexeddb.leveldb\\MANIFEST-000001": {
+      "size": 23,
+      "mtime": 1774089874.046546,
+      "hash": "3fd11ff447c1ee23538dc4d9724427a3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Local Storage\\leveldb\\CURRENT": {
+      "size": 16,
+      "mtime": 1774089870.8945713,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Local Storage\\leveldb\\LOCK": {
+      "size": 0,
+      "mtime": 1774089870.8925714,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Local Storage\\leveldb\\LOG": {
+      "size": 344,
+      "mtime": 1774090071.5400655,
+      "hash": "d48a7de354830baba4067e38af926a3f"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Local Storage\\leveldb\\LOG.old": {
+      "size": 344,
+      "mtime": 1774089958.2880883,
+      "hash": "50ab8c1ae8a341bb7e182679a6fd39b2"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Local Storage\\leveldb\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1774089870.8925714,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\index.txt": {
+      "size": 209,
+      "mtime": 1774089905.1567762,
+      "hash": "8a552618a7a5c9383a482aa7973bbfe8"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\b118203b-2f75-4e55-ab5f-9f660423e13f\\fa1b88750e858734_0": {
+      "size": 339939,
+      "mtime": 1774089879.522565,
+      "hash": "d59b77a454f626e479b7c30241a88c92"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\b118203b-2f75-4e55-ab5f-9f660423e13f\\index": {
+      "size": 24,
+      "mtime": 1774089878.5901785,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\b118203b-2f75-4e55-ab5f-9f660423e13f\\index-dir\\the-real-index": {
+      "size": 72,
+      "mtime": 1774089899.5240035,
+      "hash": "c2b4f2e595f7da19d209933c5e26f963"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\0a7ca15ea81f26d9_0": {
+      "size": 24905,
+      "mtime": 1774089880.7474587,
+      "hash": "ddae2962f75bfc87c6054622cf32755b"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\0a7ca15ea81f26d9_1": {
+      "size": 60740,
+      "mtime": 1774089880.7474587,
+      "hash": "79908c17d121903766ba5c5178f54ebf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\13fa4f748e116660_0": {
+      "size": 2639,
+      "mtime": 1774089879.0956607,
+      "hash": "1666dc656e33e4177da71bfe8bf399e3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\13fa4f748e116660_1": {
+      "size": 2141,
+      "mtime": 1774089879.0956607,
+      "hash": "26d6bda7cf712e7aed8ef5d76b625637"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\26d4d6ffb251f011_0": {
+      "size": 184151,
+      "mtime": 1774089882.2382317,
+      "hash": "34deadbe00830b5c65e9f3ad40cfa134"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\33549a1e8508f1a8_0": {
+      "size": 4279663,
+      "mtime": 1774089881.1918814,
+      "hash": "291a047e467db34beb4c6310c46125a6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\33549a1e8508f1a8_1": {
+      "size": 8393494,
+      "mtime": 1774089881.1918814,
+      "hash": "9ea984feb6ac0425a69b21a99487a278"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\3832a91badd9669c_0": {
+      "size": 34339,
+      "mtime": 1774089878.8604953,
+      "hash": "950ec9193dd3444fc54c4439f2268e75"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\4073e069bf906f74_0": {
+      "size": 7410,
+      "mtime": 1774089878.6713436,
+      "hash": "509cdb064706729c8c21750fd8814400"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\4073e069bf906f74_1": {
+      "size": 14452,
+      "mtime": 1774089878.6713436,
+      "hash": "fb454f019005d2314bbbcc0ee3dce60b"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\4114e1fe73e1a945_0": {
+      "size": 23709,
+      "mtime": 1774089884.688546,
+      "hash": "5b0f89120abe1427aa0131d286cc00dc"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\42319833de56dc5e_0": {
+      "size": 20747,
+      "mtime": 1774089884.874906,
+      "hash": "a66c359c9088d926e0e468b3270e0481"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\42358b66d0590bd6_0": {
+      "size": 143412,
+      "mtime": 1774089882.0582297,
+      "hash": "7ac16bb25042564f8aa06e2c2e02e280"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\4b0b895ed9aff627_0": {
+      "size": 62422,
+      "mtime": 1774089883.5493784,
+      "hash": "0c41d6e1192854e6fd8481636ab54447"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\502fce0c4587b8fa_0": {
+      "size": 58154,
+      "mtime": 1774089883.8725028,
+      "hash": "bb9a7b3f1a26047e8df360c591f22e94"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\51dffe6fd2101a47_0": {
+      "size": 181423,
+      "mtime": 1774089882.39023,
+      "hash": "cfdb53eaa23005e1cc64fa26ac2dd2aa"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\5ad9c00fcd5b0e45_0": {
+      "size": 35191,
+      "mtime": 1774089880.4763038,
+      "hash": "7b9f5b438a4ae07be7ba1b36d076994c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\5ad9c00fcd5b0e45_1": {
+      "size": 73440,
+      "mtime": 1774089880.4763038,
+      "hash": "0fd52d575e2fc23e5649299ae678c371"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\5cd47e5d40d34def_0": {
+      "size": 47720,
+      "mtime": 1774089883.293563,
+      "hash": "36a38595c696089e57cda59afa46aea0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\5e93099faa40668e_0": {
+      "size": 842584,
+      "mtime": 1774089881.4368815,
+      "hash": "2b1bcb873e34b56cd1740c57c88df4a0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\67d744ceb1fef381_0": {
+      "size": 47537,
+      "mtime": 1774089883.0535634,
+      "hash": "ca462786a918462cbe64c513d50686df"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\6aa37ddbf6f52221_0": {
+      "size": 43654,
+      "mtime": 1774089884.050786,
+      "hash": "11c27ba9865a8126b033b5f31859db9a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\6fb168a7d73aa7c5_0": {
+      "size": 74807,
+      "mtime": 1774089883.2155638,
+      "hash": "08c591a6f22f3a8d5f83fd893d9db528"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\7a701adcc0fbc6dd_0": {
+      "size": 108265,
+      "mtime": 1774089882.804041,
+      "hash": "e7bcd1e26fd970b5d87917355cef4d5a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\7c3257facb92952c_0": {
+      "size": 5784,
+      "mtime": 1774089880.5668733,
+      "hash": "2aec4266e4517d6f49209c3cde003fab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\7c3257facb92952c_1": {
+      "size": 9887,
+      "mtime": 1774089880.5668733,
+      "hash": "ee7bcf16359963e69c6c2d7eee49a447"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\7d2ec26b77b65058_0": {
+      "size": 640749,
+      "mtime": 1774089881.736117,
+      "hash": "5bf09834e4ad88faeacf8436aeb70b11"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\8c72673c4acffd5d_0": {
+      "size": 40037,
+      "mtime": 1774089884.1476698,
+      "hash": "dd9687e6b14dab2c011212d568da1d20"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\8e3c4ac0d4d8a1cd_0": {
+      "size": 89288,
+      "mtime": 1774089882.9750576,
+      "hash": "b86fd8aa95f9cc165ce65d9607e91c62"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\9491205cb36226b1_0": {
+      "size": 100302,
+      "mtime": 1774089879.6380198,
+      "hash": "98e6275f3cb4135505ff50c18375317e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\9491205cb36226b1_1": {
+      "size": 236034,
+      "mtime": 1774089879.6380198,
+      "hash": "8bde80fbbfb645730410f5ac48802195"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\94f479888645f48b_0": {
+      "size": 555740,
+      "mtime": 1774089881.9702299,
+      "hash": "a03344780ed873983ba16249da858bb0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a268fa9dbf079382_0": {
+      "size": 11080,
+      "mtime": 1774089880.359721,
+      "hash": "6205e882b71023b29e7718a6c8af1a64"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a268fa9dbf079382_1": {
+      "size": 21915,
+      "mtime": 1774089880.359721,
+      "hash": "a0c563baf7c152365138e7a31bfcf944"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a48f8e88ee35b296_0": {
+      "size": 78484,
+      "mtime": 1774089880.7984588,
+      "hash": "a0d6a4bd9b64dc2e3b6439e0cbba2228"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a58bb32349ee755b_0": {
+      "size": 12895,
+      "mtime": 1774089884.9500186,
+      "hash": "6662c05091bb1e1b37bad2cc97fa7781"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a9122111fa982db9_0": {
+      "size": 21654,
+      "mtime": 1774089880.022037,
+      "hash": "b92150df77c8cf00cbc9828dc32a74fd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\a9122111fa982db9_1": {
+      "size": 45248,
+      "mtime": 1774089880.022037,
+      "hash": "17ecd01ac445a6429b3855125bb4bf23"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\afec71b4e8864498_0": {
+      "size": 2732,
+      "mtime": 1774089880.2554302,
+      "hash": "ed8553772482f96c1d4b9c92d5f7fb9a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\afec71b4e8864498_1": {
+      "size": 2568,
+      "mtime": 1774089880.2554302,
+      "hash": "7a5ca00cdeb3f0d9d36cf7ff944aa08c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\c5f6ca554b2c83f3_0": {
+      "size": 3672775,
+      "mtime": 1774089879.5265665,
+      "hash": "cbdd6ffd0261e5d3c2709b5418ccf369"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\c5f6ca554b2c83f3_1": {
+      "size": 7608483,
+      "mtime": 1774089879.5265665,
+      "hash": "cc467be8f3031799e36a7b7405c5c68c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\c716e2cd7ad2a2fb_0": {
+      "size": 28473,
+      "mtime": 1774089884.3218038,
+      "hash": "7cf4e9936a993320ced934426774c6c8"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\cc885971fbc5d088_0": {
+      "size": 3856,
+      "mtime": 1774089879.7529366,
+      "hash": "93e67285a6cea8b21c54c4872cb6eafb"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\cc885971fbc5d088_1": {
+      "size": 5089,
+      "mtime": 1774089879.7529366,
+      "hash": "eeaf1302b89ced8ef23eccaee880d17c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\cdb640806f3c9b89_0": {
+      "size": 3868,
+      "mtime": 1774089879.9249644,
+      "hash": "3f7865a9a1cd8c0738b2e46e82c3b429"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\cdb640806f3c9b89_1": {
+      "size": 5061,
+      "mtime": 1774089879.9249644,
+      "hash": "d2144d40417d4ca3f8c544ddf368b40e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\d730dec598dd1292_0": {
+      "size": 11603,
+      "mtime": 1774089885.1048918,
+      "hash": "fc986e0421080f4edfc492a84379a2b3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\d930de791df056b1_0": {
+      "size": 50325,
+      "mtime": 1774089878.7511466,
+      "hash": "9f35b8b23b6083373586a1b445155b7b"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\d952198e6e127d29_0": {
+      "size": 47513,
+      "mtime": 1774089882.8835468,
+      "hash": "7664a639ce03b615dbbf5c814bf800e7"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\db1e9ab2186a94a5_0": {
+      "size": 2733,
+      "mtime": 1774089880.117615,
+      "hash": "9ee27df853a8c6f2cd1dafab9381d60c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\db1e9ab2186a94a5_1": {
+      "size": 2572,
+      "mtime": 1774089880.117615,
+      "hash": "9986fc6e9c101ab16974a940b7cb886a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\dd71d388d7a80d63_0": {
+      "size": 71135,
+      "mtime": 1774089883.4021823,
+      "hash": "8de0a8e3353ed91b33d3257c98aca50d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\e3e56f6f9bc8d9e3_0": {
+      "size": 32125,
+      "mtime": 1774089884.2156246,
+      "hash": "f4ebe58043c6f267735fd2036bd05277"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\e4487b1fe61be9cd_0": {
+      "size": 7579,
+      "mtime": 1774089879.1975703,
+      "hash": "88f2c33733d150bea1a14b52b8ce6a1f"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\e5bde900f0e1812d_0": {
+      "size": 25309,
+      "mtime": 1774089884.525187,
+      "hash": "e043f3e4f958530c69437a4f3d441afb"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\eac9819dd1a7b353_0": {
+      "size": 27944,
+      "mtime": 1774089884.415151,
+      "hash": "f358d2204a462ea7a2ff3fcf2c41f230"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\f79b74223f1de3f3_0": {
+      "size": 2526,
+      "mtime": 1774089878.950618,
+      "hash": "c302798c973f8b50d38d40b80b14e4e3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\f79b74223f1de3f3_1": {
+      "size": 1681,
+      "mtime": 1774089878.950618,
+      "hash": "9c1351fb453745164970df67a209fa28"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fa9cc14bba0b6d39_0": {
+      "size": 61927,
+      "mtime": 1774089883.7225275,
+      "hash": "5cc51cd77b6ee4795d66d2ed10617820"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fb146c72c7bfe9cf_0": {
+      "size": 46995,
+      "mtime": 1774089883.9565637,
+      "hash": "50be6180810a5c665a1a626ebdf9a469"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fc0709ad60306e94_0": {
+      "size": 7512,
+      "mtime": 1774089879.0146554,
+      "hash": "aac5850669e0f4c9d15a27571f987379"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fc10d0fda96cf1d0_0": {
+      "size": 114214,
+      "mtime": 1774089882.5807366,
+      "hash": "f3a7120259e8a1e8b1aed6f248177d97"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fd546852e8511445_0": {
+      "size": 2510,
+      "mtime": 1774089878.8190923,
+      "hash": "0143f0ee8a32e4c89af7d33d010721b3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\fd546852e8511445_1": {
+      "size": 1668,
+      "mtime": 1774089878.8190923,
+      "hash": "0876a4c2c7ba193677efb47ccea6ded1"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\index": {
+      "size": 24,
+      "mtime": 1774089878.6613424,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\CacheStorage\\ebda3e26c4ea8f9fb951e2258cd623a5571a3476\\c75ae418-a3b0-423c-b754-fa45fce5d880\\index-dir\\the-real-index": {
+      "size": 1224,
+      "mtime": 1774089905.105309,
+      "hash": "b1273df57db0de4039362d8a2963157d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\Database\\CURRENT": {
+      "size": 16,
+      "mtime": 1774089876.8562593,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\Database\\LOCK": {
+      "size": 0,
+      "mtime": 1774089876.8542595,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\Database\\LOG": {
+      "size": 348,
+      "mtime": 1774090071.5410647,
+      "hash": "4d7989c3a00ef272e27b1f2df013bb81"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\Database\\LOG.old": {
+      "size": 348,
+      "mtime": 1774089958.29009,
+      "hash": "d55f2732b61d64914e38ef188dde408e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\Database\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1774089876.8542595,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\2cc80dabc69f58b6_0": {
+      "size": 15851,
+      "mtime": 1774089877.2856317,
+      "hash": "f1e4ee3369de8e6c87256bbd5f0192ee"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\2cc80dabc69f58b6_1": {
+      "size": 12857,
+      "mtime": 1774089878.6231797,
+      "hash": "f85707d7bd4f4a0bb264bfeed3c23289"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\4cb013792b196a35_0": {
+      "size": 2156,
+      "mtime": 1774089877.519246,
+      "hash": "bed0774446e2222ab61903fe8e138248"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\4cb013792b196a35_1": {
+      "size": 3465,
+      "mtime": 1774089877.619877,
+      "hash": "5b5d6a6c76981efff08eedb44095964a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\67a473248953641b_0": {
+      "size": 7844,
+      "mtime": 1774089878.1204386,
+      "hash": "757684c1d4e8bb7fb730d68faf357a8d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\67a473248953641b_1": {
+      "size": 21257,
+      "mtime": 1774089878.4228113,
+      "hash": "3141e18ce48962cccbfdd260e72dec01"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\b6c28cea6ed9dfc1_0": {
+      "size": 1457,
+      "mtime": 1774089878.5226686,
+      "hash": "dbb3f9be3dcbc49074e4ba09745b97fd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\ba23d8ecda68de77_0": {
+      "size": 7740,
+      "mtime": 1774089877.9205058,
+      "hash": "0b46a73e77d0fc4dfe1816171229957e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\ba23d8ecda68de77_1": {
+      "size": 21585,
+      "mtime": 1774089878.0209131,
+      "hash": "1ff8538462195bcb87d37ee371a890e9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\f1cdccba37924bda_0": {
+      "size": 3907,
+      "mtime": 1774089877.720052,
+      "hash": "c78873c8cd5e6fe1811f3e418ec055be"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\f1cdccba37924bda_1": {
+      "size": 12033,
+      "mtime": 1774089877.819966,
+      "hash": "0c055aefc8fdf7e884b879852399abe5"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\fa813c9ad67834ac_0": {
+      "size": 4320,
+      "mtime": 1774089878.3221366,
+      "hash": "76c026160f887aea6f9f66be75272fa9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\fa813c9ad67834ac_1": {
+      "size": 10857,
+      "mtime": 1774089878.4228113,
+      "hash": "b90aaa3b4c7629779fd86ab953dad639"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\index": {
+      "size": 24,
+      "mtime": 1774089876.8542595,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Service Worker\\ScriptCache\\index-dir\\the-real-index": {
+      "size": 216,
+      "mtime": 1774089898.689048,
+      "hash": "ad8e7ee4b83e2a30b203de94e9a5aa00"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Session Storage\\CURRENT": {
+      "size": 16,
+      "mtime": 1774089874.0795527,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Session Storage\\LOCK": {
+      "size": 0,
+      "mtime": 1774089874.07755,
+      "hash": "ERROR"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Session Storage\\LOG": {
+      "size": 332,
+      "mtime": 1774090073.7771215,
+      "hash": "f75d0c0b48140d0a764edfb18bcb586e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Session Storage\\LOG.old": {
+      "size": 332,
+      "mtime": 1774089960.4589977,
+      "hash": "30cf0397de833a7d598f00815c08eacc"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EpicGamesLauncher\\Saved\\webcache_4430\\Session Storage\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1774089874.0785527,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\025b9637a1176fc4703a882452f7aec10a773f83.qmlc": {
+      "size": 41428,
+      "mtime": 1774078013.5823393,
+      "hash": "da41454fed12f80a85616299b9c44c78"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\03b13d62a89461e1f625ac6e3d4abf25260df8cd.qmlc": {
+      "size": 5016,
+      "mtime": 1774078013.4591765,
+      "hash": "92a2156aeccedabb1a7912b8be4a2a7e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\0af7668e169b3255b709301c640742feae5a096d.qmlc": {
+      "size": 33636,
+      "mtime": 1774078013.4930744,
+      "hash": "f1f73c3c2b652c1185abfa5bdbaec1ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\0bd5cf23c1a78fdd98ccbf96a05645392c65305c.qmlc": {
+      "size": 7160,
+      "mtime": 1774078013.561834,
+      "hash": "b85ed6a79ecb59ebd90c8d8afdc62926"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\117077d41873bb049512e5d67e7c906f6fe24fc0.qmlc": {
+      "size": 34304,
+      "mtime": 1774078013.510076,
+      "hash": "da09e0dd0e33115ffb1b6ea3edb583f9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\155124cd712f66d7bb019ba436ea187a72eee21a.qmlc": {
+      "size": 644,
+      "mtime": 1774078013.466176,
+      "hash": "c15932a81b844f8e83df4698dbabdc6d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\15ed9e3fc8fdb62a5edcd5800b5216e3a8d939a1.qmlc": {
+      "size": 18656,
+      "mtime": 1774078013.5748348,
+      "hash": "710472244fbd417b7d05646992ba9eb2"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\1647d7fa6e2cf0a8bacde0339df308646caaa9fc.qmlc": {
+      "size": 9544,
+      "mtime": 1774078013.447178,
+      "hash": "51d201e0befca6f030e67ceaa6532cac"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\1b3d4ef8dc51c211d071dd9643ca4d9d7ebd2c15.jsc": {
+      "size": 4296,
+      "mtime": 1774078013.3498204,
+      "hash": "e34f76e05593300aead06a29c8a40a44"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\1da3d210eadd4d3c7fe5394cbfcb1290e5a394a8.qmlc": {
+      "size": 7192,
+      "mtime": 1774078013.5728366,
+      "hash": "dfa6842833264294a533885a46353f3d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\1e62d913fd1ea33ee850b2f09ee208a5f8bb94fd.qmlc": {
+      "size": 14800,
+      "mtime": 1774078013.5399535,
+      "hash": "a42d1ffc1b5d0202185fefaf772caa9c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\261125e092ce6c5bcbacaacd19f4baaa145b2306.jsc": {
+      "size": 12856,
+      "mtime": 1774078013.3758037,
+      "hash": "06a15d061d3f5f34f54884a128f95933"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\27697eb81c52bbec53392ae8c38fe098840a0dbc.qmlc": {
+      "size": 10480,
+      "mtime": 1774078013.4123106,
+      "hash": "c4f75b9296642186fe7c1d8e879389d6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\2925e079b7444b788e831a918f4d86684de84e5e.qmlc": {
+      "size": 7000,
+      "mtime": 1774078013.39931,
+      "hash": "d03445bfb38aa80f8eb4ad1b27d44cbf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\32a044c6e3fa64e8f47347d1cfda4366bad8d8d8.qmlc": {
+      "size": 19284,
+      "mtime": 1774078030.2275636,
+      "hash": "a2f8331ebd9f70c4bb6a960bca38f0e3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\350debe0a8644b01bad1afa0e22321393d0b5802.qmlc": {
+      "size": 10636,
+      "mtime": 1774078013.42931,
+      "hash": "c9e7107ec61bfd9e5a02e98cba8365a7"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\3532b273e933f23608fc27a1eddd64e9bfb86bf7.qmlc": {
+      "size": 98092,
+      "mtime": 1774078013.4731898,
+      "hash": "71b5854321c33a3f307295fa6bd9af15"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\3b96d9e416700b963daa0cbaf59022111a5b1a01.qmlc": {
+      "size": 6376,
+      "mtime": 1774078013.3888054,
+      "hash": "2cea080e92e8b9d053fc5270edb68174"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\4326f15878ba4ef51b1feb2936ea3739b3307181.qmlc": {
+      "size": 884,
+      "mtime": 1774078013.5638344,
+      "hash": "1d7b7a87d3a26563b02476956ef78383"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\4485f6482f1800088e6896e506244ea8a999a028.qmlc": {
+      "size": 7288,
+      "mtime": 1774078030.1935606,
+      "hash": "c306c969943f2f036adbaa96f7bfa9ef"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\450210b6785d9910e33492fbbc48d61d7585ef31.qmlc": {
+      "size": 18852,
+      "mtime": 1774078013.4990761,
+      "hash": "73d9965081608695a3df89aac92cdf59"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\49588edb36c0b5941178beff8147ede65ca5378a.qmlc": {
+      "size": 4252,
+      "mtime": 1774078013.4900765,
+      "hash": "e2b60ede5d686c9d8698614775023064"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\4c90f821c691415a2239b9af846a6896e197c7c8.qmlc": {
+      "size": 1876,
+      "mtime": 1774078013.469189,
+      "hash": "a895461a7696c36f620ea220272255bd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\5503c2ea2259fdf5f9a806dfccd3c190f77fb70d.qmlc": {
+      "size": 4144,
+      "mtime": 1774078013.7313406,
+      "hash": "cf34294f1dc44976d5b0fc01839c1864"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\5812facb6e80ab2687de648df36e26ae8fa97422.qmlc": {
+      "size": 15264,
+      "mtime": 1774078030.222561,
+      "hash": "c3e6155bcdf499027a84df91733b8bc4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\5d8e001dc77e2db2be9f8c3ea91e44fe26dbbcc9.qmlc": {
+      "size": 2796,
+      "mtime": 1774078013.5718355,
+      "hash": "970354ba14c16bfc29f8a1b025a00ed9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\691457a2a48aad1e983134a987a9e6b552571b27.qmlc": {
+      "size": 7324,
+      "mtime": 1774078013.4571762,
+      "hash": "61d600da4fdababf1dd63f2a44ce9ebd"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\6abf8bc822a78dab925b5aecd408c8f712144ed7.jsc": {
+      "size": 8464,
+      "mtime": 1774078013.3908057,
+      "hash": "028e516e4b63b1cf037d24329c34dd8d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\6da71d88d4c937b4d3ae2150d231589ca79ec238.qmlc": {
+      "size": 8228,
+      "mtime": 1774078013.5558357,
+      "hash": "87941eac9e3edf0bb51246374954bde3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\7117211bfe982a5e601b432516d235e731b49265.qmlc": {
+      "size": 1820,
+      "mtime": 1774078030.1955616,
+      "hash": "c2eb376f834dfdc1f4151a02a58b7d5c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\71fbf3416090bfdc8cd58ae9d2eca12e2de02e7c.qmlc": {
+      "size": 1300,
+      "mtime": 1774078013.4681892,
+      "hash": "33407e976bf023bf54951fe9dba5e0b0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\7370793e81061b38b8e88ad6193fc3faf00f6b8c.qmlc": {
+      "size": 5520,
+      "mtime": 1774078030.2065606,
+      "hash": "b02c0c9aba74dfbb475131592c5740d8"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\75e54c0eaec8822a14ee1b1b12f858b07b259b4c.qmlc": {
+      "size": 9944,
+      "mtime": 1774078013.8147392,
+      "hash": "764c437c7a3f7610f6f683a7ab805085"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\764491f39a190ce4784fe9fb5f9321d6a83a6923.qmlc": {
+      "size": 4736,
+      "mtime": 1774078013.4831877,
+      "hash": "07ef93f482c8315f46441a2f9465124a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\76aca5c7844b29e0362f70becc73c1f0b6cc503b.qmlc": {
+      "size": 4796,
+      "mtime": 1774078030.1795604,
+      "hash": "4513689eb697708850c692ed3f7c1199"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\78679face7b969f9bbbb2ed502cb6dbaa7c1bf75.qmlc": {
+      "size": 6380,
+      "mtime": 1774078013.5648353,
+      "hash": "7bbcd62bc8253e961092d28a1e63ad7a"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\7af8928a64cbd4bac915d1569537540a955a542e.qmlc": {
+      "size": 8980,
+      "mtime": 1774078013.5040736,
+      "hash": "c2a4021dc88748828cdcba28b4a6da26"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\7f5300ef4b91d96d59b0af09f2aaf239c87c36aa.qmlc": {
+      "size": 3968,
+      "mtime": 1774078030.220561,
+      "hash": "440bf6ef8e75062e1478d18663a05dbb"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\964daa43fc181d9523a667992992d778d309b1ae.qmlc": {
+      "size": 5960,
+      "mtime": 1774078030.2035613,
+      "hash": "72ddb01623593d3b70385dbd0beb8245"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\98603b2ef83f501fe097910b79a1db6000aaa65a.qmlc": {
+      "size": 92928,
+      "mtime": 1774078013.521983,
+      "hash": "da5ffe979c0d2369d032ceb688d7d9be"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\9e0776591d397d669c797d38891d79800e85f198.qmlc": {
+      "size": 35256,
+      "mtime": 1774078013.4073102,
+      "hash": "0c4fd06f97bcc3668d298d742faaa0b1"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\9f180f05aab063df3ee897aa23495ad1f7759018.qmlc": {
+      "size": 27944,
+      "mtime": 1774078013.5498357,
+      "hash": "5f26deefab741119954fa36babfaac79"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\a26018a2dfd4adde3e3191b56f7323f042390e1f.qmlc": {
+      "size": 2324,
+      "mtime": 1774078013.5349553,
+      "hash": "ed30d598e5cf49f11d3dce8890dd8fed"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\a86e37c8d30e99cf9bca5e3c07a5945a9160d27f.qmlc": {
+      "size": 21572,
+      "mtime": 1774078013.3648205,
+      "hash": "1d617305b624a081ad57f14713d65d2c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\aacb2bc830d4fdd072feca844393fc751cc99601.qmlc": {
+      "size": 10888,
+      "mtime": 1774078013.4233098,
+      "hash": "59c735065ddcb8d449b78285033f3729"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\ac7f938bbe8aaf2e7d7db539252714940184235e.qmlc": {
+      "size": 2244,
+      "mtime": 1774078013.5468318,
+      "hash": "845546397fc8dfe9f6df6e67e29fbda7"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\b95b99fdffe3f9cf5d2731fcbcaec6c5f99392cc.qmlc": {
+      "size": 9776,
+      "mtime": 1774078013.5287228,
+      "hash": "1760ecf833df08100c4bc4564439b5e6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\bca128787d2b3a237aa0a5a6c4de04112991e39d.qmlc": {
+      "size": 13596,
+      "mtime": 1774078013.4841886,
+      "hash": "5bcd15300b20693a36115fad48b4a079"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\bcc2add735b60af020d11ac556d67510ed3c6777.qmlc": {
+      "size": 15648,
+      "mtime": 1774078013.3828053,
+      "hash": "a23f9165713450ee9a65d21f91944cfe"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\be8081c2a46e6ea234ef4c014e37d18b0a1fab5a.qmlc": {
+      "size": 6848,
+      "mtime": 1774078030.218561,
+      "hash": "6fa82f267488dca9c125360509bf2ee5"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\c5112216222130658e80de1032e3ed846442822a.qmlc": {
+      "size": 892,
+      "mtime": 1774078013.4013102,
+      "hash": "95c0f39afd1d9289e673d49677c3e7cc"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\c8fd5d2cd6326cf040726d131acd1b5b57dc2693.qmlc": {
+      "size": 6620,
+      "mtime": 1774078013.418311,
+      "hash": "505e5609ade844ac623645066662e9d3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\cd2647f61919d705374eaea7828aedde5e9f148a.qmlc": {
+      "size": 3336,
+      "mtime": 1774078030.2045617,
+      "hash": "68d5588baa164cc524d9c799e3833923"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\ced78e19b2c558558b4311da4e14a525bd080470.qmlc": {
+      "size": 16752,
+      "mtime": 1774078013.436311,
+      "hash": "2e782ec80f2753e707bd43f834e0d8e3"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\d09a7f44ad5c474419a6e6c0166d853b20cd9d8b.qmlc": {
+      "size": 3164,
+      "mtime": 1774078030.1975605,
+      "hash": "fbe34c3af2ab5afd3edfcb26fdf7bde6"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\d6138f06785593cf80377d3dcba98d625734e8bb.qmlc": {
+      "size": 4720,
+      "mtime": 1774078013.3983111,
+      "hash": "cafd697509b69d300e90dca921680bd4"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\e41ff2ed6e4f7206dc3105ca0cfb5fddf643ada4.qmlc": {
+      "size": 26928,
+      "mtime": 1774078030.1855605,
+      "hash": "f8496969cd9f7fb9e2e7a896d0fef936"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\e6507e0475c93f41db84357b15119f32753d371e.qmlc": {
+      "size": 9316,
+      "mtime": 1774078013.3707857,
+      "hash": "2960452cb3d524ce3773debc356e3b5e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\e96482b07f868ab28f4fe430a46d00d5fc71c81c.jsc": {
+      "size": 5048,
+      "mtime": 1774078013.4811873,
+      "hash": "0ef77dbb657b225d52074fcc490c70b1"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\ea744b6898ad485ff648fa19a82f6efe230c4958.qmlc": {
+      "size": 4940,
+      "mtime": 1774078030.1755605,
+      "hash": "3c788ffb8b9a7c4014e5233fa448fba0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\eba93b54e740463a5281496b86f2c5ef3e03b724.qmlc": {
+      "size": 6620,
+      "mtime": 1774078013.4353101,
+      "hash": "29bdd8566f656f64399596adee658069"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\ebc02fed602fa1cd40ae1be9659ab2ed1bb0376b.qmlc": {
+      "size": 7688,
+      "mtime": 1774078013.5459538,
+      "hash": "e07a24fbfbd26179e2bceaa76d4ca38d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\f353ffb44954d9d0a50ef976fad4f9df06ed65f2.qmlc": {
+      "size": 5812,
+      "mtime": 1774078013.4453099,
+      "hash": "ac804cecd4ec8f48c20dec7b409b0bc9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\f64d741914d4bb3209321f1fbda214a60fa79e11.qmlc": {
+      "size": 9700,
+      "mtime": 1774078013.3578205,
+      "hash": "bd32d462b8a355cf2d7d4f048e02d211"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\EADesktop\\cache\\qmlcache\\f80ae2511dd8f9a41e7b5e1740d7fc23d571371c.qmlc": {
+      "size": 11712,
+      "mtime": 1774078030.2125607,
+      "hash": "0b7cbf66cb67510dad8dfca76d00dd38"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\First Run": {
+      "size": 0,
+      "mtime": 1767213128.2866025,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Local State": {
+      "size": 2419,
+      "mtime": 1767213145.6842082,
+      "hash": "354e3320277c81b2ca9d3200c47e2eb5"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Variations": {
+      "size": 85,
+      "mtime": 1767213145.627187,
+      "hash": "bc6142469cd7dadf107be9ad87ea4753"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\BrowserMetrics\\BrowserMetrics-69558847-516D4.pma": {
+      "size": 4194304,
+      "mtime": 1767213127.6519742,
+      "hash": "cfc9dda1565892b7209abc31d7ab0d59"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Affiliation Database": {
+      "size": 53248,
+      "mtime": 1767213128.2357779,
+      "hash": "3a5a1b5681601d04c79f16f740244039"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Affiliation Database-journal": {
+      "size": 0,
+      "mtime": 1767213128.2357779,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Favicons": {
+      "size": 20480,
+      "mtime": 1767213128.1673884,
+      "hash": "5cdda88f9acbfd47b1d204e1f667f718"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Favicons-journal": {
+      "size": 0,
+      "mtime": 1767213128.1673884,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\History": {
+      "size": 163840,
+      "mtime": 1767213128.1513147,
+      "hash": "c7f532b707928cad0d41124deeece2cf"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\History-journal": {
+      "size": 0,
+      "mtime": 1767213128.1536593,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2563152,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.255314,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Login Data": {
+      "size": 40960,
+      "mtime": 1767213128.2303765,
+      "hash": "cd6917cc36422aed5e2a20a1132943db"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Login Data For Account": {
+      "size": 40960,
+      "mtime": 1767213128.231376,
+      "hash": "cd6917cc36422aed5e2a20a1132943db"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Login Data For Account-journal": {
+      "size": 0,
+      "mtime": 1767213128.2323768,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Login Data-journal": {
+      "size": 0,
+      "mtime": 1767213128.231376,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Preferences": {
+      "size": 6821,
+      "mtime": 1767213145.6796992,
+      "hash": "eb0362e05fc1be6908bcb53e1e82aed9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\README": {
+      "size": 170,
+      "mtime": 1767213128.045302,
+      "hash": "065c0b8fee13438ca3f7468eb1f109e7"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Secure Preferences": {
+      "size": 5048,
+      "mtime": 1767213138.101143,
+      "hash": "77a0e6114b3147c1108caf928b6edc75"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\SharedStorage": {
+      "size": 4096,
+      "mtime": 1767213128.3766253,
+      "hash": "b016510815cfc2bcd2e04d07a0d4cf80"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\trusted_vault.pb": {
+      "size": 38,
+      "mtime": 1767213128.8869352,
+      "hash": "3433ccf3e03fc35b634cd0627833b0ad"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Visited Links": {
+      "size": 131072,
+      "mtime": 1767213128.3922195,
+      "hash": "28c0fc8994e279b74bb791806c0f542f"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Web Data": {
+      "size": 131072,
+      "mtime": 1767213133.406338,
+      "hash": "37ce477721d828cbfdb1fc0c4772b949"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Web Data-journal": {
+      "size": 0,
+      "mtime": 1767213133.4073431,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Cache\\Cache_Data\\data_0": {
+      "size": 8192,
+      "mtime": 1767213128.4397523,
+      "hash": "cf89d16bb9107c631daabf0c0ee58efb"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Cache\\Cache_Data\\data_1": {
+      "size": 270336,
+      "mtime": 1767213145.6721818,
+      "hash": "a675eec42d7b5101baae3fd440b2e082"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Cache\\Cache_Data\\data_2": {
+      "size": 8192,
+      "mtime": 1767213128.4688115,
+      "hash": "0962291d6d367570bee5454721c17e11"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Cache\\Cache_Data\\data_3": {
+      "size": 8192,
+      "mtime": 1767213128.470811,
+      "hash": "41876349cb12d6db992f1309f22df3f0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Cache\\Cache_Data\\index": {
+      "size": 524656,
+      "mtime": 1767213128.4177241,
+      "hash": "b76ee09741e23a84cb4f9bf25c18648c"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\chrome_cart_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2508025,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\chrome_cart_db\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2498016,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\ClientCertificates\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.174892,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\ClientCertificates\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.174387,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Code Cache\\js\\index": {
+      "size": 24,
+      "mtime": 1767213128.1618633,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Code Cache\\js\\index-dir\\the-real-index": {
+      "size": 48,
+      "mtime": 1767213128.1643753,
+      "hash": "33de05bf4cbf917526bc311aa5f502d2"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Code Cache\\wasm\\index": {
+      "size": 24,
+      "mtime": 1767213128.1618633,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Code Cache\\wasm\\index-dir\\the-real-index": {
+      "size": 48,
+      "mtime": 1767213128.1693873,
+      "hash": "92cb29537e7efed7e696b5203d198b59"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\commerce_subscription_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2188566,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\commerce_subscription_db\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.217857,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\coupon_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2518013,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\coupon_db\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2508025,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\discounts_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.217857,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\discounts_db\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2168572,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Rules\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.2778964,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Rules\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2757943,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Rules\\LOG": {
+      "size": 307,
+      "mtime": 1767213128.2809618,
+      "hash": "efcac02a6e0609d2abce8a8d83e898c7"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Rules\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.276319,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Scripts\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.2855961,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Scripts\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2840858,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Scripts\\LOG": {
+      "size": 311,
+      "mtime": 1767213128.2896023,
+      "hash": "49bdfeb1a00a9a537f11239b7643645b"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension Scripts\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.2845902,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension State\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.4147134,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension State\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.409209,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension State\\LOG": {
+      "size": 307,
+      "mtime": 1767213128.4187238,
+      "hash": "5b2cb685edcdd40a082ac9d52ce69e71"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Extension State\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.4102075,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Local Storage\\leveldb\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.450269,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Local Storage\\leveldb\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.4132097,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Local Storage\\leveldb\\LOG": {
+      "size": 319,
+      "mtime": 1767213128.460785,
+      "hash": "9dd3b58c319b484d9715b1127a4fc389"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Local Storage\\leveldb\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.4407527,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Cookies": {
+      "size": 20480,
+      "mtime": 1767213128.4122076,
+      "hash": "e58e2c64b8c2fe54ae61d1b7e505bc73"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Cookies-journal": {
+      "size": 0,
+      "mtime": 1767213128.4132097,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Network Persistent State": {
+      "size": 652,
+      "mtime": 1767213145.6816998,
+      "hash": "a6cf6c28b52139f637cd383d596c8479"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\NetworkDataMigrated": {
+      "size": 0,
+      "mtime": 1767213128.1608634,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Reporting and NEL": {
+      "size": 36864,
+      "mtime": 1767213128.8974473,
+      "hash": "1a6c32252730bdad0b419bf4b88eb90d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Reporting and NEL-journal": {
+      "size": 0,
+      "mtime": 1767213128.8984463,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\SCT Auditing Pending Reports": {
+      "size": 2,
+      "mtime": 1767213128.436754,
+      "hash": "d751713988987e9331980363e24189ce"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\TransportSecurity": {
+      "size": 188,
+      "mtime": 1767213138.8872128,
+      "hash": "9e61a5c0dde33e1555e3d083ada40936"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Trust Tokens": {
+      "size": 36864,
+      "mtime": 1767213128.3840845,
+      "hash": "ba18bf06e5b76061522cdef07791ab8d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Network\\Trust Tokens-journal": {
+      "size": 0,
+      "mtime": 1767213128.3847198,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\parcel_tracking_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.217857,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\parcel_tracking_db\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2168572,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\PersistentOriginTrials\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2654514,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\PersistentOriginTrials\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2654514,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Safe Browsing Network\\NetworkDataMigrated": {
+      "size": 0,
+      "mtime": 1767213128.2886012,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Safe Browsing Network\\Safe Browsing Cookies": {
+      "size": 20480,
+      "mtime": 1767213128.3976905,
+      "hash": "e58e2c64b8c2fe54ae61d1b7e505bc73"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Safe Browsing Network\\Safe Browsing Cookies-journal": {
+      "size": 0,
+      "mtime": 1767213128.3986902,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SegmentInfoDB\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2417798,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SegmentInfoDB\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2417798,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SignalDB\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2447958,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SignalDB\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2447958,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SignalStorageConfigDB\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.2468016,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Segmentation Platform\\SignalStorageConfigDB\\LOG": {
+      "size": 0,
+      "mtime": 1767213128.2468016,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Shared Dictionary\\db": {
+      "size": 45056,
+      "mtime": 1767213128.3830657,
+      "hash": "358d089087aa109e41f38ddda1ff8368"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Shared Dictionary\\db-journal": {
+      "size": 0,
+      "mtime": 1767213128.385241,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Shared Dictionary\\cache\\index": {
+      "size": 24,
+      "mtime": 1767213128.3701146,
+      "hash": "54cb446f628b2ea4a5bce5769910512e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Shared Dictionary\\cache\\index-dir\\the-real-index": {
+      "size": 48,
+      "mtime": 1767213128.3796256,
+      "hash": "8290ed513554d8df687406f5fda73bcb"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.3756244,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.373114,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\LOG": {
+      "size": 307,
+      "mtime": 1767213128.3796256,
+      "hash": "80cc3f8960ca6b3839c6c2b8fe98e3a9"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.374115,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\metadata\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.367116,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\metadata\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.3651161,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\metadata\\LOG": {
+      "size": 325,
+      "mtime": 1767213128.3701146,
+      "hash": "92644e4c11cbc8aafe427a467c39829d"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\shared_proto_db\\metadata\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.3661149,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Site Characteristics Database\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.187414,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Site Characteristics Database\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.1789033,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Site Characteristics Database\\LOG": {
+      "size": 335,
+      "mtime": 1767213128.1999328,
+      "hash": "31e0596aba8975bade321492d1c896e0"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Site Characteristics Database\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.1864145,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Sync Data\\LevelDB\\CURRENT": {
+      "size": 16,
+      "mtime": 1767213128.1884148,
+      "hash": "46295cac801e5d4857d09837238a6394"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Sync Data\\LevelDB\\LOCK": {
+      "size": 0,
+      "mtime": 1767213128.1324787,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Sync Data\\LevelDB\\LOG": {
+      "size": 311,
+      "mtime": 1767213128.202933,
+      "hash": "a2a20f26fc17bd39592f3ea396158243"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\Default\\Sync Data\\LevelDB\\MANIFEST-000001": {
+      "size": 41,
+      "mtime": 1767213128.1864145,
+      "hash": "5af87dfd673ba2115e2fcf5cfdb727ab"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\segmentation_platform\\ukm_db": {
+      "size": 49152,
+      "mtime": 1767213128.0762615,
+      "hash": "42eb168dadb65f1ac131d6e678182f3f"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\EOSOverlay\\BrowserCache\\0\\segmentation_platform\\ukm_db-journal": {
+      "size": 0,
+      "mtime": 1767213128.0772617,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\Epic Online Services\\MainService\\data.json": {
+      "size": 1401,
+      "mtime": 1773953408.8232918,
+      "hash": "2b0db1a6e037cfb1387bea270c4ed171"
+    },
+    "C:\\Users\\shank\\AppData\\Local\\Epic Games\\Epic Online Services\\MainService\\startup-config.json": {
+      "size": 3113,
+      "mtime": 1774033910.8713908,
+      "hash": "908fd2c7f885efdd0955280d9640741b"
+    },
+    "C:\\ProgramData\\Epic\\NotAllowedUnattendedBugReports": {
+      "size": 0,
+      "mtime": 1774090067.0002728,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\EOSBootstrapMinVersion.flag": {
+      "size": 0,
+      "mtime": 1774090056.947397,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\InstallChainer.exe": {
+      "size": 20432,
+      "mtime": 1762342520.0,
+      "hash": "cbec0ace66173390b748f4d1f0feec60"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Microsoft.Deployment.WindowsInstaller.dll": {
+      "size": 198912,
+      "mtime": 1762342520.0,
+      "hash": "a01ce3aa4d6c732d0f2ed9086e05dc32"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Launcher.manifest": {
+      "size": 245757,
+      "mtime": 1773951599.4258206,
+      "hash": "5201d39c89cbd8d12f807b10b9fc6eb0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Launcher.manifest.meta": {
+      "size": 490,
+      "mtime": 1773951599.426822,
+      "hash": "388b87bb6e5a58b61532a2afec0feb41"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Catalog\\catcache.bin": {
+      "size": 216672,
+      "mtime": 1774090082.6417396,
+      "hash": "c9aa61324358a6bb41d072fef7f8bf4f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\DownloadManager\\DownloadState_8841c11ed1c9479ab26a651a3736e677.json": {
+      "size": 2,
+      "mtime": 1774075645.117568,
+      "hash": "d751713988987e9331980363e24189ce"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\DownloadManager\\DownloadState_eecdfdda7e2341659752b4e4d6a6dd40.json": {
+      "size": 2,
+      "mtime": 1774090074.5072997,
+      "hash": "d751713988987e9331980363e24189ce"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\current": {
+      "size": 44267,
+      "mtime": 1774090072.1230538,
+      "hash": "4bd4e235537b3d37264308df758352c7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0105_Holiday_Sale.png": {
+      "size": 83827,
+      "mtime": 1768424193.3330035,
+      "hash": "73b3167ff8aa1def3995971cef84bd99"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0113_Fab_Sale.png": {
+      "size": 64910,
+      "mtime": 1773892560.6865854,
+      "hash": "9ec729fbffa80aa306fd41e8c3d805b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0114_Genshin_Impact.png": {
+      "size": 336691,
+      "mtime": 1768453856.9316535,
+      "hash": "afed2b6505847cf3933daaf025e73efb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0116_EA_FC26.png": {
+      "size": 188531,
+      "mtime": 1768608850.840645,
+      "hash": "7f98ed84ad0643e7775a5d9e3238a19b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0119_Toxic_Commando.png": {
+      "size": 383013,
+      "mtime": 1773892560.6875906,
+      "hash": "fba6745070afec05a3b357d8ffa072db"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0123_Crimson_Desert.png": {
+      "size": 337889,
+      "mtime": 1769215621.1533606,
+      "hash": "64df9f3d5ebf19d78b0abf56424d92c5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0123_Fall_Guys.png": {
+      "size": 150706,
+      "mtime": 1769215621.1533606,
+      "hash": "9fa55ae84700a42bda5da1c2e45cef57"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0123_Social_Overlay.png": {
+      "size": 152035,
+      "mtime": 1769215621.1533606,
+      "hash": "5ec7d14f67e651917a394ff58a708898"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0126_Arknights_Endfield.png": {
+      "size": 217246,
+      "mtime": 1769489968.1579745,
+      "hash": "b9aec08a6e813e78fdec4f22bd37d26a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0130_Epic_savings.png": {
+      "size": 190349,
+      "mtime": 1769876457.011512,
+      "hash": "a7ce42609c56b164f2df48e8048c89bb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0205_Year_Review.png": {
+      "size": 105017,
+      "mtime": 1770970960.036384,
+      "hash": "b319c3bceff8c7f209276c7f5ecb88c1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0210_Winter_Sale.png": {
+      "size": 152503,
+      "mtime": 1770970960.036384,
+      "hash": "782d3d629236ee3352f3f63861e62ee4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0213_Warner_Bros_Sale.png": {
+      "size": 146228,
+      "mtime": 1770970960.037384,
+      "hash": "e0cbd434c4116f0fcfb08a1447ba518b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0214_Gift_Game.png": {
+      "size": 323982,
+      "mtime": 1770970960.0380185,
+      "hash": "f2e8cf38739f1247dc065bfeba08c804"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0216_Honkai_Star.png": {
+      "size": 322246,
+      "mtime": 1771286742.796384,
+      "hash": "b2c6a4b45df3cf8ace775b3eaac4e1a0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0220_Bio_Hazard.png": {
+      "size": 295037,
+      "mtime": 1771633200.108707,
+      "hash": "ab79a01675b55e8f7a800ca125923dd8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0220_Resident_Evil.png": {
+      "size": 296470,
+      "mtime": 1771633200.108707,
+      "hash": "e07f87ff413d0c99c1e6b9e44a40dd5d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0223_Crimson_Desert.png": {
+      "size": 337839,
+      "mtime": 1773963378.986563,
+      "hash": "a554897f73ccbfb2f4e0f2caa8370f9f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0224_Marvel_Tokon.png": {
+      "size": 330306,
+      "mtime": 1772547472.3504267,
+      "hash": "0ba18c11a88e73368f588d5da2d0f71e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0226_Honkai.png": {
+      "size": 226279,
+      "mtime": 1772547472.3504267,
+      "hash": "75f14b6f470979c54e084a3798894a68"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0227_ResidentEvil.png": {
+      "size": 173820,
+      "mtime": 1772547472.3504267,
+      "hash": "06cf6ebdd254eebbe1de0f4f18f00229"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0303_Death_Stranding.png": {
+      "size": 325680,
+      "mtime": 1772573700.238767,
+      "hash": "30ed870edf7e6993f14144532fcccf6c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0303_Fab_Sale.png": {
+      "size": 64910,
+      "mtime": 1773892560.6875906,
+      "hash": "9ec729fbffa80aa306fd41e8c3d805b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0305_Fab_Sale.png": {
+      "size": 64910,
+      "mtime": 1773892560.68859,
+      "hash": "9ec729fbffa80aa306fd41e8c3d805b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0309_Epic_Savings.png": {
+      "size": 251847,
+      "mtime": 1773892544.057273,
+      "hash": "8a990f0cabae572e058ee6cff1885f04"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0311_RL_Season_22.png": {
+      "size": 313144,
+      "mtime": 1773892544.058777,
+      "hash": "9b85f0f6d21d683f79581e49c4e3c694"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0312_John_Carpenters.png": {
+      "size": 383013,
+      "mtime": 1773892560.6795754,
+      "hash": "fba6745070afec05a3b357d8ffa072db"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0313_Arknights.png": {
+      "size": 301343,
+      "mtime": 1773892560.6805756,
+      "hash": "b65e2b2863c90cd6527e4621a8810f09"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0313_Crimson_Desert.png": {
+      "size": 204890,
+      "mtime": 1773892560.6805756,
+      "hash": "cb937ff1bee8c195f0460cb773cabc8d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0319_Crimson_Launch.png": {
+      "size": 337839,
+      "mtime": 1773963377.9575238,
+      "hash": "a554897f73ccbfb2f4e0f2caa8370f9f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0319_Death_Stranding_2.png": {
+      "size": 339280,
+      "mtime": 1773963378.9298482,
+      "hash": "e3b335cb96356b86de5553e14d1391f9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\0319_FN_S7C2.png": {
+      "size": 259998,
+      "mtime": 1773963378.9298482,
+      "hash": "5760113c33530aa7f9e9065b3c241f1f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1113_Epic_Savings.png": {
+      "size": 138586,
+      "mtime": 1763559020.578186,
+      "hash": "3163f65d90846a42dd391ebd89094bc2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1114_Anno.png": {
+      "size": 351289,
+      "mtime": 1763559020.578186,
+      "hash": "e433e52fe012b592f450f51173f1600a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1118_Black_Friday.png": {
+      "size": 192706,
+      "mtime": 1763559020.578186,
+      "hash": "ea4f7e86fbe318b41cca4bf0f40c05fa"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1120_Fab_Sale.png": {
+      "size": 64910,
+      "mtime": 1773892560.6920981,
+      "hash": "9ec729fbffa80aa306fd41e8c3d805b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1124_Cozy_Games.png": {
+      "size": 113638,
+      "mtime": 1764299211.1009784,
+      "hash": "95abd4a59e7f07ddb18baeac193bb02b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1125_Battlefield.png": {
+      "size": 199567,
+      "mtime": 1764299210.894759,
+      "hash": "854d18b063b0f5a67dd07234cc0d2c22"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1126_Fortnite.png": {
+      "size": 5093098,
+      "mtime": 1764299211.0899737,
+      "hash": "3782baa8feea89fa8ea3b88ac91432b1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1128_Fab_Sale.png": {
+      "size": 64910,
+      "mtime": 1773892544.057273,
+      "hash": "9ec729fbffa80aa306fd41e8c3d805b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1203_Genshin.png": {
+      "size": 105171,
+      "mtime": 1764856012.0729637,
+      "hash": "c07ce505b3b1ae72891ba43d809530cb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1205_Fortnite.png": {
+      "size": 295447,
+      "mtime": 1764973829.5187218,
+      "hash": "9a9bba08087084c3d93abe59919add16"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1205_Ride.png": {
+      "size": 354335,
+      "mtime": 1764973829.519732,
+      "hash": "7b394ed594978cb5c8f74b7b4fbfad78"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1211_Holiday.png": {
+      "size": 70443,
+      "mtime": 1767146507.2756023,
+      "hash": "170c890c3b8c4426077d8ff71a6d8654"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1212_Fortnite.png": {
+      "size": 85409,
+      "mtime": 1767146507.2756023,
+      "hash": "e3ac2bf6ea0b122e3156bbfc5dde84ec"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1212_Holiday.png": {
+      "size": 105363,
+      "mtime": 1767146507.2756023,
+      "hash": "4d58646c89c989ccfadfa189f8d6d08d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1215_GTA.png": {
+      "size": 205910,
+      "mtime": 1767146507.6119175,
+      "hash": "2470614d75e996b7040100655166371c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1215_Phantom_Blade.png": {
+      "size": 294797,
+      "mtime": 1767146507.6119175,
+      "hash": "74638d709adca2e3cd1e207fc3bebd82"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1218_Fortnite_Winter.png": {
+      "size": 423687,
+      "mtime": 1767146507.6129215,
+      "hash": "c45c796bb5bed9f54ff7c3a6f1e2b9e7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1219_Social.png": {
+      "size": 148860,
+      "mtime": 1767146507.6129215,
+      "hash": "5fef5cac8721c7080b7714a8436b4b39"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1222_Holiday_Sale.png": {
+      "size": 86822,
+      "mtime": 1767146507.6129215,
+      "hash": "2701d5fb99a26a1a10df07fe4deebf1d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\1229_Holiday_Sale.png": {
+      "size": 92134,
+      "mtime": 1767146507.6129215,
+      "hash": "7e04f4b29e2b6d8d4686b60475969ddb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\AlertMessages.json": {
+      "size": 280352,
+      "mtime": 1764856012.0739636,
+      "hash": "55284e4502a0495cb2027b02acb341b9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\AlertMessagesV2.json": {
+      "size": 383859,
+      "mtime": 1764856012.0739636,
+      "hash": "91648577b85fa5fdfa657b5993187cb4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\AlertMetaData.json": {
+      "size": 147,
+      "mtime": 1763558930.4235196,
+      "hash": "9a55fb4a62b577166547e914d10fe466"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\AppIdFixList.json": {
+      "size": 139,
+      "mtime": 1763558930.4245193,
+      "hash": "405dedb64bcdc90a1bac5c73cc362209"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Approval.png": {
+      "size": 13547,
+      "mtime": 1763558930.4245193,
+      "hash": "df5a9bfbc53618b781967b12c00704b6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ArkSurvivalAscended.v4sdmeta": {
+      "size": 3810,
+      "mtime": 1770970960.054532,
+      "hash": "172c161c034e72bda736dfa36b449f6d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\AvailableAppsV2.json": {
+      "size": 9531,
+      "mtime": 1763558930.4245193,
+      "hash": "9d40e5903bac88eaf0ae3273f46f93b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Brace.v4sdmeta": {
+      "size": 9972,
+      "mtime": 1763558930.4245193,
+      "hash": "fbf9892878328ecd78df5a2e95bb43de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceCouriersStash.v4sdmeta": {
+      "size": 9889,
+      "mtime": 1763558930.4255188,
+      "hash": "4139bab781cc7a8b6b8e398802060fd1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceDeadMoney.v4sdmeta": {
+      "size": 9740,
+      "mtime": 1763558930.4255188,
+      "hash": "aa455166d1e4b851d84f1bafc24d43d1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceGunRunnersArsenal.v4sdmeta": {
+      "size": 10052,
+      "mtime": 1763558930.427025,
+      "hash": "94ca8f9b8ce71290ee50ba9b94122339"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceHonestHearts.v4sdmeta": {
+      "size": 9840,
+      "mtime": 1763558930.427025,
+      "hash": "146bb02631ef1a3edb7bdac497be6186"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceLonesomeRoad.v4sdmeta": {
+      "size": 9839,
+      "mtime": 1763558930.428534,
+      "hash": "c82310059d702b0d162da8b60f81c429"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BraceOldWorldBlues.v4sdmeta": {
+      "size": 9906,
+      "mtime": 1763558930.428534,
+      "hash": "79ee2e545e71532bc22ed7fd4d346e99"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BuildNotifications.json": {
+      "size": 36422,
+      "mtime": 1763558930.428534,
+      "hash": "a4110d9f4dbbc6f0f65c3caa036003d8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\BuildNotificationsV2.json": {
+      "size": 82311,
+      "mtime": 1773963378.979562,
+      "hash": "cc88aa66e32c8fd22df7974e6cf0ec5b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\cabined.layout": {
+      "size": 24334,
+      "mtime": 1763559020.944443,
+      "hash": "728f0433a8eec3515ae5a855d27bd8d9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\CallistoProtocol.v4sdmeta": {
+      "size": 11006,
+      "mtime": 1763558930.42954,
+      "hash": "3bc241330b6457b8d9dc5e356835cb9e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Deals_Of_The_Week.png": {
+      "size": 51960,
+      "mtime": 1763558930.42954,
+      "hash": "f738cb3103c64f67945bb53a40f723b4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\DefaultNotificationToastImage.png": {
+      "size": 7108,
+      "mtime": 1763558930.42954,
+      "hash": "379313ada49d7f207f4d1280d455c8de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\default_toast_epic_logo_white.png": {
+      "size": 3888,
+      "mtime": 1763558930.42954,
+      "hash": "a0b19e006e45bd543b3ac4638aa776d1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\discord_icon.png": {
+      "size": 3102,
+      "mtime": 1763558930.42954,
+      "hash": "15e67948479802d264ecf4504e90d86f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\EGS_Free_0415.png": {
+      "size": 95489,
+      "mtime": 1763558930.4320498,
+      "hash": "f71f31ef365764a9442b31c3eab7ce64"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Engine.ini": {
+      "size": 9670,
+      "mtime": 1773892560.6805756,
+      "hash": "68cde63d2b29d1ed9a618b737fc6bbac"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Epic_Games_Store.png": {
+      "size": 113638,
+      "mtime": 1764299209.913454,
+      "hash": "95abd4a59e7f07ddb18baeac193bb02b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ExporterThumbnail.png": {
+      "size": 29675,
+      "mtime": 1763558930.4345539,
+      "hash": "7b9c15a0182382d4b6b716510b2bbdde"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ExternalLink.png": {
+      "size": 1186,
+      "mtime": 1763558930.4345539,
+      "hash": "05c8986f86c724232df9441efe473fa7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\extinction.png": {
+      "size": 276720,
+      "mtime": 1763558930.4355597,
+      "hash": "f5d098bac020302215d80e7226b21014"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\extinctionLogo.png": {
+      "size": 6686,
+      "mtime": 1763558930.4345539,
+      "hash": "2ae240c32e1292485b1f2a37a65e3452"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\fab.v11product": {
+      "size": 1480,
+      "mtime": 1773892560.6805756,
+      "hash": "41ed1b7429eefd06de761965972376cd"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\facebook_icon.png": {
+      "size": 209,
+      "mtime": 1763558930.4370644,
+      "hash": "801e70f54247cb7cebc6447a56854eb4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Faeria.png": {
+      "size": 34072,
+      "mtime": 1763558930.4370644,
+      "hash": "14a1dfdc1520dbc2091fb8ee67ebe23d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fallout3.v4sdmeta": {
+      "size": 6648,
+      "mtime": 1763558930.4370644,
+      "hash": "8a53765b84ccfa35b4f56d72ee5d902c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\FN-Mask.png": {
+      "size": 76204,
+      "mtime": 1763558930.4380708,
+      "hash": "54e970ca33b468b0718c78b81c276008"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\FNNotification.png": {
+      "size": 10753,
+      "mtime": 1763558930.439135,
+      "hash": "0f4e03a1042b5503094e2bc188bfacf4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1100-EarlyUpdate.v2sdmeta": {
+      "size": 19765,
+      "mtime": 1763559020.944443,
+      "hash": "8331afeaea2d8afa4377abb4f0f9fe50"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1100.v2sdmeta": {
+      "size": 21413,
+      "mtime": 1763559020.944443,
+      "hash": "6722b6dd34383eaeb112e4e2de6def65"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1510-EarlyUpdate.v3sdmeta": {
+      "size": 25453,
+      "mtime": 1763559020.944443,
+      "hash": "5c06755521041227526c7b5b145eb7d3"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1510-EarlyUpdate.v4sdmeta": {
+      "size": 25604,
+      "mtime": 1763559020.944443,
+      "hash": "e4e51457a9b48de13953fb5d57365b87"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1510.v2sdmeta": {
+      "size": 21303,
+      "mtime": 1763559020.944443,
+      "hash": "71dd206e8a7ee45db575b42820c2c7ca"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1510.v3sdmeta": {
+      "size": 26980,
+      "mtime": 1763559020.9454417,
+      "hash": "701e18ccd1446f25a4baedbf670fdd8e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-1510.v4sdmeta": {
+      "size": 29694,
+      "mtime": 1763559020.9454417,
+      "hash": "61fcae2d7cd847c1f2b470cf8f2641b6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2000.v4sdmeta": {
+      "size": 30771,
+      "mtime": 1763559020.9454417,
+      "hash": "68ba4b75ba3d62433e2109ece961e258"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2430-EarlyUpdate.v4sdmeta": {
+      "size": 31723,
+      "mtime": 1763559020.9454417,
+      "hash": "efa826d3121edbab8482b0284800557a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2430.v4sdmeta": {
+      "size": 36451,
+      "mtime": 1763559020.9454417,
+      "hash": "a673db7e7baea14dae1a282901f497db"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2440-EarlyUpdate.v4sdmeta": {
+      "size": 40218,
+      "mtime": 1763559020.9454417,
+      "hash": "299b61a92f0452817f75c31ba37ecea7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2440.v4sdmeta": {
+      "size": 54637,
+      "mtime": 1763559020.9454417,
+      "hash": "81aa8abdd5d7b17e45f10c24f801291c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2800-EarlyUpdate.v4sdmeta": {
+      "size": 39278,
+      "mtime": 1763559020.946947,
+      "hash": "63274185a050a76d0fa206ac4fd7cd1f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-2800.v4sdmeta": {
+      "size": 57106,
+      "mtime": 1763559020.946947,
+      "hash": "cf70009b279849c4768c2d616a00c44f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3100-EarlyUpdate.v4sdmeta": {
+      "size": 38694,
+      "mtime": 1763559021.0342903,
+      "hash": "bb54d27a75790228a037bc04254cfaa1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3100-Minimal.v4sdmeta": {
+      "size": 25793,
+      "mtime": 1763559021.0342903,
+      "hash": "edd2da9115ccb49556289294207197ae"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3100.v4sdmeta": {
+      "size": 77932,
+      "mtime": 1763559021.0342903,
+      "hash": "6bb66c2b488ea50b4eca202c34eca2e3"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3310-EarlyUpdate.v4sdmeta": {
+      "size": 33527,
+      "mtime": 1763559021.0352907,
+      "hash": "a2f8fb8cd58b2316b1437beca5d17020"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3310-Minimal.v4sdmeta": {
+      "size": 20274,
+      "mtime": 1763559021.0352907,
+      "hash": "a8c1bf03aaa6e8d26e0ead74211b199f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3310.v4sdmeta": {
+      "size": 80956,
+      "mtime": 1763559021.0352907,
+      "hash": "2721596a211a422037a746831f059324"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3410-EarlyUpdate.v4sdmeta": {
+      "size": 34035,
+      "mtime": 1763559021.0352907,
+      "hash": "8cdf6500effbc5cac182f1fda27ef57c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3410-Minimal.v4sdmeta": {
+      "size": 21066,
+      "mtime": 1763559021.0352907,
+      "hash": "858e8378c5835f693ef9c6873120972f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3410.v4sdmeta": {
+      "size": 90373,
+      "mtime": 1763559021.0352907,
+      "hash": "e0afd9282dc154598fda8b542e0700e4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3600-EarlyUpdate.v4sdmeta": {
+      "size": 33964,
+      "mtime": 1763559021.0352907,
+      "hash": "9694caf49148ad0354ad76139c244567"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3600-Minimal.v4sdmeta": {
+      "size": 21362,
+      "mtime": 1763559021.0352907,
+      "hash": "435983a342bb515d6e2332e161fc38ba"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3600.v4sdmeta": {
+      "size": 116748,
+      "mtime": 1763559021.036626,
+      "hash": "f67cff26f7cf5af222ae264c06e38e36"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-EarlyUpdate-V2.v4sdmeta": {
+      "size": 34024,
+      "mtime": 1763559021.036626,
+      "hash": "a70204b4592ba69abc62260a851ebe32"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-EarlyUpdate-V3.v4sdmeta": {
+      "size": 34238,
+      "mtime": 1763797346.534775,
+      "hash": "e23598a41815dbb0c94b01aecf8dfd45"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-EarlyUpdate.v4sdmeta": {
+      "size": 33974,
+      "mtime": 1763559021.036626,
+      "hash": "44b9f71461d5b05a8f15ca132f9b56d6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-Minimal-V2.v4sdmeta": {
+      "size": 27968,
+      "mtime": 1770970960.2515569,
+      "hash": "f8ada4912425f4125e6d9a30fb29a334"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-Minimal.v4sdmeta": {
+      "size": 28662,
+      "mtime": 1763559021.0371315,
+      "hash": "28fec654ca6e3594312dbf8b1440643c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-V2.v4sdmeta": {
+      "size": 116741,
+      "mtime": 1763559021.0371315,
+      "hash": "f8f93192cb9ad18e2b7ff524e6332d0e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800-V3.v4sdmeta": {
+      "size": 147494,
+      "mtime": 1767146507.613922,
+      "hash": "657c062cd10e30f05fcb71e14df01970"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3800.v4sdmeta": {
+      "size": 116639,
+      "mtime": 1763559021.0371315,
+      "hash": "1064f763c61e142f2843d8560762a270"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-3920.v4sdmeta": {
+      "size": 81657,
+      "mtime": 1771286742.797383,
+      "hash": "f5de6314c8e7c66633d4fd8d67052885"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000-EarlyUpdate-V2.v4sdmeta": {
+      "size": 34212,
+      "mtime": 1770970960.2515569,
+      "hash": "40aba53ae22561e5e61856b46dd73b22"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000-EarlyUpdate.v4sdmeta": {
+      "size": 34204,
+      "mtime": 1770970960.2515569,
+      "hash": "3f5ca3d3624a94eb4e9116d01b6b3fc4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000-Minimal-V2.v4sdmeta": {
+      "size": 28633,
+      "mtime": 1771564045.1528642,
+      "hash": "d73294f6493d318b51e9cf9654fd2e1f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000-Minimal.v4sdmeta": {
+      "size": 29549,
+      "mtime": 1771564045.1538742,
+      "hash": "2c161cd87b86b6257d527cc750a2db0a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000-V2.v4sdmeta": {
+      "size": 103335,
+      "mtime": 1771286742.797383,
+      "hash": "1dc2647c29732a31a6133f4efcacf3b6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-4000.v4sdmeta": {
+      "size": 112336,
+      "mtime": 1771286742.797383,
+      "hash": "00bdf0d906502194d698de8c31ee8096"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-830.v2sdmeta": {
+      "size": 21092,
+      "mtime": 1763559021.0371315,
+      "hash": "877a889f5063d038040fd59f6bf6a0ce"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-chunk1000.v2sdmeta": {
+      "size": 21256,
+      "mtime": 1763559021.0371315,
+      "hash": "0ff85b6df3ca52908b51e82770dc759c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite-STW.v2sdmeta": {
+      "size": 22309,
+      "mtime": 1763559021.0381393,
+      "hash": "63edf6eaeaed5a3ddee32677c52657f4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite.png": {
+      "size": 256428,
+      "mtime": 1763558930.4578495,
+      "hash": "718149f4fd8529c55893a149261e93ff"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite.v2product": {
+      "size": 12318,
+      "mtime": 1763558930.4578495,
+      "hash": "52ce713087d6ab8e4b500a3c34e17078"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite.v2sdmeta": {
+      "size": 13446,
+      "mtime": 1763558930.4595041,
+      "hash": "a37e9f6416e84a6b479773c0e8a7b16e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Fortnite.v7product": {
+      "size": 10582,
+      "mtime": 1763558930.4595041,
+      "hash": "3eac0253554c30b7762302a2e2fc9c25"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\FortniteLogo.png": {
+      "size": 3980,
+      "mtime": 1763558930.4595041,
+      "hash": "6b6ecaf3016a97f44da57d55ac664633"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Free_Game_of_the_Week.png": {
+      "size": 112587,
+      "mtime": 1763558930.460511,
+      "hash": "6fbc42eb6f54cff1e42bda8ffbf7cf90"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\GameLibrary.v7product": {
+      "size": 588,
+      "mtime": 1763558930.4615104,
+      "hash": "ba7d67b65e2bcfc64bd4f8f50f5e64a9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Game_Giveaway.png": {
+      "size": 123656,
+      "mtime": 1763558930.4615104,
+      "hash": "3836935615486d5269b679a7f0be9723"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\genshin_impact_0329.png": {
+      "size": 344422,
+      "mtime": 1763558930.4615104,
+      "hash": "5bd71a5cc5643d6c1db953a06f4a8f14"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Ginger.v2sdmeta": {
+      "size": 11728,
+      "mtime": 1763558930.4625108,
+      "hash": "7e88aeac2b0cfac1bf27cab50aaed563"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\HogwartsLegacy.v4sdmeta": {
+      "size": 11190,
+      "mtime": 1763558930.4625108,
+      "hash": "24a8ab590660d58248115db82cae42e1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Holiday_Sale.png": {
+      "size": 247462,
+      "mtime": 1763558930.4635108,
+      "hash": "f8a28608f1fd5157a198c05c3e73473c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\HomePage.v10product": {
+      "size": 1108,
+      "mtime": 1763558930.4635108,
+      "hash": "20159affe565faf542466073535a707a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\HomePage.v11product": {
+      "size": 1297,
+      "mtime": 1763558930.4635108,
+      "hash": "99793af44e3f0674246f7a828ffded8e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\HomePage.v7product": {
+      "size": 586,
+      "mtime": 1763558930.4635108,
+      "hash": "53fddc5c3d7641170e3bc1116d712fec"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\HomePage.v8product": {
+      "size": 3830,
+      "mtime": 1763558930.4635108,
+      "hash": "3bb5b1dd3081ac883330431795ac2047"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Instagram_icon.png": {
+      "size": 408,
+      "mtime": 1763558930.46551,
+      "hash": "df7851c8868e92658f856b17cf04fffd"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\jaguar.v2product": {
+      "size": 1010,
+      "mtime": 1763558930.4670157,
+      "hash": "dd5a5ecdbe306a134ad1c44795e017f4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Junco.v2sdmeta": {
+      "size": 15789,
+      "mtime": 1763559021.4349008,
+      "hash": "1ea218026a52b087bb3580b40169ba18"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\KerbalSpaceProgram.v4sdmeta": {
+      "size": 11158,
+      "mtime": 1763558930.4670157,
+      "hash": "cdf1e46d684d51dfab6f087b372adae7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\KingdomComeDeliverance2.v4sdmeta": {
+      "size": 11042,
+      "mtime": 1763558930.4680219,
+      "hash": "25f42d19518c862c12e0f3955f215760"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Landing.v2product": {
+      "size": 823,
+      "mtime": 1763558930.4685273,
+      "hash": "52aaef42944ed8135ab4c5351cee9bd0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Lavender-20190416.v2sdmeta": {
+      "size": 10464,
+      "mtime": 1763558930.4685273,
+      "hash": "c00d33e1506895542bc799759a81ee2a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\LoadError.layout": {
+      "size": 20976,
+      "mtime": 1763559021.4349008,
+      "hash": "dfee319688d872ce5c29d3b34dbceba7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\localcache_icon_small.png": {
+      "size": 1210,
+      "mtime": 1763558930.4705334,
+      "hash": "50a5b1dd49108ac7be1f1980ebc22bbe"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\min.v2product": {
+      "size": 1173,
+      "mtime": 1763558930.4705334,
+      "hash": "b037ecc9f7c635e71ede9d5415bcf240"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\min.v7product": {
+      "size": 1264,
+      "mtime": 1763558930.4705334,
+      "hash": "5d14ca47cc5cab88abaf61047a72206f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\morpho.v2product": {
+      "size": 1017,
+      "mtime": 1763558930.4715333,
+      "hash": "498cc6cf3cdc9340f3883b0fc6dfc6af"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Morrowind.v4sdmeta": {
+      "size": 9414,
+      "mtime": 1763558930.4725332,
+      "hash": "8aaae07d30932b2adc60b7403394435c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\NamedBaseUrls.json": {
+      "size": 2629,
+      "mtime": 1763558930.4735332,
+      "hash": "775d689447279942a135b18e24ad799e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\NamedLinksV2.json": {
+      "size": 126916,
+      "mtime": 1763559021.4359012,
+      "hash": "edf5a699bff2b2c918dddbe01075ec40"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\navers_icon.png": {
+      "size": 288,
+      "mtime": 1763558930.4735332,
+      "hash": "93d75a74ced71edb6aa431b8e58cc79f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Notifications.json": {
+      "size": 44,
+      "mtime": 1763558930.4735332,
+      "hash": "cd04a64518188814003a8b9be8bbb114"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Oblivion.v4sdmeta": {
+      "size": 9887,
+      "mtime": 1763558930.4735332,
+      "hash": "3d447ef657230b147637b5cd8d77b615"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\plus.png": {
+      "size": 994,
+      "mtime": 1763558930.474533,
+      "hash": "2ea6b2059495a75d4c1033cf64275823"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\poodle.v9product": {
+      "size": 16888,
+      "mtime": 1763558930.474533,
+      "hash": "c802dbcf18fc12f58b3b6f2697763cec"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Poodle_Community.png": {
+      "size": 676676,
+      "mtime": 1763558930.4755332,
+      "hash": "8f9118da473f4e5f1a0d822c320609c4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Poodle_Footer.png": {
+      "size": 586822,
+      "mtime": 1763558930.4755332,
+      "hash": "3a529a48b9b49e108731f56b533b0e0e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Poodle_Header.png": {
+      "size": 551889,
+      "mtime": 1763558930.477039,
+      "hash": "f985c2327bdceb0d0072c69ad202c88f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Poodle_Learning.png": {
+      "size": 554090,
+      "mtime": 1763558930.4790826,
+      "hash": "ef89067dacc1cf8af91c72bab7fa144b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Poodle_Logo.png": {
+      "size": 7165,
+      "mtime": 1763558930.4790826,
+      "hash": "9ab40eeb95a31360f1de99d6b98f9ea2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Portal.ini": {
+      "size": 439,
+      "mtime": 1763558930.479745,
+      "hash": "a3d9310f798b7369e675fceca7f74d61"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\PortalRegions.ini": {
+      "size": 1381,
+      "mtime": 1763558930.479745,
+      "hash": "6ed0b2b69a2ed4100cfca31c2949c2e2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\PortalRegions.json": {
+      "size": 504,
+      "mtime": 1763558930.479745,
+      "hash": "c3983360eff4fc32d46ed4062ce12da9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ProductCompatibility.json": {
+      "size": 206,
+      "mtime": 1763558930.479745,
+      "hash": "566fef1f491e2ad2e2ef1a19f65a1f90"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ps4_logo.png": {
+      "size": 2146,
+      "mtime": 1763558930.479745,
+      "hash": "9d7394d7703e15fcf7e3e407f6d8ee86"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\rc.v9product": {
+      "size": 2758,
+      "mtime": 1764299211.0909715,
+      "hash": "2f07828aa46c9de5ea9fb18950068d96"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Background.png": {
+      "size": 2535178,
+      "mtime": 1763558930.4827511,
+      "hash": "34cf3539567b4bca2b85cb626889d173"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Background1_5.png": {
+      "size": 1198469,
+      "mtime": 1763558930.4827511,
+      "hash": "f6018580fe7107bb7a7806bcd9c4da9d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Community_Support.png": {
+      "size": 621206,
+      "mtime": 1763558930.4827511,
+      "hash": "08dec730a59d73d73f020505fe751a83"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Logo.png": {
+      "size": 25930,
+      "mtime": 1763558930.4837499,
+      "hash": "bbef746ef7e2e60313578ef9f1987b69"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Online_Learning.png": {
+      "size": 688201,
+      "mtime": 1763558930.4847517,
+      "hash": "89548d52931c66880d3d127f6c1533a4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RC_Samples_Background.png": {
+      "size": 259820,
+      "mtime": 1763558930.4847517,
+      "hash": "ddd76ac4ef2a5c13cc6dea4bf43d80d8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Reddit_icon.png": {
+      "size": 505,
+      "mtime": 1763558930.4847517,
+      "hash": "d3f881d4423f9952623475eadcbc9054"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\rl_lamborghini_countach_0329.png": {
+      "size": 198025,
+      "mtime": 1763558930.4847517,
+      "hash": "dff5a997c567c1ba111aacf7b289b45c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RL_Season6.png": {
+      "size": 278976,
+      "mtime": 1763558930.4847517,
+      "hash": "88ae7f3549dc9bafb249ce5614770248"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RoboRecall.png": {
+      "size": 109369,
+      "mtime": 1763558930.4847517,
+      "hash": "c8476f7bbc04f67f34981ee95702a680"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RoboRecallLogo.png": {
+      "size": 68978,
+      "mtime": 1763558930.4857514,
+      "hash": "482d09e862dbd5a3225a1efb15ac5dea"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RS_21_Background.png": {
+      "size": 3443407,
+      "mtime": 1764299211.0919735,
+      "hash": "94ce6affaddbae516d2df90be3d38392"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RS_Background.png": {
+      "size": 2005225,
+      "mtime": 1763558930.48726,
+      "hash": "7594d7046fefbb761f857cfa56f41ced"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\RS_Logo.png": {
+      "size": 63061,
+      "mtime": 1763558930.4857514,
+      "hash": "ac5a992a1939100eacefbffd6bf74a39"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\seal.v2product": {
+      "size": 1731,
+      "mtime": 1763558930.4877822,
+      "hash": "289c83cd446839a2e473e9d724458570"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\seal.v7product": {
+      "size": 1809,
+      "mtime": 1763558930.4893906,
+      "hash": "01fe2ce47df4b72e225d4ac927e5c8c5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ServiceOptions.json": {
+      "size": 112,
+      "mtime": 1763558930.4893906,
+      "hash": "d4ecd00e6857c47b87cd26fd36821a5c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\small_download_icon.png": {
+      "size": 1210,
+      "mtime": 1763558930.4903965,
+      "hash": "50a5b1dd49108ac7be1f1980ebc22bbe"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\springbok.v2product": {
+      "size": 1041,
+      "mtime": 1763558930.4893906,
+      "hash": "9b23f9557f227c821579b1e1fe72d1ca"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\STALKER2.v4sdmeta": {
+      "size": 12701,
+      "mtime": 1763797346.8979828,
+      "hash": "8753cc5d8f22bd59699f840e7274b046"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\StoriesUntold_popup.png": {
+      "size": 359037,
+      "mtime": 1763558930.4903965,
+      "hash": "4357aebe7cbe57cb51d77963114c737a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\studio.json": {
+      "size": 3233,
+      "mtime": 1763558930.4903965,
+      "hash": "fe6fd1f9ea4431359713926758f527a9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\subscriptions.json": {
+      "size": 3841,
+      "mtime": 1763558930.4903965,
+      "hash": "5c3028ead0a00c8772c27164922dd77f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\SuicideSquad.v4sdmeta": {
+      "size": 12046,
+      "mtime": 1763558930.4919856,
+      "hash": "b8f2dba9ccd444ae471ea10d8482cbe8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Suphalak.v4sdmeta": {
+      "size": 9128,
+      "mtime": 1763558930.4929848,
+      "hash": "6c2c6c5caa96ff8aeafdaad26fcd48a4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\TeenRatings_graphics.png": {
+      "size": 12940,
+      "mtime": 1763558930.4929848,
+      "hash": "d2c9f2e064177b23a01d79f052b6998b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\The_Game_Awards.png": {
+      "size": 121916,
+      "mtime": 1763558930.4929848,
+      "hash": "2edc84f663bb8cfea01624044c8f3abd"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\TM_Background.png": {
+      "size": 3058175,
+      "mtime": 1763558930.494989,
+      "hash": "49f6ca8ba85e87eac0a14433e8d564d4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion.png": {
+      "size": 7269,
+      "mtime": 1763558930.4939885,
+      "hash": "d94ae47feb3b651407548075cd2f1d2d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion.v4sdmeta": {
+      "size": 10085,
+      "mtime": 1768927668.5702941,
+      "hash": "e8ec012e2d74eab40ed92b16d4da88e4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2020_Community.png": {
+      "size": 3334574,
+      "mtime": 1763558930.4969885,
+      "hash": "1febc4532359750f71f666460cc98c8d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2020_Education.png": {
+      "size": 2447849,
+      "mtime": 1763558930.4959874,
+      "hash": "c1ad4a96f5d24b675ffc9291c0f48ed5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2020_Header.png": {
+      "size": 1002804,
+      "mtime": 1763558930.4969885,
+      "hash": "ae89b9c8d99b55dc71a4dd2213b60a93"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2020_OnlineLearning.png": {
+      "size": 2028300,
+      "mtime": 1763558930.4969885,
+      "hash": "26ffe3f899ceb3fd42d3bea33b10f3f1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2020_Plugins.png": {
+      "size": 497571,
+      "mtime": 1763558930.494989,
+      "hash": "3a27f11c1a596efcdced5653df6639ce"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2022_2_Header.png": {
+      "size": 706027,
+      "mtime": 1763558930.4959874,
+      "hash": "d7bf876c107759ac5c2a2ec5008bae50"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2022_Header.png": {
+      "size": 2503266,
+      "mtime": 1763558930.498,
+      "hash": "5b4e9ca70a92a96915dd8858ec4c1adb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2023_1_Header.png": {
+      "size": 2614057,
+      "mtime": 1763558930.498,
+      "hash": "dece66e891ac8fee3bedd500be1df8c4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2023_2_Header.png": {
+      "size": 2945135,
+      "mtime": 1763558930.5010068,
+      "hash": "2c4655bdd78ea043c8c05198355fc2b5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2023_Community.png": {
+      "size": 1164625,
+      "mtime": 1763558930.500005,
+      "hash": "85e91183bebd57605688475c920bc0bc"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2023_OnlineLearning.png": {
+      "size": 2037826,
+      "mtime": 1763558930.500005,
+      "hash": "bdbe47d5756d874d1537ea9b16bc1b2c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2025_1_background.png": {
+      "size": 2350159,
+      "mtime": 1763558930.5010068,
+      "hash": "8072faaf28a7e87dceb4c9a596e3aa68"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twinmotion2025_2_background.jpg": {
+      "size": 951256,
+      "mtime": 1763558930.500005,
+      "hash": "43d974b519f05421b6410ac49309013f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Twitch_icon.png": {
+      "size": 337,
+      "mtime": 1763558930.4990067,
+      "hash": "75c8d1db90ead8cddf60ee76a32d98ec"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\twitter_icon.png": {
+      "size": 412,
+      "mtime": 1763558930.4990067,
+      "hash": "dccff78c024690a8904c6f0e54a4a41b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue.v5product": {
+      "size": 4886,
+      "mtime": 1763558930.5010068,
+      "hash": "11dd3014587ac9554992a8f5ab2a5e6e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue.v6product": {
+      "size": 12597,
+      "mtime": 1763558930.5020056,
+      "hash": "38c51003f797b527b9956a911c51b33d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue.v7product": {
+      "size": 12710,
+      "mtime": 1763558930.5030065,
+      "hash": "50ae0a2aaa61b99a8b6cb69faa0fec5b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue.v8product": {
+      "size": 12680,
+      "mtime": 1763558930.5030065,
+      "hash": "d051cf2ca69ddc02a188352ea60ab4df"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue.v9product": {
+      "size": 27652,
+      "mtime": 1767146507.613922,
+      "hash": "897c9705648cb7076baff9318db05797"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue410.sdmeta": {
+      "size": 20526,
+      "mtime": 1763559021.678075,
+      "hash": "fc36314b2f09eda164497d1daa15c65a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue412.sdmeta": {
+      "size": 63136,
+      "mtime": 1763559021.678075,
+      "hash": "9e10f9a35d19f3b3d6007963b06456f7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue415.sdmeta": {
+      "size": 57615,
+      "mtime": 1763559021.678075,
+      "hash": "cf3bac8973dc06c5b8c1437cf606d1f7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue420.sdmeta": {
+      "size": 62279,
+      "mtime": 1763559021.678075,
+      "hash": "9819b0c400a7c65eec2836160f09f07f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue423.sdmeta": {
+      "size": 66473,
+      "mtime": 1763559021.678075,
+      "hash": "68ec898314c3f5f55d982f9f57005619"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue424.sdmeta": {
+      "size": 62218,
+      "mtime": 1763559021.678075,
+      "hash": "b0d1ccce0d7274220db3f34b167d84d4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue425.sdmeta": {
+      "size": 62218,
+      "mtime": 1763559021.6790466,
+      "hash": "f77a682589907b44d25db632581a0b4b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue426.sdmeta": {
+      "size": 62872,
+      "mtime": 1763559021.6790466,
+      "hash": "1979a0a5284c6ffdaa8bf150057efdb6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue50.sdmeta": {
+      "size": 57711,
+      "mtime": 1763559021.6790466,
+      "hash": "453f4a510d80448224e74d97715d347e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue50ea.sdmeta": {
+      "size": 62219,
+      "mtime": 1763559021.6790466,
+      "hash": "d496905e029084ff8600859844844e86"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue53.sdmeta": {
+      "size": 52897,
+      "mtime": 1763559021.6790466,
+      "hash": "5b0f9b6e7d35691b786cae2b145e8966"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue56.sdmeta": {
+      "size": 58100,
+      "mtime": 1763559021.680081,
+      "hash": "7ccdb13405c843b98b4bdb5a40474fbb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue57.sdmeta": {
+      "size": 52072,
+      "mtime": 1763559021.680081,
+      "hash": "0cace86fd9ea3fe27424b48faf3ebb82"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue57V2.sdmeta": {
+      "size": 56666,
+      "mtime": 1763559021.680081,
+      "hash": "ecd2da333b995ce71c33cc673b8b4b73"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ueMain.sdmeta": {
+      "size": 57265,
+      "mtime": 1763559021.6810806,
+      "hash": "1d812e32a472dcb1e4e19d65056414e9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ue_logo.png": {
+      "size": 22917,
+      "mtime": 1763558930.51164,
+      "hash": "9e1353fe5742d30db0d99c983e3ac536"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_DefaultToast.layout": {
+      "size": 1778,
+      "mtime": 1763558930.5126393,
+      "hash": "c14e2601065c496ec7e633d4c5d6e9c4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ExtendedToast.layout": {
+      "size": 3160,
+      "mtime": 1763558930.5126393,
+      "hash": "6406ab5cb6bfc0d967bf10a28895a67d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_GameLibrary.layout": {
+      "size": 5134,
+      "mtime": 1763559021.6810806,
+      "hash": "3c69614451b3acdf85f041c47b4bc2e5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_GenericCreateCallToActions.layout": {
+      "size": 1064,
+      "mtime": 1763558930.5136397,
+      "hash": "a4f39f9ebdd51725798fb7ce9f44bd86"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_GenericCreateOffline.layout": {
+      "size": 10159,
+      "mtime": 1763559021.6810806,
+      "hash": "7d2e8e52075ed5b2e47e25e04eb0479e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Grid.layout": {
+      "size": 825,
+      "mtime": 1763558930.5157475,
+      "hash": "1cd445035a63798b05881d44b4687321"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_GridV2.layout": {
+      "size": 895,
+      "mtime": 1763558930.5157475,
+      "hash": "535d28683e6d1728ac6a54563e67bd9f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_GridV3.layout": {
+      "size": 899,
+      "mtime": 1763558930.5157475,
+      "hash": "0c8df044e7f6ac1e23d99fc0889020b0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Home.layout": {
+      "size": 208,
+      "mtime": 1763558930.5172534,
+      "hash": "e597e142e6480d464bf183a2f20956d4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_jaguar.layout": {
+      "size": 4740,
+      "mtime": 1763558930.5182607,
+      "hash": "2f2c7980fc26955915b8a2514b0668fb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_jaguarOffline.layout": {
+      "size": 12972,
+      "mtime": 1763559021.7602663,
+      "hash": "9e10733627fd878cf8d21fe73b7cfe05"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LandingPageV5.layout": {
+      "size": 100441,
+      "mtime": 1763559021.6820817,
+      "hash": "14570db59c2f19275b91bf4894c98b4c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LandingPageV5_Mac.layout": {
+      "size": 54798,
+      "mtime": 1763559021.6820817,
+      "hash": "4defc485e9a2447931ce976fcce01bc9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Landing_MustUpdate.layout": {
+      "size": 13323,
+      "mtime": 1763559021.6820817,
+      "hash": "11c4ae3e161b2777c1d2f95969f736a3"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnEssentialsGrid.layout": {
+      "size": 1449,
+      "mtime": 1763558930.520715,
+      "hash": "f316a7d4803c9917964b709b75e239d2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnEssentialsGridV2.layout": {
+      "size": 1449,
+      "mtime": 1763558930.520715,
+      "hash": "f316a7d4803c9917964b709b75e239d2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnFeaturedGrid.layout": {
+      "size": 1275,
+      "mtime": 1763558930.521715,
+      "hash": "f6f780d64f4c3937dac580e8d8e0a49d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnFeaturedGridV2.layout": {
+      "size": 1275,
+      "mtime": 1763558930.521715,
+      "hash": "f6f780d64f4c3937dac580e8d8e0a49d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnGrid2.layout": {
+      "size": 1509,
+      "mtime": 1763558930.521715,
+      "hash": "6d5cf695da0b3dd07929b629d0b476b1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnGrid2.panel": {
+      "size": 4885,
+      "mtime": 1763558930.5227158,
+      "hash": "1563fd94373e39efe020f309d53f2e02"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnGridV2.layout": {
+      "size": 1509,
+      "mtime": 1763558930.5227158,
+      "hash": "fa0c4a56c99b15c8968299007e74196c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnGridV2Web.layout": {
+      "size": 1634,
+      "mtime": 1763558930.5237172,
+      "hash": "1d3412d96e69b6264e1974bb3a461086"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnMediumEssentialsGrid.layout": {
+      "size": 1449,
+      "mtime": 1763558930.5237172,
+      "hash": "3d5c62d14bd7531aaa50b85c249591de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnMediumEssentialsGridV2.layout": {
+      "size": 1449,
+      "mtime": 1763558930.5237172,
+      "hash": "3d5c62d14bd7531aaa50b85c249591de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnSampleInfo.layout": {
+      "size": 1397,
+      "mtime": 1763558930.524827,
+      "hash": "dcb95adf9add379b553ba4095adb742f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnSampleInfoV2.layout": {
+      "size": 3401,
+      "mtime": 1763558930.524827,
+      "hash": "59ad3b1837d1608e18d48bd1ceeebdaf"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnSampleInfoV2Web.layout": {
+      "size": 4039,
+      "mtime": 1763558930.5258296,
+      "hash": "ab69e9501290a2e5dea3cb0ad2a81d96"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnSmallEssentialsGrid.layout": {
+      "size": 1264,
+      "mtime": 1763558930.5258296,
+      "hash": "4151c4badcd53283d38100514b7e15de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnSmallEssentialsGridV2.layout": {
+      "size": 1264,
+      "mtime": 1763558930.5258296,
+      "hash": "4151c4badcd53283d38100514b7e15de"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnV2.layout": {
+      "size": 40098,
+      "mtime": 1763559021.6820817,
+      "hash": "18fe96c5391ceb9305f9cab566ccc0bb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnV2_Offline.layout": {
+      "size": 10298,
+      "mtime": 1763559021.6830814,
+      "hash": "439fe262f8886c8743fd2311200db513"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnV3.layout": {
+      "size": 40100,
+      "mtime": 1763559021.6830814,
+      "hash": "cf0198981d8916c354c34b791b01995f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_LearnV4.layout": {
+      "size": 351,
+      "mtime": 1763558930.5288608,
+      "hash": "875d10980154ff921a232d637850174e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_List.layout": {
+      "size": 791,
+      "mtime": 1763558930.5288608,
+      "hash": "702e2923ac74deb2c77cc13ea0cc03f6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_List.panel": {
+      "size": 694,
+      "mtime": 1763558930.5298598,
+      "hash": "4c3dbca1b63adcbe2926a521373eb94a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ListV2.layout": {
+      "size": 1039,
+      "mtime": 1763558930.5298598,
+      "hash": "29ea49aa4bfe6159d41615cb04f88cd4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ListV3.layout": {
+      "size": 1043,
+      "mtime": 1763558930.5308595,
+      "hash": "e6ad65b9e43367ff95dd183a869e68ea"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MarketplaceV2.layout": {
+      "size": 14810,
+      "mtime": 1763558930.5308595,
+      "hash": "bd9cdc15993c76544d4f8798a356658f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MarketplaceV3.layout": {
+      "size": 99249,
+      "mtime": 1763797346.8979828,
+      "hash": "d3ba80807b9b5af1aa4623a0673ec96b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MarketplaceV3_Offline.layout": {
+      "size": 10324,
+      "mtime": 1763559021.684083,
+      "hash": "796c36b27c3cc0d39f2f172a19580f80"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MarketplaceV4.layout": {
+      "size": 99223,
+      "mtime": 1763797346.8979828,
+      "hash": "f74089aac1c5bdc8797a1db35bb839d8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MarketplaceV4_Offline.layout": {
+      "size": 10324,
+      "mtime": 1763559021.684083,
+      "hash": "51d3edd903e79f0b55990cead4b649e9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_min.layout": {
+      "size": 4760,
+      "mtime": 1763558930.532859,
+      "hash": "46a602dd1d82e0337a9e551310dbd7e9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_minOffline.layout": {
+      "size": 12972,
+      "mtime": 1763559021.7662678,
+      "hash": "9e10733627fd878cf8d21fe73b7cfe05"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_morpho.layout": {
+      "size": 4743,
+      "mtime": 1763558930.532859,
+      "hash": "0f2169d698b3ae1d36a20852ac0af238"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_morphoOffline.layout": {
+      "size": 12972,
+      "mtime": 1763559021.7677705,
+      "hash": "9e10733627fd878cf8d21fe73b7cfe05"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_MustUpdate.layout": {
+      "size": 6135,
+      "mtime": 1763558930.535373,
+      "hash": "4ce8490f0502eaf45ffe13fbb3a78a01"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_PoodlePlay.layout": {
+      "size": 108162,
+      "mtime": 1763559021.6850812,
+      "hash": "0513a3b8edcfe142505e4973c6effcb0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_PoodlePlay_Offline.layout": {
+      "size": 18079,
+      "mtime": 1763559021.6850812,
+      "hash": "c92da854a3a6193d58d841b4ba461850"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_PortalQA_Offline.layout": {
+      "size": 7057,
+      "mtime": 1763559021.6850812,
+      "hash": "12d789c4804c59fdf907de589ace581d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_PrimaryNavBar.layout": {
+      "size": 10413,
+      "mtime": 1763559021.6850812,
+      "hash": "38770c1128858758abe62c44a4ec3296"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_PrimaryNavBarV2.layout": {
+      "size": 11949,
+      "mtime": 1763559021.6850812,
+      "hash": "0d22706546ac99fc1bcc20748b2583d6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RC1_5.layout": {
+      "size": 123317,
+      "mtime": 1763559021.6860821,
+      "hash": "b121bece4826b98b840a18b84dfd937a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RCAgreement.layout": {
+      "size": 37136,
+      "mtime": 1763559021.6860821,
+      "hash": "1b37eb011485c43c099ae201853a3964"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RCHome.layout": {
+      "size": 123314,
+      "mtime": 1763559021.6870828,
+      "hash": "4afd4089ea2e07753d5a129393023251"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RCHome_Mac.layout": {
+      "size": 125504,
+      "mtime": 1763559021.6870828,
+      "hash": "69a8dac2ed0cb5baa31751b9c73e6e0a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RS2_0.layout": {
+      "size": 123818,
+      "mtime": 1763559021.6870828,
+      "hash": "59851a2a552ccfac8fb9df3a18e0d115"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RS2_1.layout": {
+      "size": 123821,
+      "mtime": 1764856012.0739636,
+      "hash": "15157707ed84df2d4f0f68478b6117cb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_RSHome_Mac.layout": {
+      "size": 125901,
+      "mtime": 1763559021.68759,
+      "hash": "341578487ca90d5415afa37d3a28aa30"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_seal.layout": {
+      "size": 4760,
+      "mtime": 1763558930.5418832,
+      "hash": "dc3201ab47886bedb7bd6132dfdfe013"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_sealOffline.layout": {
+      "size": 19105,
+      "mtime": 1763559021.68759,
+      "hash": "fdfe455f6993117f8631e196e270d270"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ShowmakerShareLinksV2.layout": {
+      "size": 1449,
+      "mtime": 1763558930.5428839,
+      "hash": "769b5e80c10e7098d342bf05cc9536d7"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ShowmakerV2.layout": {
+      "size": 17792,
+      "mtime": 1763558930.5428839,
+      "hash": "89c73161a7f8538a6be9475107b672aa"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_ShowmakerV2_Offline.layout": {
+      "size": 20291,
+      "mtime": 1763559021.6880937,
+      "hash": "f03b1c335a4f2e87988e3e604bff329b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_springbok.layout": {
+      "size": 4738,
+      "mtime": 1763558930.5438838,
+      "hash": "9533a1159f354a36cab091d15b443e39"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_springbokOffline.layout": {
+      "size": 12972,
+      "mtime": 1763559021.6810806,
+      "hash": "9e10733627fd878cf8d21fe73b7cfe05"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Store.layout": {
+      "size": 80323,
+      "mtime": 1763559021.6880937,
+      "hash": "616e91e1db3b22ff9f25bf07c0260579"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_TMAgreement.layout": {
+      "size": 34007,
+      "mtime": 1763559021.6880937,
+      "hash": "33423c28b107bd452fe5d94fc72e27f0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2019.layout": {
+      "size": 54808,
+      "mtime": 1763558930.5448854,
+      "hash": "334a381f90f45782e543bbdbf30ce752"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2020_1.layout": {
+      "size": 54989,
+      "mtime": 1763558930.5458899,
+      "hash": "4413e11e359aed2c821ceae7ae1c7377"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2020_1_EDU.layout": {
+      "size": 73348,
+      "mtime": 1763558930.5473948,
+      "hash": "616ed71e40e47ca81af9b6d6bca5075a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2020_1_Trial.layout": {
+      "size": 64090,
+      "mtime": 1763558930.5479093,
+      "hash": "0af232fb828a5ccdf7f0cbadf2b1a215"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_1.layout": {
+      "size": 54515,
+      "mtime": 1763558930.548915,
+      "hash": "ba4b3f586c755b7b2b1bbf7e35eddaeb"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_1_EDU.layout": {
+      "size": 72874,
+      "mtime": 1763558930.548915,
+      "hash": "9fa82b32ee4dfc2b8ddb2c0ce106487c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_1_Trial.layout": {
+      "size": 63616,
+      "mtime": 1763558930.5494988,
+      "hash": "9266e0ae3c49dd74d74047a68292060e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_2.layout": {
+      "size": 55279,
+      "mtime": 1763558930.5505037,
+      "hash": "6888dc004c4c542c99d9c8350aa7f1a0"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_2_EDU.layout": {
+      "size": 72876,
+      "mtime": 1763558930.5515072,
+      "hash": "6134b6f7095ec6398dc170663bd49077"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2022_2_Trial.layout": {
+      "size": 63618,
+      "mtime": 1763558930.5515072,
+      "hash": "7979049dad6d595bf2a32c0e7cd9cd55"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_1.layout": {
+      "size": 55280,
+      "mtime": 1763558930.552503,
+      "hash": "441adbf5e08c7d2cf5505607ecfe4e15"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_1_EDU.layout": {
+      "size": 72852,
+      "mtime": 1763558930.553505,
+      "hash": "17de0080faa78adb6afd83de8d46956a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_1_Trial.layout": {
+      "size": 64135,
+      "mtime": 1763558930.553505,
+      "hash": "67b3e153e9af57722663357a24eef31a"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_2.layout": {
+      "size": 55280,
+      "mtime": 1763558930.553505,
+      "hash": "85e3541dbfe9bccd5464d7e0fec1f94c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_2_EDU.layout": {
+      "size": 72852,
+      "mtime": 1763558930.5545053,
+      "hash": "171276da935001971f75020ddd858ada"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2023_2_Trial.layout": {
+      "size": 64584,
+      "mtime": 1763558930.5545053,
+      "hash": "fb20409f6c2169466a6da803aa216105"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2024_1.layout": {
+      "size": 54984,
+      "mtime": 1763558930.5555058,
+      "hash": "9986777846ff707ec4883c9c41024fdd"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2025_1.layout": {
+      "size": 55408,
+      "mtime": 1763558930.5555058,
+      "hash": "29c879ca36990ef42439508592d35f10"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_Twinmotion2025_2.layout": {
+      "size": 55408,
+      "mtime": 1763558930.5555058,
+      "hash": "dc62f36e0e332941c23c66e0d01e4de8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_TwinmotionHome.layout": {
+      "size": 227,
+      "mtime": 1763558930.5555058,
+      "hash": "b50fc8e14c3414bf6edf798a859cb9a5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE.layout": {
+      "size": 21081,
+      "mtime": 1763559021.6880937,
+      "hash": "661aaafa344364c61d9a0a28bd3b06a4"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE5EAMustUpdate.layout": {
+      "size": 17855,
+      "mtime": 1763559021.6890998,
+      "hash": "9028df8683e29bcf74607c347638981c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEAgreement.layout": {
+      "size": 72838,
+      "mtime": 1763559021.690794,
+      "hash": "e14a496a27f3f7137676f0eca22f0a9f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UELoadError.layout": {
+      "size": 12521,
+      "mtime": 1763559021.690794,
+      "hash": "9b332b104f13beabddac673ea0197225"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV2.layout": {
+      "size": 11911,
+      "mtime": 1763559021.6917937,
+      "hash": "e26fd6f305f3f8ddac9708908ca88896"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV2_CM.layout": {
+      "size": 13914,
+      "mtime": 1763559021.6917937,
+      "hash": "01c8251e022c0556ac66418f0372b0aa"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV2_TM.layout": {
+      "size": 13903,
+      "mtime": 1763559021.6917937,
+      "hash": "9d49d2b74998cb2ab36ced7ccf7d63a6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV2_WTM.layout": {
+      "size": 13795,
+      "mtime": 1763559021.6917937,
+      "hash": "627e3aeedbca3ce0879d749c93de5989"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV3.layout": {
+      "size": 13434,
+      "mtime": 1763559021.6917937,
+      "hash": "2447358dac62a50bd3ab1ca6936b62a6"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UEV4.layout": {
+      "size": 11841,
+      "mtime": 1764299211.0929742,
+      "hash": "6148573f2b4d145563b05737fb31c0fd"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_32bitLibrary.layout": {
+      "size": 7662,
+      "mtime": 1763559021.6890998,
+      "hash": "95e0facf136547dfc22195da5f43e4fc"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_Library.layout": {
+      "size": 59387,
+      "mtime": 1763559021.6890998,
+      "hash": "e2c388ba76425756b36b90491fcc098f"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryLoadError.layout": {
+      "size": 7412,
+      "mtime": 1763559021.6890998,
+      "hash": "01b9a885bd2d017786c833016d6d3a08"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryV2.layout": {
+      "size": 61428,
+      "mtime": 1763559021.6897888,
+      "hash": "0acb8090d16b28fdfe80fae30bcb94d8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryV3.layout": {
+      "size": 72106,
+      "mtime": 1763559021.6897888,
+      "hash": "6a2a82b012b681ddf73dc7d702beb76c"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryV4.layout": {
+      "size": 70420,
+      "mtime": 1763559021.6897888,
+      "hash": "b144e7325ebe7e97622ef1b5c8e6e208"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryV5.layout": {
+      "size": 70611,
+      "mtime": 1763558930.5625284,
+      "hash": "f186997315d4350d52085f241bb8cfb5"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryWithStudio.layout": {
+      "size": 74779,
+      "mtime": 1763559021.6897888,
+      "hash": "8cea8227ae3bf60b8ba71a5071506830"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryWithStudioBeta.layout": {
+      "size": 75493,
+      "mtime": 1763559021.690794,
+      "hash": "4fea68683b779cecee718410844f28b8"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryWithStudioBetaV2.layout": {
+      "size": 76157,
+      "mtime": 1763559021.690794,
+      "hash": "4511940f2aea595baf015b02a30d28b2"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_UE_LibraryWithStudioV2.layout": {
+      "size": 75449,
+      "mtime": 1763559021.690794,
+      "hash": "2572e80e5da235dfb25bb8c275871ad1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_WideDefaultInstallToast.layout": {
+      "size": 2003,
+      "mtime": 1763558930.5670338,
+      "hash": "1d52f12f0c1d715a5bbb52af281d3699"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\ui_WideDefaultToast.layout": {
+      "size": 2002,
+      "mtime": 1763558930.5670338,
+      "hash": "5c5726c48227e71d2a102554974da1b9"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\UTServiceOptions.json": {
+      "size": 112,
+      "mtime": 1763558930.5670338,
+      "hash": "a9932cf092dfa83271444abf4b8f2063"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\VK_logo.png": {
+      "size": 1439,
+      "mtime": 1763558930.5680418,
+      "hash": "7daf443e663b39fa97210c48174ee906"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\weibo_icon.png": {
+      "size": 537,
+      "mtime": 1763558930.568548,
+      "hash": "6567d7bb741ce2cdef0ae9cb5ed56382"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\Windows_logo.png": {
+      "size": 2473,
+      "mtime": 1763558930.5693395,
+      "hash": "740e1e0267e3546b25ffb423915c7674"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\youku_icon.png": {
+      "size": 471,
+      "mtime": 1763558930.5693395,
+      "hash": "7a3ec71244910fe36a32b01a5335efcf"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\YouTube_icon.png": {
+      "size": 741,
+      "mtime": 1763558930.5693395,
+      "hash": "bdab83f1e851b83285eebff218c70205"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\EMS\\EpicGamesLauncher\\zh-CN\\ui_PoodlePlay.layout": {
+      "size": 107664,
+      "mtime": 1763559021.6927953,
+      "hash": "9b5c13ff399c89388b070dbd31f528af"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Manifests\\104A736F464FD461B880438D6C0F700F.item": {
+      "size": 2306,
+      "mtime": 1774090072.8036168,
+      "hash": "735721e4af4720c2e1460eca1de3e06d"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Manifests\\16F87AAB492A3A17478D1CB6A4E7D940.item": {
+      "size": 2318,
+      "mtime": 1774090072.1570547,
+      "hash": "54a33ff748e5be17b73656c843b129e1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\Manifests\\B472C4304E2EDA61D8CDAFB949E5652C.item": {
+      "size": 2238,
+      "mtime": 1774090072.1570547,
+      "hash": "a38889d6e7e15859718a4165e724a32e"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\ManifestTemp\\1d3b9ceb4bcf1b7704633cca005cac00941e8812.manifest": {
+      "size": 3063436,
+      "mtime": 1764336509.4800112,
+      "hash": "08cf50dfa9162860b7ecc932843caf7b"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\Data\\ThirPartyManagedApps\\angelonia_a5d920b94c1d41a182db6258dc5eea5b_Angelonia.json": {
+      "size": 437,
+      "mtime": 1763559021.553124,
+      "hash": "394459c6fdf335a192d95a458a01bcb1"
+    },
+    "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\FabLibrary\\listings_v1.db": {
+      "size": 53248,
+      "mtime": 1763559069.863419,
+      "hash": "88cda9719cae734d11f8ec4f007653d6"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\.lock": {
+      "size": 0,
+      "mtime": 1774090069.2713282,
+      "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\overlay.egi": {
+      "size": 1142,
+      "mtime": 1774090066.9482732,
+      "hash": "3dca8bab5f78effaa96face4f9fa5ce1"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\Revision.json": {
+      "size": 45,
+      "mtime": 1774090069.2233274,
+      "hash": "9770294b36701e3ceafd09b42384fc79"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\service.egi": {
+      "size": 969,
+      "mtime": 1774090069.2233274,
+      "hash": "f7fe218ef2a4eb1f352346a15ef0f1e0"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\support.egi": {
+      "size": 1111,
+      "mtime": 1774090064.622593,
+      "hash": "46856a88de4e4893f58376c3f92e2779"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\ManifestCache\\3a4474acdb51805a0f1627d5c6ddb96d78001e4b.manifest": {
+      "size": 46646,
+      "mtime": 1774034695.598922,
+      "hash": "569331f9d19e90498cb601b512eb3fc9"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\ManifestCache\\b95d6ab9858e463efce786bc706fec313f002511.manifest": {
+      "size": 7422,
+      "mtime": 1774034700.0063965,
+      "hash": "54096b8abce67744fe4bf4c89c34e418"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\InstallHelper\\InstalledItems\\ManifestCache\\ec4cc67a7d94f90239eed2a87a6a42e42968cafe.manifest": {
+      "size": 1430,
+      "mtime": 1774034692.8162239,
+      "hash": "b236d01ddffafa86c1da4a204aaa3abc"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\MainService\\startup-config.json": {
+      "size": 3113,
+      "mtime": 1774034646.2519064,
+      "hash": "908fd2c7f885efdd0955280d9640741b"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\MainService\\Config\\dynamic-config.json": {
+      "size": 19,
+      "mtime": 1774034686.6759853,
+      "hash": "c977846a4cb0e301315014c0e50780a1"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\MainService\\Crashes\\2026-03-21T01-41-29.947Z___10E90386-97A7-4567-8F86-6F8190C68D24\\crash.json": {
+      "size": 17560,
+      "mtime": 1774057290.0077305,
+      "hash": "5c76046ab98b71634470a890ac19ba4f"
+    },
+    "C:\\ProgramData\\Epic\\EpicOnlineServices\\MainService\\Crashes\\2026-03-21T01-41-29.947Z___10E90386-97A7-4567-8F86-6F8190C68D24\\CrashContext.runtime-xml": {
+      "size": 2448,
+      "mtime": 1774057290.0087326,
+      "hash": "510abded5811472d0f6c0952957be7ab"
+    },
+    "C:\\ProgramData\\Epic\\UnrealEngineLauncher\\LauncherInstalled.dat": {
+      "size": 837,
+      "mtime": 1774090057.103598,
+      "hash": "138d3ffcef2510850c673535b780200f"
+    }
+  },
+  "registry": {
+    "Software\\Epic Games\\Unreal Engine\\Identifiers\\MachineId": "248B0462424902C3F85D729362E34A46",
+    "Software\\Epic Games\\Unreal Engine\\Identifiers\\AccountId": "eecdfdda7e2341659752b4e4d6a6dd40",
+    "Software\\Valve\\Steam\\Language": "english",
+    "Software\\Valve\\Steam\\SteamExe": "c:/program files (x86)/steam/steam.exe",
+    "Software\\Valve\\Steam\\SteamPath": "c:/program files (x86)/steam",
+    "Software\\Valve\\Steam\\SuppressAutoRun": "0",
+    "Software\\Valve\\Steam\\Restart": "0",
+    "Software\\Valve\\Steam\\StartupModeTmpIsValid": "0",
+    "Software\\Valve\\Steam\\RunningAppID": "0",
+    "Software\\Valve\\Steam\\SourceModInstallPath": "C:\\Program Files (x86)\\Steam\\steamapps\\sourcemods",
+    "Software\\Valve\\Steam\\AutoLoginUser": "madmaxity",
+    "Software\\Valve\\Steam\\Rate": "30000",
+    "Software\\Valve\\Steam\\AlreadyRetriedOfflineMode": "0",
+    "Software\\Valve\\Steam\\StartupModeTmp": "7",
+    "Software\\Valve\\Steam\\RememberPassword": "0",
+    "Software\\Valve\\Steam\\LastGameNameUsed": "dolanxagent",
+    "Software\\Valve\\Steam\\CompletedOOBEStage1": "1",
+    "Software\\Valve\\Steam\\ActiveProcess\\pid": "48044",
+    "Software\\Valve\\Steam\\ActiveProcess\\SteamClientDll": "C:\\Program Files (x86)\\Steam\\steamclient.dll",
+    "Software\\Valve\\Steam\\ActiveProcess\\SteamClientDll64": "C:\\Program Files (x86)\\Steam\\steamclient64.dll",
+    "Software\\Valve\\Steam\\ActiveProcess\\Universe": "Public",
+    "Software\\Valve\\Steam\\ActiveProcess\\ActiveUser": "915376414"
+  }
+}
