@@ -523,7 +523,7 @@ fn get_steam_active_user_id() -> u32 {
     0
 }
 
-fn kill_process(name: &str) -> u32 {
+pub fn kill_process(name: &str) -> u32 {
     #[cfg(target_os = "windows")]
     {
         use std::process::Command;
@@ -542,7 +542,7 @@ fn kill_process(name: &str) -> u32 {
     { 0 }
 }
 
-fn is_process_running(name: &str) -> bool {
+pub fn is_process_running(name: &str) -> bool {
     #[cfg(target_os = "windows")]
     {
         use std::process::Command;

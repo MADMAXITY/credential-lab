@@ -3,14 +3,16 @@ import { invoke } from "@tauri-apps/api/tauri";
 import LaunchersTab from "./components/LaunchersTab";
 import CredentialsTab from "./components/CredentialsTab";
 import TestLaunchTab from "./components/TestLaunchTab";
+import CdpTab from "./components/CdpTab";
 import LogPanel from "./components/LogPanel";
 
-type Tab = "launchers" | "credentials" | "test";
+type Tab = "launchers" | "credentials" | "test" | "cdp";
 
 const tabs: { id: Tab; label: string; icon: string }[] = [
   { id: "launchers", label: "Launchers & Games", icon: "🎮" },
   { id: "credentials", label: "Credentials", icon: "🔑" },
   { id: "test", label: "Test Launch", icon: "🚀" },
+  { id: "cdp", label: "Auto-Login", icon: "🔌" },
 ];
 
 export default function App() {
@@ -70,6 +72,7 @@ export default function App() {
         {activeTab === "launchers" && <LaunchersTab addLog={addLog} />}
         {activeTab === "credentials" && <CredentialsTab addLog={addLog} />}
         {activeTab === "test" && <TestLaunchTab addLog={addLog} />}
+        {activeTab === "cdp" && <CdpTab addLog={addLog} />}
       </div>
 
       {/* Log Panel */}

@@ -20,6 +20,16 @@ pub struct SavedCredential {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct LoginAccount {
+    pub id: i64,
+    pub launcher: String,
+    pub label: String,
+    pub username: String,
+    pub password: String,
+    pub created_at: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct LogEntry {
     pub id: i64,
     pub timestamp: String,
@@ -51,6 +61,16 @@ impl Database {
                 timestamp TEXT NOT NULL DEFAULT (datetime('now')),
                 level TEXT NOT NULL DEFAULT 'info',
                 message TEXT NOT NULL
+            );
+
+            CREATE TABLE IF NOT EXISTS login_accounts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                launcher TEXT NOT NULL,
+                label TEXT NOT NULL,
+                username TEXT NOT NULL,
+                password TEXT NOT NULL,
+                created_at TEXT NOT NULL DEFAULT (datetime('now')),
+                UNIQUE(launcher, username)
             );
         ").map_err(|e| format!("Failed to create tables: {}", e))?;
 
@@ -157,6 +177,73 @@ impl Database {
             "DELETE FROM credentials WHERE id = ?1",
             params![id],
         ).map_err(|e| format!("Failed to delete: {}", e))?;
+        Ok(affected > 0)
+    }
+
+    // ── Login Accounts (username/password for auto-login) ──────────
+
+    pub fn save_login_account(
+        &self,
+        launcher: &str,
+        label: &str,
+        username: &str,
+        password: &str,
+    ) -> Result<i64, String> {
+        self.conn.execute(
+            "INSERT INTO login_accounts (launcher, label, username, password)
+             VALUES (?1, ?2, ?3, ?4)
+             ON CONFLICT(launcher, username) DO UPDATE SET
+                label = ?2,
+                password = ?4",
+            params![launcher, label, username, password],
+        ).map_err(|e| format!("Failed to save login account: {}", e))?;
+
+        let id = self.conn.query_row(
+            "SELECT id FROM login_accounts WHERE launcher = ?1 AND username = ?2",
+            params![launcher, username],
+            |row| row.get(0),
+        ).map_err(|e| e.to_string())?;
+
+        Ok(id)
+    }
+
+    pub fn list_login_accounts(&self, launcher: &str) -> Result<Vec<LoginAccount>, String> {
+        let mut s = self.conn.prepare(
+            "SELECT id, launcher, label, username, password, created_at FROM login_accounts WHERE launcher = ?1 ORDER BY label"
+        ).map_err(|e| e.to_string())?;
+        let rows = s.query_map(params![launcher], |row| {
+            Ok(LoginAccount {
+                id: row.get(0)?,
+                launcher: row.get(1)?,
+                label: row.get(2)?,
+                username: row.get(3)?,
+                password: row.get(4)?,
+                created_at: row.get(5)?,
+            })
+        }).map_err(|e| e.to_string())?;
+        rows.collect::<Result<Vec<_>, _>>().map_err(|e| e.to_string())
+    }
+
+    pub fn get_login_account(&self, id: i64) -> Result<LoginAccount, String> {
+        self.conn.query_row(
+            "SELECT id, launcher, label, username, password, created_at FROM login_accounts WHERE id = ?1",
+            params![id],
+            |row| Ok(LoginAccount {
+                id: row.get(0)?,
+                launcher: row.get(1)?,
+                label: row.get(2)?,
+                username: row.get(3)?,
+                password: row.get(4)?,
+                created_at: row.get(5)?,
+            }),
+        ).map_err(|e| format!("Login account not found: {}", e))
+    }
+
+    pub fn remove_login_account(&self, id: i64) -> Result<bool, String> {
+        let affected = self.conn.execute(
+            "DELETE FROM login_accounts WHERE id = ?1",
+            params![id],
+        ).map_err(|e| e.to_string())?;
         Ok(affected > 0)
     }
 

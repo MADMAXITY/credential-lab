@@ -9,6 +9,7 @@ mod launcher_detect;
 mod game_detect;
 mod credentials;
 mod switcher;
+mod cdp;
 
 use std::sync::Mutex;
 use tauri::Manager;
@@ -49,6 +50,14 @@ fn main() {
             switcher::switch_account,
             switcher::test_all_accounts,
             switcher::verify_launcher_state,
+            // Auto-login
+            cdp::cdp_probe_launcher,
+            cdp::cdp_login,
+            cdp::cdp_list_pages,
+            cdp::save_login_account,
+            cdp::list_login_accounts,
+            cdp::remove_login_account,
+            cdp::autologin_with_account,
             // Logging
             get_logs,
         ])
